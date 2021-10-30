@@ -1,0 +1,2138 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="Git基础教程, 前端、免流、技术、运维、手机">
+    <meta name="description" content="前端进阶必备，github 优质资源整理分享！
+w3c 盒子 
+stars:&amp;gt;3000 pushed:”&amp;lt; 2021-01-01” language:Vue
+Github 项目搜索
+【技巧】程序员必备的 Github 高级搜索技">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>Git基础教程 | 从你的全世界路过</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.4.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="从你的全世界路过" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">从你的全世界路过</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">从你的全世界路过</div>
+        <div class="logo-desc">
+            
+            我希望有个如你一般的人。 如这山间清晨一般明亮清爽的人， 如奔赴古城道路上阳光一般的人， 温暖而不炙热，覆盖我所有肌肤。 由起点到夜晚，由山野到书房， 一切问题的答案都很简单。 我希望有个如你一般的人，贯彻未来，数遍生命的公路牌。
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/heweiliang88" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        /* color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px; */
+
+        color: #F062A7;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+
+        0%,
+        to {
+            transform: rotate(0);
+        }
+
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/heweiliang88" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+    data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path
+            d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+            fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path
+            d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+            fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/14.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">Git基础教程</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Git/">
+                                <span class="chip bg-color">Git</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/" class="post-category">
+                                版本控制
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2020-03-13
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2021-10-29
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    9.2k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    40 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+
+                <div class="info-break-policy">
+                    
+                                <i class="fa fa-pencil"></i> 作者: 记住
+                                    
+                </div>
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p><a target="_blank" rel="noopener" href="https://juejin.cn/post/6844903902299553806">前端进阶必备，github 优质资源整理分享！</a></p>
+<p>w3c 盒子 </p>
+<p>stars:&gt;3000 pushed:”&lt; 2021-01-01” language:Vue</p>
+<p>Github 项目搜索</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_28168421/article/details/104787665">【技巧】程序员必备的 Github 高级搜索技巧_机器学习算法与Python学习-CSDN博客</a></p>
+<ul>
+<li>in:name spring boot starts:&gt;3000  forks:&gt;2000</li>
+<li>in:name React stars:&gt;5000 forks:&gt;2000</li>
+<li>in:readme spring boot  starts &gt; 3000  </li>
+<li>in:description 微服务 language: java pushed:&gt;2019-09-03</li>
+</ul>
+<ol>
+<li>n:name xxx // 按照项目名搜索</li>
+<li>in:readme xxx // 按照README搜索</li>
+<li>in:description xxx // 按照description搜索</li>
+</ol>
+<p>那么在这里面呢，我们又可以增加筛选条件：</p>
+<ol>
+<li>stars:&gt;xxx // stars数大于xxx</li>
+<li>forks:&gt;xxx // forks数大于xxx</li>
+<li>language:xxx // 编程语言是xxx</li>
+<li>pushed:&gt;YYYY-MM-DD // 最后更新时间大于YYYY-MM-DD</li>
+</ol>
+<h1 id="Error"><a href="#Error" class="headerlink" title="Error"></a>Error</h1><h2 id="github-io-的请求遭到拒绝"><a href="#github-io-的请求遭到拒绝" class="headerlink" title="github.io 的请求遭到拒绝"></a>github.io 的请求遭到拒绝</h2><p> .github.io 拒绝了我们的连接请求</p>
+<ul>
+<li>原因：电信运营商 DNS 污染</li>
+<li>解决方法：修改DNS服务器</li>
+</ul>
+<h1 id="Git开发命令"><a href="#Git开发命令" class="headerlink" title="Git开发命令"></a>Git开发命令</h1><pre class=" language-bash"><code class="language-bash"><span class="token function">git</span> init                     // 新建 <span class="token function">git</span> 代码库
+<span class="token function">git</span> add                      // 添加指定文件到暂存区
+<span class="token function">git</span> <span class="token function">rm</span>                       // 删除工作区文件，并且将这次删除放入暂存区
+<span class="token function">git</span> commit -m <span class="token punctuation">[</span>message<span class="token punctuation">]</span>      // 提交暂存区到仓库区
+<span class="token function">git</span> branch                   // 列出所有分支
+<span class="token function">git</span> branch dmeo // 创建
+<span class="token function">git</span> branch  -d demo // 删除
+<span class="token function">git</span> checkout -b <span class="token punctuation">[</span>branch<span class="token punctuation">]</span>     // 新建一个分支，并切换到该分支 <span class="token function">git</span> switch -c <span class="token punctuation">[</span>branch<span class="token punctuation">]</span>
+<span class="token function">git</span> commit -m <span class="token string">""</span> -a  // 相当于 <span class="token function">git</span> add <span class="token keyword">.</span> 加 <span class="token function">git</span> commit -m <span class="token string">""</span>
+<span class="token function">git</span> status                   // 显示有变更的文件
+// 推送分支
+<span class="token function">git</span> push origin demo-2
+<span class="token function">git</span> config --global credential.helper store // 记住账号密码
+// 配置公钥 -t 类型 rsa 非对称加密 -C 地址
+goit merge 
+ssh-keygen -t rsa -C <span class="token string">"youremal@example.com"</span>
+// 公钥 私钥
+// 上线 打标签 标签列表
+<span class="token function">git</span> tag --list //
+<span class="token function">git</span> tag v1.0.0
+<span class="token function">git</span> push origin v1.0,0
+// 只是删除本地
+<span class="token function">git</span> tag -d v1.0.0
+
+<span class="token function">git</span> push origin :t1.0.1 // 删除云端
+<span class="token function">git</span> push origin master --force
+// 回滚 到本地 不删除云端回滚记录
+<span class="token function">git</span> revert <span class="token operator">&lt;</span>commit<span class="token operator">></span> // 版本号
+// 回滚 删除云端回滚记录
+<span class="token function">git</span> reset --hard <span class="token operator">&lt;</span>commit<span class="token operator">></span>
+<span class="token function">git</span> push origin demo --force // demo 分支
+</code></pre>
+<p> <img src="Git%E6%95%99%E7%A8%8B.assets/f3WojHgAsrJ1SUV.jpg" alt="Git速查">Vscode 图形界面</p>
+<p>基本使用Git</p>
+<ul>
+<li>加号 添加到 暂存区</li>
+<li>输入框 添加日志  打钩 提交日志</li>
+<li>推送  分支 隔壁的 加载号</li>
+</ul>
+<p>创建分支</p>
+<ul>
+<li><p>点击master</p>
+</li>
+<li><p>上传分支 点击云</p>
+</li>
+<li><p>合并分支 </p>
+</li>
+<li><p>冲突  （云端与本地不一样）</p>
+</li>
+</ul>
+<p>插件</p>
+<ul>
+<li>Git History Diff 历史记录 </li>
+</ul>
+<p>有如下几种解决方法：<br>1.使用强制push的方法：<br>$ git push -u origin master -f</p>
+<p>2.push前先将远程repository修改pull下来<br>$ git pull origin master<br>$ git push -u origin master</p>
+<p>3.若不想merge远程和本地修改，可以先创建新的分支：<br>$ git branch [name]<br>然后push<br>$ git push -u origin [name]</p>
+<p>Source Tree 软件使用</p>
+<p>Cloning into ‘Mysuperweb’…<br>ssh: Could not resolve hostname gitee.com: Non-recoverable failure in name resolution<br>fatal: Could not read from remote repository.</p>
+<p>Please make sure you have the correct access rights<br>and the repository exists.</p>
+<h1 id="Git常用命令"><a href="#Git常用命令" class="headerlink" title="Git常用命令"></a>Git常用命令</h1><h2 id="相关链接阅读"><a href="#相关链接阅读" class="headerlink" title="相关链接阅读"></a>相关链接阅读</h2><blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/best/p/7474442.html">一个小时学会Git</a><br><a target="_blank" rel="noopener" href="https://juejin.cn/post/6844903598522908686">git基本操作，一篇文章就够了！</a><br><a target="_blank" rel="noopener" href="https://juejin.cn/post/6844903606815064077">优雅的提交你的 Git Commit Message</a><br><a target="_blank" rel="noopener" href="https://juejin.cn/post/6844903586120335367">Git 常用操作总结</a><br><a target="_blank" rel="noopener" href="https://juejin.cn/post/6844903607976853512">VSCode 中使用Git实践，学会了效率翻倍</a></p>
+</blockquote>
+<h2 id="相关命令"><a href="#相关命令" class="headerlink" title="相关命令"></a>相关命令</h2><p><code>怎么进入具体的目录</code></p>
+<pre class=" language-cmd"><code class="language-cmd">cd D:\GitRepository\GithubProject // 目录位置
+d： 目录的盘符  或 D:    
+ls -a // 查看隐藏目录
+</code></pre>
+<blockquote>
+<p>linux ls命令:</p>
+<p>-F 给不同的文git件添加不同表示,添加帽子</p>
+<p>d/   l*  =s </p>
+<p>-a: 显示隐藏文件  以.开头的文件</p>
+<p>-p: 只给目录添加/</p>
+<p>-t: 按照修改时间排序 time</p>
+<p>–time-style=long-iso: ls -l –time-style=long-iso  显示友好长格式时间</p>
+<p>-r: 倒着排序 reverse</p>
+<p>-S: 按照文件大小排序</p>
+<p>-h: 以人类理解的范围显示</p>
+<p>-i: 索引节点(inode==书的目录) print the index number of each file(内核根据此区别文件是否同一文件)</p>
+</blockquote>
+<h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><p><img src="Git%E6%95%99%E7%A8%8B.assets/162fcc0987bf1c0a"></p>
+<ul>
+<li>工作区（本地文件夹）：本地电脑存放项目文件的地方，比如learnGitProject文件夹；</li>
+<li>暂存区：（Index/Stage）：在使用git管理项目文件的时候，其本地的项目文件会多出一个.git的文件夹，将这个.git文件夹称之为版本库。其中.git文件夹中包含了两个部分，一个是暂存区（Index或者Stage）,顾名思义就是暂时存放文件的地方，通常使用add命令将工作区的文件添加到暂存区里；</li>
+<li>本地仓库：.git文件夹里还包括git自动创建的master分支，并且将HEAD指针指向master分支。使用commit命令可以将暂存区中的文件添加到本地仓库中；</li>
+<li>远程仓库（Github、Gitee、GitLab）：不是在本地仓库中，项目代码在远程git服务器上，比如项目放在github上，就是一个远程仓库，通常使用clone命令将远程仓库拷贝到本地仓库中，开发后推送到远程仓库中即可。</li>
+</ul>
+<ol>
+<li>工作区与暂存区的交互；<br> <img src="Git%E6%95%99%E7%A8%8B.assets/162fcc0e7e711dc7"></li>
+<li>暂存区与本地仓库（分支）上的交互；</li>
+<li>本地仓库与远程仓库的交互。</li>
+</ol>
+<h2 id="基本配置"><a href="#基本配置" class="headerlink" title="基本配置"></a>基本配置</h2><h4 id="查看配置"><a href="#查看配置" class="headerlink" title="查看配置"></a>查看配置</h4><pre class=" language-bash"><code class="language-bash"><span class="token function">git</span> config -list
+<span class="token function">git</span> config -l
+</code></pre>
+<h4 id="查看不同级别的配置文件"><a href="#查看不同级别的配置文件" class="headerlink" title="查看不同级别的配置文件"></a>查看不同级别的配置文件</h4><pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true">#查看系统config</span>
+<span class="token function">git</span> config --system --list　
+<span class="token comment" spellcheck="true">#查看当前用户（global）配置</span>
+<span class="token function">git</span> config --global  --list
+<span class="token comment" spellcheck="true">#查看当前仓库配置信息</span>
+<span class="token function">git</span> config --local  --list
+</code></pre>
+<h4 id="设置name和email"><a href="#设置name和email" class="headerlink" title="设置name和email"></a>设置name和email</h4><pre class=" language-bash"><code class="language-bash"><span class="token function">git</span> config --global user.name <span class="token string">"Your Name"</span>
+<span class="token function">git</span> config --global user.email <span class="token string">"email@example.com"</span>
+</code></pre>
+<h4 id="初始化仓库"><a href="#初始化仓库" class="headerlink" title="初始化仓库"></a>初始化仓库</h4><pre class=" language-bash"><code class="language-bash"><span class="token function">git</span> init    
+</code></pre>
+<h4 id="仓库状态"><a href="#仓库状态" class="headerlink" title="仓库状态"></a>仓库状态</h4><pre class=" language-bash"><code class="language-bash"><span class="token function">git</span> status // <span class="token function">git</span> st
+</code></pre>
+<h4 id="查看修改内容"><a href="#查看修改内容" class="headerlink" title="查看修改内容"></a>查看修改内容</h4><pre class=" language-bash"><code class="language-bash"><span class="token function">git</span> <span class="token function">diff</span> <span class="token operator">&lt;</span>file name<span class="token operator">></span> //查看 difference 指定文件在工作区和暂存区上差异比较
+// 比较工作区中当前文件和暂存区之间的差异，也就是修改之后还没有暂存的内容： 
+</code></pre>
+<h4 id="把文件修改添加到暂存区-vs-从暂存区恢复文件到工作区"><a href="#把文件修改添加到暂存区-vs-从暂存区恢复文件到工作区" class="headerlink" title="把文件修改添加到暂存区 vs 从暂存区恢复文件到工作区"></a>把文件修改添加到暂存区 vs 从暂存区恢复文件到工作区</h4><pre class=" language-bash"><code class="language-bash">// 文件修改添加到暂存区git add readme.txtgit add <span class="token keyword">.</span> // 工作区到暂存区git commit -m <span class="token string">"wrote a readme file"</span> //First modification 第一次修改 // 暂存区到本地仓库// 暂存区恢复文件到工作区git restore <span class="token operator">&lt;</span>file-name<span class="token operator">></span>
+</code></pre>
+<h4 id="从版本库中删除该文件"><a href="#从版本库中删除该文件" class="headerlink" title="从版本库中删除该文件"></a>从版本库中删除该文件</h4><pre class=" language-bash"><code class="language-bash"><span class="token function">rm</span> -rf test.txt // 工作区删除git <span class="token function">rm</span> test.txt // 删除工作区文件，并且也从暂存区删除对应文件的记录 ?git <span class="token function">rm</span> --cached test.txt // 从暂存区中删除文件，但是工作区依然还有该文件 （暂存区删除文件）
+</code></pre>
+<h4 id="Git显示颜色"><a href="#Git显示颜色" class="headerlink" title="Git显示颜色"></a>Git显示颜色</h4><pre class=" language-bash"><code class="language-bash"><span class="token function">git</span> config --global color.ui truegit config --global core.editor <span class="token function">vi</span>
+</code></pre>
+<pre><code>git mv [file-original] [file-renamed]; 重命名文件，并将已改名文件提交到暂存区：
+</code></pre>
+<pre><code>git commit -m ""  vs git tag 
+</code></pre>
+<pre><code>// 将所有已经使用git管理过的文件暂存后一并提交，跳过add到暂存区的过程：git commit -a -m "commit_info";
+</code></pre>
+<pre><code>git log 参数-p展开每次提交的内容差异，用-2显示最近的两次更新，如git log -p -2
+</code></pre>
+<h2 id="版本管理"><a href="#版本管理" class="headerlink" title="版本管理"></a>版本管理</h2><h4 id="回退历史版本"><a href="#回退历史版本" class="headerlink" title="回退历史版本"></a>回退历史版本</h4><p><code>git log</code>可以查看提交历史，以便确定要<strong>回退到哪个版本</strong>。</p>
+<pre><code>git loggit log --pretty=oneline  //输出信息太多，看得眼花缭乱的，可以试试加上--pretty=oneline参数 漂亮 oneline 线上一线女装
+</code></pre>
+<p><code>git reflog</code>查看命令历史，以便确定要<strong>回到未来的哪个版本</strong>。</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">git</span> refloggit reflog --pretty<span class="token operator">=</span>oneline 
+</code></pre>
+<h4 id="版本回退"><a href="#版本回退" class="headerlink" title="版本回退"></a>版本回退</h4><pre class=" language-bash"><code class="language-bash"><span class="token function">git</span> reset --hard HEAD^  //下一个版本git reset --hard 版本号 //版本号不用写全// 很努力的重置reset 重置；清零hard  努力的；硬的；困难的
+</code></pre>
+<blockquote>
+<p>Git log 退出</p>
+<p>英文状态下按Q</p>
+</blockquote>
+<h2 id="远程库管理"><a href="#远程库管理" class="headerlink" title="远程库管理"></a>远程库管理</h2><h4 id="配置SSH添加公钥（id-rsa-pub）到远程账号账号-id-rsa-id-rsa-pub-登陆文件"><a href="#配置SSH添加公钥（id-rsa-pub）到远程账号账号-id-rsa-id-rsa-pub-登陆文件" class="headerlink" title="配置SSH添加公钥（id_rsa.pub）到远程账号账号(id_rsa//id_rsa.pub) 登陆文件"></a>配置SSH添加公钥（id_rsa.pub）到远程账号账号(id_rsa//id_rsa.pub) 登陆文件</h4><ul>
+<li>公钥与私钥</li>
+</ul>
+<pre class=" language-bash"><code class="language-bash">// 查看有没有公钥cd C:\Users\Administrator\.ssh\id_rsa.pubC:cd ~/.sshls// 生成公钥ssh-keygen -t rsa -C <span class="token string">"youremail@example.com"</span> 1. ssh-keygen -t rsa -C <span class="token string">"15816073129@163.com"</span> // <span class="token function">ssh</span> key gen  -t RSA算法 Keygen为Key Generator的简写形式就是一般所说的注册机2. 输入密码验证是否成功，在git bash下输入ssh -T git@github.comssh -T git@gitee.com接下来我们要做的就是把本地仓库传到github上去，在此之前还需要设置username和email，因为github每次commit都会记录他们git config --global user.name<span class="token string">"your name"</span><span class="token function">git</span> config --global user.email<span class="token string">"your_email@youremail.com"</span>// 添加公钥到远程仓库
+</code></pre>
+<h4 id="关联GitHub的远程库"><a href="#关联GitHub的远程库" class="headerlink" title="关联GitHub的远程库"></a>关联GitHub的远程库</h4><pre class=" language-bash"><code class="language-bash"><span class="token function">git</span> remote add gitee git@gitee.com:code-dream/CS-Xmind-Note.git
+</code></pre>
+<h4 id="删除已有的GitHub远程库："><a href="#删除已有的GitHub远程库：" class="headerlink" title="删除已有的GitHub远程库："></a>删除已有的GitHub远程库：</h4><pre class=" language-bash"><code class="language-bash"><span class="token function">git</span> remote <span class="token function">rm</span> origin //git给远程库起的默认名称是<span class="token variable"><span class="token variable">`</span>origin<span class="token variable">`</span></span>
+</code></pre>
+<h4 id="查看远程库信息："><a href="#查看远程库信息：" class="headerlink" title="查看远程库信息："></a>查看远程库信息：</h4><pre class=" language-bash"><code class="language-bash"><span class="token function">git</span> remote -v
+</code></pre>
+<h4 id="同时关联Github和Gitee"><a href="#同时关联Github和Gitee" class="headerlink" title="同时关联Github和Gitee"></a>同时关联Github和Gitee</h4><p>关联GitHub的远程库：</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">git</span> remote add github git@github.com:michaelliao/learngit.git
+</code></pre>
+<p>关联Gitee的远程库：</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">git</span> remote add gitee git@gitee.com:liaoxuefeng/learngit.git
+</code></pre>
+<h4 id="查看远程库信息，可以看到两个远程库："><a href="#查看远程库信息，可以看到两个远程库：" class="headerlink" title="查看远程库信息，可以看到两个远程库："></a>查看远程库信息，可以看到两个远程库：</h4><pre class=" language-bash"><code class="language-bash"><span class="token function">git</span> remote -vgitee    git@gitee.com:liaoxuefeng/learngit.git <span class="token punctuation">(</span>fetch<span class="token punctuation">)</span>gitee    git@gitee.com:liaoxuefeng/learngit.git <span class="token punctuation">(</span>push<span class="token punctuation">)</span>github    git@github.com:michaelliao/learngit.git <span class="token punctuation">(</span>fetch<span class="token punctuation">)</span>github    git@github.com:michaelliao/learngit.git <span class="token punctuation">(</span>push<span class="token punctuation">)</span>
+</code></pre>
+<p>如果要推送（上传）到GitHub，使用命令：</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">git</span>
+</code></pre>
+<p>如果要推送（上传）到Gitee，使用命令：</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">git</span> push gitee master
+</code></pre>
+<h4 id="克隆"><a href="#克隆" class="headerlink" title="克隆"></a>克隆</h4><pre class=" language-bash"><code class="language-bash"><span class="token function">git</span> clone 仓库地址
+</code></pre>
+<h2 id="分支管理"><a href="#分支管理" class="headerlink" title="分支管理"></a>分支管理</h2><h4 id="上传"><a href="#上传" class="headerlink" title="上传"></a>上传</h4><pre class=" language-bash"><code class="language-bash"><span class="token function">git</span> push 
+</code></pre>
+<h4 id="拉取"><a href="#拉取" class="headerlink" title="拉取"></a>拉取</h4><pre class=" language-bash"><code class="language-bash"><span class="token function">git</span> pull
+</code></pre>
+<h4 id="查看分支："><a href="#查看分支：" class="headerlink" title="查看分支："></a>查看分支：</h4><pre class=" language-bash"><code class="language-bash"><span class="token function">git</span> branch //branch 分支
+</code></pre>
+<h4 id="创建分支："><a href="#创建分支：" class="headerlink" title="创建分支："></a>创建分支：</h4><pre class=" language-bash"><code class="language-bash"><span class="token function">git</span> branch <span class="token operator">&lt;</span>name<span class="token operator">></span>
+</code></pre>
+<h4 id="切换分支："><a href="#切换分支：" class="headerlink" title="切换分支："></a>切换分支：</h4><pre class=" language-bash"><code class="language-bash"><span class="token function">git</span> checkout <span class="token operator">&lt;</span>name<span class="token operator">></span> <span class="token operator">||</span> <span class="token function">git</span> switch <span class="token operator">&lt;</span>name<span class="token operator">></span>
+</code></pre>
+<h4 id="创建-切换分支："><a href="#创建-切换分支：" class="headerlink" title="创建+切换分支："></a>创建+切换分支：</h4><pre class=" language-bash"><code class="language-bash"><span class="token function">git</span> checkout -b <span class="token operator">&lt;</span>name<span class="token operator">></span>git switch -c <span class="token operator">&lt;</span>name<span class="token operator">></span>
+</code></pre>
+<h4 id="合并某分支到当前分支："><a href="#合并某分支到当前分支：" class="headerlink" title="合并某分支到当前分支："></a>合并某分支到当前分支：</h4><pre class=" language-bash"><code class="language-bash"><span class="token function">git</span> merge <span class="token operator">&lt;</span>name<span class="token operator">></span> // merge     合并, 融合, 并入
+</code></pre>
+<h4 id="删除分支："><a href="#删除分支：" class="headerlink" title="删除分支："></a>删除分支：</h4><pre class=" language-bash"><code class="language-bash"><span class="token function">git</span> branch -d <span class="token operator">&lt;</span>name<span class="token operator">></span>
+</code></pre>
+<h4 id="强行删除分支"><a href="#强行删除分支" class="headerlink" title="强行删除分支"></a>强行删除分支</h4><pre class=" language-bash"><code class="language-bash"><span class="token function">git</span> branch -D <span class="token operator">&lt;</span>name<span class="token operator">></span> //要先合并
+</code></pre>
+<h4 id="查看分支合并图"><a href="#查看分支合并图" class="headerlink" title="查看分支合并图"></a>查看分支合并图</h4><pre class=" language-bash"><code class="language-bash"><span class="token function">git</span> log --graph // graph 图git log --graph --pretty<span class="token operator">=</span>oneline --abbrev-commit
+</code></pre>
+<h2 id="标签管理"><a href="#标签管理" class="headerlink" title="标签管理"></a>标签管理</h2><h4 id="查找历史版本"><a href="#查找历史版本" class="headerlink" title="查找历史版本"></a>查找历史版本</h4><pre class=" language-bash"><code class="language-bash">//查找历史版本打标签 获取commit id值git log --pretty<span class="token operator">=</span>oneline --abbrev-commit
+</code></pre>
+<h4 id="新建标签"><a href="#新建标签" class="headerlink" title="新建标签"></a>新建标签</h4><pre class=" language-bash"><code class="language-bash"><span class="token function">git</span> tag <span class="token operator">&lt;</span>tagname<span class="token operator">></span>  //新建一个标签，默认为HEAD，也可以指定一个commit id；git tag <span class="token operator">&lt;</span>tagname<span class="token operator">></span> <span class="token operator">&lt;</span>commit id<span class="token operator">></span>git tag v0.9 f52c633// <span class="token function">git</span> tag 标签 commit idgit tag v1.0
+</code></pre>
+<h4 id="查看所有标签"><a href="#查看所有标签" class="headerlink" title="查看所有标签"></a>查看所有标签</h4><pre class=" language-bash"><code class="language-bash"><span class="token function">git</span> tag
+</code></pre>
+<h4 id="查看标签信息-标签不是按时间顺序列出，而是按字母排序的"><a href="#查看标签信息-标签不是按时间顺序列出，而是按字母排序的" class="headerlink" title="查看标签信息(标签不是按时间顺序列出，而是按字母排序的)"></a>查看标签信息(标签不是按时间顺序列出，而是按字母排序的)</h4><pre class=" language-bash"><code class="language-bash"><span class="token function">git</span> show <span class="token operator">&lt;</span>tagname<span class="token operator">></span>git show v0.1
+</code></pre>
+<h4 id="创建带有说明的标签"><a href="#创建带有说明的标签" class="headerlink" title="创建带有说明的标签"></a>创建带有说明的标签</h4><pre class=" language-bash"><code class="language-bash"><span class="token function">git</span> tag -a <span class="token operator">&lt;</span>tagname<span class="token operator">></span> -m <span class="token string">"标签信息"</span><span class="token function">git</span> tag -a v0.1 -m <span class="token string">"version 0.1 released"</span> 1094adb //用-a指定标签名，-m指定说明文字 commit id是f52c633
+</code></pre>
+<h4 id="推送一个本地标签；"><a href="#推送一个本地标签；" class="headerlink" title="推送一个本地标签；"></a>推送一个本地标签；</h4><pre class=" language-bash"><code class="language-bash"><span class="token function">git</span> push origin <span class="token operator">&lt;</span>tagname<span class="token operator">></span>
+</code></pre>
+<h4 id="推送全部未推送过的本地标签；"><a href="#推送全部未推送过的本地标签；" class="headerlink" title="推送全部未推送过的本地标签；"></a>推送全部未推送过的本地标签；</h4><pre class=" language-bash"><code class="language-bash"><span class="token function">git</span> push origin --tags
+</code></pre>
+<h4 id="删除一个本地标签；"><a href="#删除一个本地标签；" class="headerlink" title="删除一个本地标签；"></a>删除一个本地标签；</h4><pre class=" language-bash"><code class="language-bash"><span class="token function">git</span> tag -d <span class="token operator">&lt;</span>tagname<span class="token operator">></span>
+</code></pre>
+<h4 id="删除一个远程标签。（先删除本地标签，再到远程标签）"><a href="#删除一个远程标签。（先删除本地标签，再到远程标签）" class="headerlink" title="删除一个远程标签。（先删除本地标签，再到远程标签）"></a>删除一个远程标签。（先删除本地标签，再到远程标签）</h4><pre class=" language-bash"><code class="language-bash">// 删除本地标签git tag -d <span class="token operator">&lt;</span>tagname<span class="token operator">></span>//删除远程标签git push origin :refs/tags/v0.9
+</code></pre>
+<p>查看远程库的远程主机</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">git</span> remotegit remote -vorigin  git@github.com:michaelliao/learngit.git <span class="token punctuation">(</span>fetch<span class="token punctuation">)</span>origin  git@github.com:michaelliao/learngit.git <span class="token punctuation">(</span>push<span class="token punctuation">)</span>//origin 远程分支名
+</code></pre>
+<p>查看本地的分支信息</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">git</span> branchmaster
+</code></pre>
+<p>怎么在远程仓库创建分支，直接在本地创建，然后push上去<br>上面显示了可以抓取和推送的<code>origin</code>的地址。如果没有推送权限，就看不到push的地址</p>
+<h4 id="绑定远程分支"><a href="#绑定远程分支" class="headerlink" title="绑定远程分支"></a>绑定远程分支</h4><pre><code>git branch --set-upstream branch-name origin/branch-name
+</code></pre>
+<h4 id="推送分支"><a href="#推送分支" class="headerlink" title="推送分支"></a>推送分支</h4><pre class=" language-bash"><code class="language-bash"><span class="token function">git</span> push <span class="token operator">&lt;</span>远程主机名<span class="token operator">></span> <span class="token operator">&lt;</span>本地分支名<span class="token operator">></span>:<span class="token operator">&lt;</span>远程分支名<span class="token operator">></span>git push origin mastergit push origin dev    <span class="token function">git</span> push -u origin master
+</code></pre>
+<h4 id="拉取分支"><a href="#拉取分支" class="headerlink" title="拉取分支"></a>拉取分支</h4><pre class=" language-bash"><code class="language-bash"><span class="token function">git</span> pull <span class="token operator">&lt;</span>远程主机名<span class="token operator">></span> <span class="token operator">&lt;</span>远程分支名<span class="token operator">></span>:<span class="token operator">&lt;</span>本地分支名<span class="token operator">></span>
+</code></pre>
+<h2 id="问题汇总"><a href="#问题汇总" class="headerlink" title="问题汇总"></a>问题汇总</h2><p>解决failed to push some refs to git</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">git</span> pull --rebase origin master
+</code></pre>
+<p> Git Push报错:remote: error: GH007: Your push would publish a private email address.</p>
+<pre class=" language-bash"><code class="language-bash">公开自已的邮箱Gitee 将保密你的邮箱地址，并在执行基于 Web <span class="token operator">|</span> WebIde 的 Git 操作中，使用 5000737+code-dream@user.noreply.gitee.com 作为你的邮箱地址。如果你希望命令行 Git 操作使用你的私人邮箱地址，你必须在 Git 中设置你的邮箱地址。
+</code></pre>
+<p> 添加所有文件</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">git</span> add <span class="token keyword">.</span>
+</code></pre>
+<p>.连接远程仓库</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">git</span> remote add origin https://github.com/kong/springcloud.git 
+</code></pre>
+<p>访问私有仓库是必须保证远程仓库中有你的ssh<br><a target="_blank" rel="noopener" href="https://www.cnblogs.com/sunmingduo/p/10055329.html">remote: Incorrect username or password ( access token ) fatal: Authentication failed for - 编程361 - 博客园</a></p>
+<pre><code>gitee推送到远程仓库时提示错误remote: Incorrect username or password ( access token )fatal: Authentication failed for 'https://gitee.com/***/***.git/'
+</code></pre>
+<p>解决办法：清除本地的gitee用户名和密码<br>git config –system –unset credential.helper<br>再执行推送，重新输入用户名和密码。<br>error: failed to push some refs to ‘<a href="mailto:git@github.com">git@github.com</a>:heweiliang88/fast-learning-web.git’</p>
+<pre><code>// 对项目要先关联项目再更改内容要不然会报 failed to push some refs git clone git@github.com:heweiliang88/fast-learning-web.git git remote add github git@github.com:heweiliang88/fast-learning-web.git git add . git commit -m "v0.1"  ssh -T git@github.com git push github master git push  git push -f origin master // 强制更新
+</code></pre>
+<p>先同步远程库的内容，再把push上去问题</p>
+<p> ! [rejected]        master -&gt; master (fetch first)<br>error: failed to push some refs to ‘<a href="mailto:git@github.com">git@github.com</a>:heweiliang88/ASUSVivoBookS2-hackintosh.git’<br>hint: Updates were rejected because the remote contains work that you do</p>
+<h2 id="Git基础教程"><a href="#Git基础教程" class="headerlink" title="Git基础教程"></a>Git基础教程</h2><h4 id="第一章：Git简介"><a href="#第一章：Git简介" class="headerlink" title="第一章：Git简介"></a>第一章：Git简介</h4><ul>
+<li>CVS及SVN都是集中式的版本控制系统。<ul>
+<li>版本管理就是管理更新的历史记录</li>
+</ul>
+</li>
+<li>Git是分布式版本控制系统，极其强大的分支管理。</li>
+</ul>
+<p>功能</p>
+<ul>
+<li>记录一款软件添加或更改源代码的工程</li>
+<li>回滚到特定阶段，恢复误删除的文件</li>
+<li>合并多人协作的文件等</li>
+<li>多人协同，文件传输</li>
+</ul>
+<h4 id="第二章：Git创建"><a href="#第二章：Git创建" class="headerlink" title="第二章：Git创建"></a>第二章：Git创建</h4><h6 id="Git设置name和email"><a href="#Git设置name和email" class="headerlink" title="Git设置name和email"></a>Git设置name和email</h6><pre class=" language-bash"><code class="language-bash"><span class="token function">git</span> config --global user.name <span class="token string">"Your Name"</span>
+<span class="token function">git</span> config --global user.email <span class="token string">"email@example.com"</span>        
+/*注意<span class="token variable"><span class="token variable">`</span><span class="token function">git</span> config<span class="token variable">`</span></span>命令的<span class="token variable"><span class="token variable">`</span>--global<span class="token variable">`</span></span>参数，用了这个参数，表示你这台机器上所有的Git仓库都会使用这个配置，当然也可以对某个仓库指定不同的用户名和Email地址。*/
+</code></pre>
+<h6 id="Git初始化仓库"><a href="#Git初始化仓库" class="headerlink" title="Git初始化仓库"></a>Git初始化仓库</h6><pre class=" language-bash"><code class="language-bash"><span class="token function">git</span> init
+</code></pre>
+<h6 id="添加文件到Git仓库，分两步："><a href="#添加文件到Git仓库，分两步：" class="headerlink" title="添加文件到Git仓库，分两步："></a>添加文件到Git仓库，分两步：</h6><pre class=" language-bash"><code class="language-bash"><span class="token function">git</span> add readme.txt  //把文件添加到仓库
+<span class="token function">git</span> commit -m <span class="token string">"wrote a readme file"</span> // -m 后面输入的是本次提交的说明
+</code></pre>
+<h6 id="Git工作区的状态"><a href="#Git工作区的状态" class="headerlink" title="Git工作区的状态"></a>Git工作区的状态</h6><pre class=" language-bash"><code class="language-bash"><span class="token function">git</span> status
+</code></pre>
+<h6 id="Git查看修改内容"><a href="#Git查看修改内容" class="headerlink" title="Git查看修改内容"></a>Git查看修改内容</h6><pre class=" language-bash"><code class="language-bash"><span class="token function">git</span> <span class="token function">diff</span> readme.txt<span class="token punctuation">(</span>文件名<span class="token punctuation">)</span> //查看difference 
+</code></pre>
+<h4 id="第三章：版本功能"><a href="#第三章：版本功能" class="headerlink" title="第三章：版本功能"></a>第三章：版本功能</h4><h6 id="版本回退-1"><a href="#版本回退-1" class="headerlink" title="版本回退"></a>版本回退</h6><pre class=" language-bash"><code class="language-bash"><span class="token function">git</span> reset --hard 版本号 //git reset --hard HEAD^  //下一个版本
+<span class="token function">git</span> log
+<span class="token function">git</span> reflog
+</code></pre>
+<p>Git显示从最近到最远的提交日志<code>HEAD</code>指向的版本就是当前版本</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">git</span> reset --hard HEAD^  //下一个版本
+<span class="token function">git</span> reset --hard 版本号 //版本号不用写全
+</code></pre>
+<p><code>git log</code>可以查看提交历史，以便确定要<strong>回退到哪个版本</strong>。</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">git</span> log --pretty<span class="token operator">=</span>oneline  //输出信息太多，看得眼花缭乱的，可以试试加上--pretty<span class="token operator">=</span>oneline参数
+1094adb7b9b3807259d8cb349e7df1d4d6477073 <span class="token punctuation">(</span>HEAD -<span class="token operator">></span> master<span class="token punctuation">)</span> append GPL
+e475afc93c209a690c39c13a46716e8fa000c366 add distributed
+eaadf4e385e865d25c48e7ca9c8395c3f7dfaef0 wrote a readme <span class="token function">file</span>
+<span class="token function">git</span> log 
+commit e475afc93c209a690c39c13a46716e8fa000c366 <span class="token punctuation">(</span>HEAD -<span class="token operator">></span> master<span class="token punctuation">)</span>
+Author: Michael Liao <span class="token operator">&lt;</span>askxuefeng@gmail.com<span class="token operator">></span>
+Date:   Fri May 18 21:03:36 2018 +0800
+    add distributed
+1094adb<span class="token punctuation">..</span>.的是commit id（版本号）  append GPL是版本描述 就是git commit -m <span class="token string">"message"</span>的message的内容  
+</code></pre>
+<p><code>git reflog</code>查看命令历史，以便确定要<strong>回到未来的哪个版本</strong>。</p>
+<pre><code>git reflog
+</code></pre>
+<h6 id="工作区和暂存区"><a href="#工作区和暂存区" class="headerlink" title="工作区和暂存区"></a>工作区和暂存区</h6><p>本地仓库 工作区（Working Directory） 就是你在电脑里能看到的目录</p>
+<ul>
+<li>版本库（Respository）<br>工作区有一个隐藏目录<code>.git</code>，这个不算工作区，而是Git的版本库。<br>Git的版本库里存了很多东西，其中最重要的就是称为stage（或者叫index）的<strong>暂存区</strong>，还有Git为我们自动创建的第一个分支<code>master</code>，以及指向<code>master</code>的一个指针叫<code>HEAD</code>。</li>
+<li>工作区<br>前面讲了我们把文件往Git版本库里添加的时候，是分两步执行的：<br>第一步是用<code>git add</code>把文件添加进去，实际上就是把文件修改添加到暂存区；<br>第二步是用<code>git commit</code>提交更改，实际上就是把暂存区的所有内容提交到当前分支。<pre><code>git add readme.txt
+git commit -m "wrote a readme file"
+</code></pre>
+<code>git add</code>命令实际上就是把要提交的所有修改放到暂存区（Stage），然后，<br>执行<code>git commit</code>就可以一次性把暂存区的所有修改提交到分支。<h6 id="管理修改"><a href="#管理修改" class="headerlink" title="管理修改"></a>管理修改</h6>为什么Git比其他版本控制系统设计得优秀，因为<strong>Git跟踪并管理的是修改，而非文件</strong>。<br>查看工作区和版本库里面最新版本的区别<pre class=" language-bash"><code class="language-bash"><span class="token function">git</span> <span class="token function">diff</span> HEAD --readme.txt    
+</code></pre>
+<h6 id="撤销修改"><a href="#撤销修改" class="headerlink" title="撤销修改"></a>撤销修改</h6></li>
+</ul>
+<p><strong>丢弃工作区的修改</strong><br>场景1：当你改乱了工作区某个文件的内容，想直接丢弃工作区的修改时，用命令<code>git checkout -- file</code>。</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">git</span> checkout -- <span class="token function">file</span>
+</code></pre>
+<p><strong>添加到了暂存区时，想丢弃修改</strong><br>场景2：当你不但改乱了工作区某个文件的内容，还添加到了暂存区时，想丢弃修改，分两步，第一步用命令<code>git reset HEAD </code>，就回到了场景1，第二步按场景1操作。</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">git</span> reset HEAD <span class="token operator">&lt;</span>file<span class="token operator">></span> 
+//回退版本，也可以把暂存区的修改回退到工作区。当我们用HEAD时，表示最新的版本。
+<span class="token function">git</span> checkout -- <span class="token function">file</span>
+</code></pre>
+<p><strong>修改到版本库</strong><br>场景3：已经提交了不合适的修改到版本库时，想要撤销本次提交，参考<a target="_blank" rel="noopener" href="https://www.liaoxuefeng.com/wiki/896043488029600/897013573512192">版本回退</a>一节，不过前提是没有推送到远程库。</p>
+<h6 id="删除文件"><a href="#删除文件" class="headerlink" title="删除文件"></a>删除文件</h6><p>命令<code>git rm</code>用于删除一个文件。如果一个文件已经被提交到版本库，那么你永远不用担心误删，但是要小心，你只能恢复文件到最新版本，你会丢失<strong>最近一次提交后你修改的内容</strong>。</p>
+<ol>
+<li>工作区中删除文件<pre class=" language-bash"><code class="language-bash"><span class="token function">rm</span> test.txt
+</code></pre>
+</li>
+<li>要从版本库中删除该文件，那就用命令<code>git rm</code>删掉，并且<code>git commit</code>：<pre><code>git rm test.txt
+git commit -m "remove test.txt"
+</code></pre>
+</li>
+<li>删错了，因为版本库里还有呢，所以可以很轻松地把误删的文件恢复到最新版本：<pre class=" language-bash"><code class="language-bash"><span class="token function">git</span> checkout -- test.txt
+</code></pre>
+<code>git checkout</code>其实是用版本库里的版本替换工作区的版本，无论工作区是修改还是删除，都可以“一键还原”。<h4 id="第四章：分支管理"><a href="#第四章：分支管理" class="headerlink" title="第四章：分支管理"></a>第四章：分支管理</h4></li>
+</ol>
+<p><strong>在Git里，这个分支叫主分支，即<code>master</code>分支。<code>HEAD</code>严格来说不是指向提交，而是指向<code>master</code>，<code>master</code>才是指向提交的，所以，<code>HEAD</code>指向的就是当前分支。</strong><br>Git的分支是与众不同的，无论创建、切换和删除分支，Git在1秒钟之内就能完成！无论你的版本库是1个文件还是1万个文件。 </p>
+<h6 id="创建与合并分支"><a href="#创建与合并分支" class="headerlink" title="创建与合并分支"></a>创建与合并分支</h6><p><strong><code>master</code>分支是一条线，Git用<code>master</code>指向最新的提交，再用<code>HEAD</code>指向<code>master</code>，就能确定当前分支，以及当</strong><br><strong>前分支的提交点：（master===&gt;最新提交     HEAD===&gt;master）</strong><br>创+(name)切(switch -c name)删(-d)和(merge)查(branch)<br>查看分支：</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">git</span> branch //branch 分支 <span class="token function">git</span> branch命令会列出所有分支，当前分支前面会标一个*号。
+</code></pre>
+<p>创建分支：</p>
+<pre><code>git branch &lt;name&gt;
+</code></pre>
+<p>切换分支：</p>
+<pre><code>git checkout &lt;name&gt; || git switch &lt;name&gt;
+</code></pre>
+<p>我们注意到切换分支使用<code>git checkout </code>，而前面讲过的撤销修改则是<code>git checkout -- </code>，同一个命令，有两种作用，确实有点令人迷惑。<br>实际上，切换分支这个动作，用<code>switch</code>更科学。因此，最新版本的Git提供了新的<code>git switch</code>命令来切换分支：<br>创建并切换分支：</p>
+<pre><code>git checkout -b &lt;name&gt;
+git switch -c &lt;name&gt;
+</code></pre>
+<p>合并某分支到当前分支：</p>
+<pre><code>git merge &lt;name&gt; // merge     合并, 融合, 并入
+</code></pre>
+<p>删除分支：</p>
+<pre><code>git branch -d &lt;name&gt;
+</code></pre>
+<p>强行删除分支</p>
+<pre><code>git branch -D &lt;name&gt; //要先合并
+</code></pre>
+<h6 id="解决冲突"><a href="#解决冲突" class="headerlink" title="解决冲突"></a>解决冲突</h6><ul>
+<li>当Git无法自动合并分支时，就必<strong>须首先解决冲突。解决冲突后，再提交，合并完成</strong>。</li>
+<li><strong>解决冲突就是把Git合并失败的文件手动编辑为我们希望的内容，再提交</strong>。</li>
+<li>用<code>git log --graph</code>命令可以看到分支合并图。<br>查看分支合并图<pre><code>git log --graph // graph 图
+git log --graph --pretty=oneline --abbrev-commit
+</code></pre>
+<h6 id="分支管理策略"><a href="#分支管理策略" class="headerlink" title="分支管理策略"></a>分支管理策略</h6>合并分支时，加上<code>--no-ff</code>参数就可以用普通模式合并，合并后的历史有分支，能看出来曾经做过合并，而<code>fast forward</code>合并就看不出来曾经做过合并。<h6 id="Bug分支"><a href="#Bug分支" class="headerlink" title="Bug分支"></a>Bug分支</h6></li>
+<li>修复bug时，我们会通过创建新的bug分支进行修复，然后合并，最后删除；</li>
+<li>当手头工作没有完成时，先把工作现场<code>git stash</code>一下，然后去修复bug，修复后，再<code>git stash pop</code>，回到工作现场；</li>
+<li>在master分支上修复的bug，想要合并到当前dev分支，可以用<code>git cherry-pick </code>命令，把bug提交的修改“复制”到当前分支，避免重复劳动。<br>每个bug都可以通过一个新的临时分支来修复，修复后，合并分支，然后将临时分支删除。<br>Git还提供了一个<code>stash</code>功能，可以把当前工作现场“储藏”起来，等以后恢复现场后继续工作：<pre><code>git stash
+</code></pre>
+<h6 id="Feature分支"><a href="#Feature分支" class="headerlink" title="Feature分支"></a>Feature分支</h6>添加一个新功能时，你肯定不希望因为一些实验性质的代码，把主分支搞乱了，所以，每添加一个新功能，最好新建一个feature分支，在上面开发，完成后，合并，最后，删除该feature分支。</li>
+<li>开发一个新feature，最好新建一个分支；</li>
+<li>如果要<strong>丢弃一个没有被合并过的分支</strong>，可以通过<code>git branch -D </code>强行删除。</li>
+<li>强行删除分支<pre><code>git branch -D &lt;name&gt; //要先合并
+origin  git@github.com:michaelliao/learngit.git (fetch)
+origin  git@github.com:michaelliao/learngit.git (push)
+</code></pre>
+<h6 id="多人协作"><a href="#多人协作" class="headerlink" title="多人协作"></a>多人协作</h6></li>
+<li>查看远程库信息，使用<code>git remote -v</code>；<pre><code>git remote -v //更详细的信息
+origin  git@github.com:michaelliao/learngit.git (fetch)
+origin  git@github.com:michaelliao/learngit.git (push)
+</code></pre>
+上面显示了可以抓取和推送的<code>origin</code>的地址。如果没有推送权限，就看不到push的地址。</li>
+<li>本地新建的分支如果不推送到远程，对其他人就是不可见的；</li>
+<li>从<strong>本地推送分支</strong>，使用<code>git push origin branch-name</code>，如果推送失败，先用<code>git pull</code>抓取远程的新提交。推送分支，就是把该分支上的所有本地提交推送到远程库。推送时，要指定本地分支，这样，Git就会把该分支推送到远程库对应的远程分支上：<pre><code>git push origin branch-name  
+git add env.txt
+git add env.txt
+git push origin dev
+</code></pre>
+</li>
+<li>在<strong>本地创建和远程分支对应的分支</strong>，使用<code>git checkout -b branch-name origin/branch-name</code>，本地和远程分支的名称最好一致；<pre><code>git checkout -b branch-name origin/branch-name
+</code></pre>
+</li>
+<li><strong>建立本地分支和远程分支的关联</strong>，使用<code>git branch --set-upstream branch-name origin/branch-name</code>；</li>
+<li>如果<code>git pull</code>提示<code>no tracking information</code>，则说明本地分支和远程分支的链接关系没有创建，用命令<code>git branch --set-upstream-to  origin/</code>。<pre><code> git branch --set-upstream-to=origin/dev dev
+git branch --set-upstream branch-name origin/branch-name
+</code></pre>
+</li>
+<li><strong>从远程抓取分支</strong>，使用<code>git pull</code>，如果有冲突，要先处理冲突。<pre><code>git pull
+</code></pre>
+你的小伙伴的最新提交和你试图推送的提交有冲突，解决办法也很简单，Git已经提示我们，先用<code>git pull</code>把最新的提交从<code>origin/dev</code>抓下来，然后，在本地合并，解决冲突，再推送：<br>但是，并不是一定要把本地分支往远程推送，那么，哪些分支需要推送，哪些不需要呢？</li>
+<li><code>master</code>分支是主分支，因此要时刻与远程同步；</li>
+<li><code>dev</code>分支是开发分支，团队所有成员都需要在上面工作，所以也需要与远程同步；</li>
+<li><code>bug</code>分支只用于在本地修复bug，就没必要推到远程了，除非老板要看看你每周到底修复了几个bug；</li>
+<li><code>feature</code>分支是否推到远程，取决于你是否和你的小伙伴合作在上面开发。<h6 id="Rebase"><a href="#Rebase" class="headerlink" title="Rebase"></a>Rebase</h6>Git有一种称为rebase的操作，有人把它翻译成“变基”</li>
+<li>rebase操作可以把本地未push的分叉提交历史整理成直线；</li>
+<li>rebase的目的是使得我们在查看历史提交的变化时更容易，因为分叉的提交需要三方对比。<pre><code>git log --graph --pretty=oneline --abbrev-commit
+</code></pre>
+<pre><code>git rebase
+</code></pre>
+<h4 id="第五章：标签管理"><a href="#第五章：标签管理" class="headerlink" title="第五章：标签管理"></a>第五章：标签管理</h4>发布一个版本时，我们通常先在版本库中打一个标签（tag），这样，就唯一确定了打标签时刻的版本。将来无论什么时候，取某个标签的版本，就是把那个打标签的时刻的历史版本取出来。所以，标签也是版本库的一个快照。<br>Git的标签虽然是版本库的快照，但其实它就是指向某个commit的指针（跟分支很像对不对？但是分支可以移动，标签不能移动），所以，创建和删除标签都是瞬间完成的。<br>tag就是一个让人容易记住的有意义的名字，它跟某个commit绑在一起。<h5 id="创建标签"><a href="#创建标签" class="headerlink" title="创建标签"></a>创建标签</h5></li>
+<li>新建一个标签，默认为<code>HEAD</code>，也可以指定一个commit id；<pre><code>git tag
+</code></pre>
+</li>
+<li>指定标签信息；<pre><code>git tag -a -m "标签信息"
+</code></pre>
+</li>
+<li>指定标签信息；<pre><code>git tag 
+</code></pre>
+<h5 id="操作标签"><a href="#操作标签" class="headerlink" title="操作标签"></a>操作标签</h5></li>
+<li>推送一个本地标签；<pre><code>git push origin
+</code></pre>
+</li>
+<li>推送全部未推送过的本地标签；<pre><code>git push origin --tags
+</code></pre>
+</li>
+<li>删除一个本地标签；<pre><code>git tag -d
+</code></pre>
+</li>
+<li>删除一个远程标签。<pre><code>git push origin :refs/tags/
+</code></pre>
+<h4 id="第六章：远程仓库"><a href="#第六章：远程仓库" class="headerlink" title="第六章：远程仓库"></a>第六章：远程仓库</h4><h5 id="远程程库：Github、Gittee、GitLab。提供Git仓库托管服务的。"><a href="#远程程库：Github、Gittee、GitLab。提供Git仓库托管服务的。" class="headerlink" title="远程程库：Github、Gittee、GitLab。提供Git仓库托管服务的。"></a>远程程库：Github、Gittee、GitLab。提供Git仓库托管服务的。</h5>GitHub作为免费的远程仓库</li>
+<li>在GitHub上，可以任意Fork开源仓库；</li>
+<li>自己<strong>拥有Fork后的仓库的读写权限</strong>；</li>
+<li>可以推送pull request给官方仓库来贡献代码。<br>Gittee(码云)</li>
+<li>国内的Git托管服务——<a target="_blank" rel="noopener" href="https://gitee.com/?utm_source=blog_lxf">Gitee</a>（<a target="_blank" rel="noopener" href="https://gitee.com/?utm_source=blog_lxf">gitee.com</a>）<br>GitLab<h5 id="添加远程库"><a href="#添加远程库" class="headerlink" title="添加远程库"></a>添加远程库</h5><h5 id="从远程库克隆"><a href="#从远程库克隆" class="headerlink" title="从远程库克隆"></a>从远程库克隆</h5><h5 id="使用GitHub"><a href="#使用GitHub" class="headerlink" title="使用GitHub"></a>使用GitHub</h5>GitHub是免费的远程仓库、一个开源协作社区。</li>
+<li>在GitHub上，可以任意Fork开源仓库；<br>Fork就是把别人的仓库项目<strong>克隆</strong>在自已的仓库项目</li>
+<li>自己<strong>拥有Fork后的仓库的读写权限</strong>；</li>
+<li>可以推送pull request给官方仓库来贡献代码。<pre class=" language-bash"><code class="language-bash"><span class="token function">git</span> clone 仓库地址
+</code></pre>
+如果从别人的仓库地址克隆，因为没有权限，你将<strong>不能推送修改</strong>。<h5 id="使用Gitee（码云）"><a href="#使用Gitee（码云）" class="headerlink" title="使用Gitee（码云）"></a>使用Gitee（码云）</h5>国内的Git托管服务——<a target="_blank" rel="noopener" href="https://gitee.com/?utm_source=blog_lxf">Gitee</a><h6 id="上传自己的SSH公钥"><a href="#上传自己的SSH公钥" class="headerlink" title="上传自己的SSH公钥"></a>上传自己的SSH公钥</h6>选择右上角用户头像 -&gt; 菜单“修改资料”，然后选择“SSH公钥”，填写一个便于识别的标题，然后把用户主目录下的<code>.ssh/id_rsa.pub</code>(C:\Users\Administrator.ssh)文件的内容粘贴进去：<h6 id="配置SSH添加公钥（id-rsa-pub）到远程账号账号-id-rsa-id-rsa-pub"><a href="#配置SSH添加公钥（id-rsa-pub）到远程账号账号-id-rsa-id-rsa-pub" class="headerlink" title="配置SSH添加公钥（id_rsa.pub）到远程账号账号(id_rsa//id_rsa.pub)"></a>配置SSH添加公钥（id_rsa.pub）到远程账号账号(id_rsa//id_rsa.pub)</h6><pre class=" language-bash"><code class="language-bash">// 查看有没有公钥
+C:\Users\Administrator\.ssh\id_rsa.pub
+// 没有生成公钥
+ssh-keygen -t rsa -C <span class="token string">"youremail@example.com"</span> 
+// 添加公钥到远程仓库
+</code></pre>
+<h6 id="关联到Gitee的远程库"><a href="#关联到Gitee的远程库" class="headerlink" title="关联到Gitee的远程库"></a>关联到Gitee的远程库</h6><pre class=" language-bash"><code class="language-bash"><span class="token function">git</span> remote add origin 具体项目的仓库地址  //remote 远程  + origin 起源
+</code></pre>
+<h6 id="删除已有的GitHub远程库：-1"><a href="#删除已有的GitHub远程库：-1" class="headerlink" title="删除已有的GitHub远程库："></a>删除已有的GitHub远程库：</h6><pre><code>git remote rm origin //git给远程库起的默认名称是`origin`
+</code></pre>
+<h6 id="查看远程库信息：-1"><a href="#查看远程库信息：-1" class="headerlink" title="查看远程库信息："></a>查看远程库信息：</h6><pre><code>git remote -v
+</code></pre>
+如果在使用命令<code>git remote add</code>时报错：<pre class=" language-bash"><code class="language-bash"><span class="token function">git</span> remote add origin git@gitee.com:liaoxuefeng/learngit.git
+fatal: remote origin already exists.
+</code></pre>
+这说明本地库已经关联了一个名叫<code>origin</code>的远程库，此时，可以先用删除远程库，再关联：<h6 id="一个本地库既关联GitHub，又关联Gitee"><a href="#一个本地库既关联GitHub，又关联Gitee" class="headerlink" title="一个本地库既关联GitHub，又关联Gitee"></a>一个本地库既关联GitHub，又关联Gitee</h6>git本身是分布式版本控制系统，可以同步到另外一个远程库，当然也可以同步到另外两个远程库。</li>
+</ul>
+<p><strong>使用多个远程库时，我们要注意，git给远程库起的默认名称是<code>origin</code>，如果有多个远程库，我们需要用不同的名称来标识不同的远程库。</strong><br>关联GitHub的远程库：</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">git</span> remote add github git@github.com:michaelliao/learngit.git
+</code></pre>
+<p>关联Gitee的远程库：</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">git</span> remote add gitee git@gitee.com:liaoxuefeng/learngit.git
+</code></pre>
+<p>查看远程库信息，可以看到两个远程库：</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">git</span> remote -v
+gitee    git@gitee.com:liaoxuefeng/learngit.git <span class="token punctuation">(</span>fetch<span class="token punctuation">)</span>
+gitee    git@gitee.com:liaoxuefeng/learngit.git <span class="token punctuation">(</span>push<span class="token punctuation">)</span>
+github    git@github.com:michaelliao/learngit.git <span class="token punctuation">(</span>fetch<span class="token punctuation">)</span>
+github    git@github.com:michaelliao/learngit.git <span class="token punctuation">(</span>push<span class="token punctuation">)</span>
+</code></pre>
+<p>如果要推送（上传）到GitHub，使用命令：</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">git</span> push github master
+</code></pre>
+<p>如果要推送（上传）到Gitee，使用命令：</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">git</span> push gitee master
+</code></pre>
+<h6 id="自定义Git"><a href="#自定义Git" class="headerlink" title="自定义Git"></a>自定义Git</h6><p>在<a target="_blank" rel="noopener" href="https://www.liaoxuefeng.com/wiki/896043488029600/896067074338496">安装Git</a>一节中，我们已经配置了<code>user.name</code>和<code>user.email</code>，实际上，Git还有很多可配置项。<br>比如，让<strong>Git显示颜色</strong>，会让命令输出看起来更醒目：</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">git</span> config --global color.ui <span class="token boolean">true</span>
+</code></pre>
+<h6 id="忽略特殊文件"><a href="#忽略特殊文件" class="headerlink" title="忽略特殊文件"></a>忽略特殊文件</h6><ul>
+<li><code>.gitignore</code>文件，把要忽略的文件名填进去，Git就会自动忽略这些文件。</li>
+<li><code>.gitignore</code>文件本身要放到版本库里，并且可以对<code>.gitignore</code>做版本管理！<h6 id="搭建Git服务器"><a href="#搭建Git服务器" class="headerlink" title="搭建Git服务器"></a>搭建Git服务器</h6></li>
+<li>自己搭建一台Git服务器作为私有仓库使用。</li>
+<li>推荐用Ubuntu或Debian，这样，通过几条简单的<code>apt</code>命令就可以完成安装。</li>
+<li>搭建Git服务器非常简单，通常10分钟即可完成；</li>
+<li>要方便<strong>管理公钥</strong>，用<a target="_blank" rel="noopener" href="https://github.com/sitaramc/gitolite">Gitosis</a>；</li>
+<li>要像SVN那样变态地<strong>控制权限</strong>，用<a target="_blank" rel="noopener" href="https://github.com/sitaramc/gitolite">Gitolite</a>。</li>
+</ul>
+<p>**第一步，安装<code>git</code>**：</p>
+<pre><code>$ sudo apt-get install git
+</code></pre>
+<p><strong>第二步，创建一个<code>git</code>用户，用来运行<code>git</code>服务：</strong></p>
+<pre><code>$ sudo adduser git
+</code></pre>
+<p><strong>第三步，创建证书登录：</strong><br><strong>收集所有需要登录的用户的公钥</strong>，就是他们自己的<code>id_rsa.pub</code>文件，把所有公钥导入到<code>/home/git/.ssh/authorized_keys</code>文件里，一行一个。<br><strong>第四步，初始化Git仓库：</strong><br>先选定一个目录作为Git仓库，假定是<code>/srv/sample.git</code>，在<code>/srv</code>目录下输入命令：</p>
+<pre><code>$ sudo git init --bare sample.git
+</code></pre>
+<p>Git就会创建一个裸仓库，裸仓库没有工作区，因为服务器上的Git仓库纯粹是为了共享，所以不让用户直接登录到服务器上去改工作区，并且服务器上的Git仓库通常都以<code>.git</code>结尾。然后，把owner改为<code>git</code>：</p>
+<pre><code>$ sudo chown -R git:git sample.git
+</code></pre>
+<p><strong>第五步，禁用shell登录：</strong><br>出于安全考虑，第二步创建的git用户不允许登录shell，这可以通过编辑<code>/etc/passwd</code>文件完成。找到类似下面的一行：</p>
+<pre><code>git:x:1001:1001:,,,:/home/git:/bin/bash
+git:x:1001:1001:,,,:/home/git:/usr/bin/git-shell
+</code></pre>
+<p>这样，<code>git</code>用户可以正常通过ssh使用git，但无法登录shell，因为我们为<code>git</code>用户指定的<code>git-shell</code>每次一登录就自动退出。<br><strong>第六步，克隆远程仓库：</strong><br>现在，可以通过<code>git clone</code>命令克隆远程仓库了，在各自的电脑上运行：</p>
+<pre><code>$ git clone git@server:/srv/sample.git
+Cloning into 'sample'...
+warning: You appear to have cloned an empty repository.
+</code></pre>
+<h6 id="使用SourceTree-GUI工具"><a href="#使用SourceTree-GUI工具" class="headerlink" title="使用SourceTree(GUI工具)"></a>使用SourceTree(GUI工具)</h6><p>熟练使用命令操作Git后，再使用GUI工具，就可以更高效。</p>
+<h4 id="第七章：问题汇总"><a href="#第七章：问题汇总" class="headerlink" title="第七章：问题汇总"></a>第七章：问题汇总</h4><h6 id="Git配置免密登录两个配置方案："><a href="#Git配置免密登录两个配置方案：" class="headerlink" title="Git配置免密登录两个配置方案："></a>Git配置免密登录两个配置方案：</h6><ol>
+<li>切换成git方式,<a target="_blank" rel="noopener" href="http://blog.csdn.net/lqlqlq007/article/details/78983879"> git ssh key配置</a><br>如上：<strong>生成id_rsa.pub时不要输入密码</strong></li>
+<li>配置credential.helper：<br>首先简单介绍一下credential.helper这个配置项的含义：这个配置项允许用户自行指定git所使用的凭据管理工具。<br>简单粗暴的办法就是直接配置credential.helper的值为manager（注意：当你需要在同一台机器上使用多个git账号这么搞就不行了，因为2个账号必定使用的不同的凭据）：<pre class=" language-bash"><code class="language-bash"><span class="token function">git</span> config credential.helper manager
+</code></pre>
+再次尝试pull代码的时候会弹出窗口要求输入用户名密码（只需要输入这一次就ok了）：<br>Sourcetree + gitee(码云) 使用教程<br><a target="_blank" rel="noopener" href="https://www.wangquanwei.com/68.html">https://www.wangquanwei.com/68.html</a></li>
+</ol>
+<pre><code># GitHub Start 
+192.30.253.112    Build software better, together 
+192.30.253.119    gist.github.com
+151.101.184.133    assets-cdn.github.com
+151.101.184.133    raw.githubusercontent.com
+151.101.184.133    gist.githubusercontent.com
+151.101.184.133    cloud.githubusercontent.com
+151.101.184.133    camo.githubusercontent.com
+151.101.184.133    avatars0.githubusercontent.com
+151.101.184.133    avatars1.githubusercontent.com
+151.101.184.133    avatars2.githubusercontent.com
+151.101.184.133    avatars3.githubusercontent.com
+151.101.184.133    avatars4.githubusercontent.com
+151.101.184.133    avatars5.githubusercontent.com
+151.101.184.133    avatars6.githubusercontent.com
+151.101.184.133    avatars7.githubusercontent.com
+151.101.184.133    avatars8.githubusercontent.com
+
+ # GitHub End
+
+# GitHub Start
+#151.101.56.133 avatars0.githubusercontent.com
+#151.101.56.133 avatars1.githubusercontent.com
+#151.101.56.133 avatars2.githubusercontent.com
+#151.101.56.133 avatars3.githubusercontent.com
+#151.101.56.133 avatars4.githubusercontent.com
+#151.101.56.133 avatars5.githubusercontent.com
+#151.101.56.133 avatars6.githubusercontent.com
+#151.101.56.133 avatars7.githubusercontent.com
+#151.101.56.133 avatars8.githubusercontent.com
+#151.101.56.133 camo.githubusercontent.com
+#151.101.56.133 cloud.githubusercontent.com
+#151.101.56.133 gist.githubusercontent.com
+#151.101.56.133 marketplace-screenshots.githubusercontent.com
+#151.101.76.133 raw.githubusercontent.com
+#151.101.56.133 repository-images.githubusercontent.com
+#151.101.56.133 user-images.githubusercontent.com
+#185.199.108.153 xxxxx.github.io
+#185.199.109.153 xxxxx.github.io
+# GitHub End
+</code></pre>
+<pre><code>ipconfig/flushdns
+</code></pre>
+<h1 id="Github"><a href="#Github" class="headerlink" title="Github"></a>Github</h1><h1 id="xxx-github-io网站无法访问-md"><a href="#xxx-github-io网站无法访问-md" class="headerlink" title="xxx.github.io网站无法访问.md"></a>xxx.github.io网站无法访问.md</h1><h2 id="问题原因"><a href="#问题原因" class="headerlink" title="问题原因"></a>问题原因</h2><p>域名解析问题</p>
+<h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><h3 id="修改host文件"><a href="#修改host文件" class="headerlink" title="修改host文件"></a>修改host文件</h3><p><a target="_blank" rel="noopener" href="https://ipchaxun.com/">查找网站对应的IP</a><br>host文件 <code>C:\Windows\System32\drivers\etc</code></p>
+<pre class=" language-bash"><code class="language-bash">185.199.108.153 xxxxx.github.io
+185.199.109.153 xxxxx.github.io
+185.199.110.153 xxxxx.github.io
+185.199.111.153 xxxxx.github.io
+</code></pre>
+<p>刷新网络DNS缓存</p>
+<pre class=" language-bash"><code class="language-bash">ipconfig /flushdns
+</code></pre>
+<h3 id="科学加速的方法"><a href="#科学加速的方法" class="headerlink" title="科学加速的方法"></a>科学加速的方法</h3><h3 id="修改DNS"><a href="#修改DNS" class="headerlink" title="修改DNS"></a>修改DNS</h3><p>使用 <code>DNS优选</code> 软件更换 DNS<br>成功</p>
+<pre><code>#
+#127.0.01 localhost
+#::1 localhost127.0.0.1 localhost
+127.0.0.1 localhost
+#::1 localhost
+#::1 localhost
+#127.0.0.1 registeridm.com
+#127.0.0.1 www.registeridm.com
+#127.0.0.1 www.internetdownloadmanager.com
+#127.0.0.1:8083 www.heweiliang.com
+#www.heweiliang.com 127.0.0.1:8083
+#www.tplogin.cn 192.168.1.4
+#192.168.1.4 www.tplogin.cn
+#::1 localhost
+#127.0.0.1 activate.navicat.com
+#::1 localhost
+#::1 localhost
+#::1 localhost
+::1 localhost
+104.22.10.225 www.duboku.co
+104.22.11.225 www.duboku.co
+172.67.37.113 www.duboku.co
+13.224.161.90 api.themoviedb.org
+31.13.85.8 api.themoviedb.org
+13.35.67.86 api.themoviedb.org
+104.16.61.155 api.themoviedb.org
+54.192.151.79 api.themoviedb.org
+13.226.238.76 api.themoviedb.org
+99.86.199.63 api.themoviedb.org
+127.0.0.1  www.xmind.net
+# GitHub Start 
+192.30.255.112 gist.github.com
+192.30.255.112 github.com
+192.30.255.112 www.github.com
+151.101.56.133 avatars0.githubusercontent.com
+151.101.56.133 avatars1.githubusercontent.com
+151.101.56.133 avatars2.githubusercontent.com
+151.101.56.133 avatars3.githubusercontent.com
+151.101.56.133 avatars4.githubusercontent.com
+151.101.56.133 avatars5.githubusercontent.com
+151.101.56.133 avatars6.githubusercontent.com
+151.101.56.133 avatars7.githubusercontent.com
+151.101.56.133 avatars8.githubusercontent.com
+151.101.56.133 camo.githubusercontent.com
+151.101.56.133 cloud.githubusercontent.com
+151.101.56.133 gist.githubusercontent.com
+151.101.56.133 marketplace-screenshots.githubusercontent.com
+151.101.56.133 raw.githubusercontent.com
+151.101.56.133 repository-images.githubusercontent.com
+151.101.56.133 user-images.githubusercontent.com
+185.199.108.153 xxxxx.github.io
+185.199.109.153 xxxxx.github.io
+# GitHub End
+</code></pre>
+<pre><code>#
+#127.0.01 localhost
+#::1 localhost127.0.0.1 localhost
+127.0.0.1 localhost
+#::1 localhost
+#::1 localhost
+#127.0.0.1 registeridm.com
+#127.0.0.1 www.registeridm.com
+#127.0.0.1 www.internetdownloadmanager.com
+#127.0.0.1:8083 www.heweiliang.com
+#www.heweiliang.com 127.0.0.1:8083
+#www.tplogin.cn 192.168.1.4
+#192.168.1.4 www.tplogin.cn
+#::1 localhost
+#127.0.0.1 activate.navicat.com
+#::1 localhost
+#::1 localhost
+#::1 localhost
+::1 localhost
+104.22.10.225 www.duboku.co
+104.22.11.225 www.duboku.co
+172.67.37.113 www.duboku.co
+13.224.161.90 api.themoviedb.org
+31.13.85.8 api.themoviedb.org
+13.35.67.86 api.themoviedb.org
+104.16.61.155 api.themoviedb.org
+54.192.151.79 api.themoviedb.org
+13.226.238.76 api.themoviedb.org
+99.86.199.63 api.themoviedb.org
+127.0.0.1  www.xmind.net
+# GitHub Start 
+192.30.255.112 gist.github.com
+192.30.255.112 github.com
+192.30.255.112 www.github.com
+151.101.56.133 avatars0.githubusercontent.com
+151.101.56.133 avatars1.githubusercontent.com
+151.101.56.133 avatars2.githubusercontent.com
+151.101.56.133 avatars3.githubusercontent.com
+151.101.56.133 avatars4.githubusercontent.com
+151.101.56.133 avatars5.githubusercontent.com
+151.101.56.133 avatars6.githubusercontent.com
+151.101.56.133 avatars7.githubusercontent.com
+151.101.56.133 avatars8.githubusercontent.com
+151.101.56.133 camo.githubusercontent.com
+151.101.56.133 cloud.githubusercontent.com
+151.101.56.133 gist.githubusercontent.com
+151.101.56.133 marketplace-screenshots.githubusercontent.com
+151.101.56.133 raw.githubusercontent.com
+151.101.56.133 repository-images.githubusercontent.com
+151.101.56.133 user-images.githubusercontent.com
+185.199.108.153 xxxxx.github.io
+185.199.109.153 xxxxx.github.io
+140.82.113.3      github.com
+140.82.114.20     gist.github.com
+151.101.184.133    assets-cdn.github.com
+151.101.184.133    raw.githubusercontent.com
+151.101.184.133    gist.githubusercontent.com
+151.101.184.133    cloud.githubusercontent.com
+151.101.184.133    camo.githubusercontent.com
+151.101.184.133    avatars0.githubusercontent.com
+199.232.68.133     avatars0.githubusercontent.com
+199.232.28.133     avatars1.githubusercontent.com
+151.101.184.133    avatars1.githubusercontent.com
+151.101.184.133    avatars2.githubusercontent.com
+199.232.28.133     avatars2.githubusercontent.com
+151.101.184.133    avatars3.githubusercontent.com
+199.232.68.133     avatars3.githubusercontent.com
+151.101.184.133    avatars4.githubusercontent.com
+199.232.68.133     avatars4.githubusercontent.com
+151.101.184.133    avatars5.githubusercontent.com
+199.232.68.133     avatars5.githubusercontent.com
+151.101.184.133    avatars6.githubusercontent.com
+199.232.68.133     avatars6.githubusercontent.com
+151.101.184.133    avatars7.githubusercontent.com
+199.232.68.133     avatars7.githubusercontent.com
+151.101.184.133    avatars8.githubusercontent.com
+199.232.68.133     avatars8.githubusercontent.com
+199.232.68.133     raw.githubusercontent.com
+199.232.68.133     user-images.githubusercontent.com
+199.232.68.133     avatars2.githubusercontent.com
+199.232.68.133     avatars1.githubusercontent.com
+185.199.108.154               github.githubassets.com
+199.232.68.133                camo.githubusercontent.com
+52.168.24.190                 github.map.fastly.net
+199.232.69.194                github.global.ssl.fastly.net
+140.82.112.4                  github.com
+140.82.112.5                  api.github.com
+199.232.68.133                raw.githubusercontent.com
+199.232.68.133                user-images.githubusercontent.com
+199.232.68.133                favicons.githubusercontent.com
+199.232.68.133                avatars5.githubusercontent.com
+199.232.68.133                avatars4.githubusercontent.com
+199.232.68.133                avatars3.githubusercontent.com
+199.232.68.133                avatars2.githubusercontent.com
+199.232.68.133                avatars1.githubusercontent.com
+199.232.68.133                avatars0.githubusercontent.com
+# GitHub End
+</code></pre>
+<h2 id="GitHub的README-md的svg图标"><a href="#GitHub的README-md的svg图标" class="headerlink" title="GitHub的README.md的svg图标"></a>GitHub的README.md的svg图标</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://shields.io/#/">svg图标官网说明https://shields.io</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/yangbodong22011/article/details/51791085">GitHub上 README 增加图片标签</a></li>
+<li><a target="_blank" rel="noopener" href="https://simpleicons.org/">简单图标库</a><br>  自动生成的方法<br>  <a target="_blank" rel="noopener" href="https://shields.io/">Shields.io: Quality metadata badges for open source projects</a></li>
+</ul>
+<pre><code>前往网址Your BadgeStaticDynamic 动态
+</code></pre>
+<blockquote>
+<p><code>https://img.shields.io/badge/&lt;图标前部分的文字&gt;-&lt;图标后部分的文字&gt;-&lt;颜色&gt;.svg</code><br><code>https://img.shields.io/static/v1?label=&lt;LABEL&gt;&amp;message=&lt;MESSAGE&gt;&amp;color=&lt;COLOR&gt;</code><br>注意点：<br>1、因为-是会用到的分割字符，如果文字中有-，如要用–来代替，如Objective-C要写成Objective–C<br>2、颜色可以是支持的英文，也可以是6位的16进制的字符串，如blue、0000ff<br>3、可以支持圆角、矩形样式、社交样式、还可以添加logo<br>MarkDown语法显示图片:  <img src="D:/GitRepository/GithubProject/Blog/Blog/source/_posts/note/%E5%89%8D%E7%AB%AF/basic/js&amp;&amp;ts&amp;&amp;jq/%25E5%259B%25BE%25E7%2589%2587%25E9%2593%25BE%25E6%258E%25A5" alt="图片描述"></p>
+<p><code>![](https://img.shields.io/badge/download-1K-brightgreen.svg)</code><br><img src="../../../%25E5%2589%258D%25E7%25AB%25AF/basic/css/css&amp;css3.assets/language-swift-brightgreen-1625065631467.svg" alt="瘦小的圆角矩形"><br><img src="D:/GitRepository/GithubProject/Blog/Blog/source/_posts/note/%25E5%2589%258D%25E7%25AB%25AF/basic/css/css&amp;css3.assets/Stack_Overflow-10k+-red.svg" alt="社交样式"><br><img src="Git%E6%95%99%E7%A8%8B.assets/download-1K-brightgreen.svg"><br><img src="../../../%25E5%2589%258D%25E7%25AB%25AF/basic/css/css&amp;css3.assets/npm-v3.2.0-blue-1625065631467.svg"><img src="https://img.shields.io/badge/npm-v3.2.0-blue.svg?style=flat-square"></p>
+</blockquote>
+<pre><code>![瘦小的圆角矩形](https://img.shields.io/badge/language-swift-brightgreen.svg?style=plastic)language-swift-brightgreenhttps://img.shields.io/badge/&lt;图标前部分的文字&gt;-&lt;图标后部分的文字&gt;-&lt;颜色&gt;.svgstyle=plastic 瘦小的圆角矩形style=flat-square 正常大小的矩形style=social 社交样式style=social&amp;logo=github 带logo
+</code></pre>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2>
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">记住</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://heweiliang88.github.io/2020/03/13/%E5%89%8D%E7%AB%AF/git/">https://heweiliang88.github.io/2020/03/13/%E5%89%8D%E7%AB%AF/git/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">记住</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/Git/">
+                                    <span class="chip bg-color">Git</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid="></script>
+    <div class="addthis_inline_share_toolbox"></div>
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+    <div class="livere-card card" data-aos="fade-up">
+    <!-- 来必力City版安装代码 -->
+    <div id="lv-container" class="card-content" data-id="city" data-uid="MTAyMC81MDY1MC8yNzEzMw==">
+        <script type="text/javascript">
+            (function (d, s) {
+                let j, e = d.getElementsByTagName(s)[0];
+                if (typeof LivereTower === 'function') {
+                    return;
+                }
+
+                j = d.createElement(s);
+                j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+                j.async = true;
+
+                e.parentNode.insertBefore(j, e);
+            })(document, 'script');
+        </script>
+        <noscript>为正常使用来必力评论功能请激活JavaScript。</noscript>
+    </div>
+    <!-- City版安装代码已完成 -->
+</div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2020/03/29/%E5%89%8D%E7%AB%AF/%E6%B5%8F%E8%A7%88%E5%99%A8/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="深入理解现代浏览器">
+                        
+                        <span class="card-title">深入理解现代浏览器</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-03-29
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%89%8D%E7%AB%AF/" class="post-category">
+                                    前端
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E5%89%8D%E7%AB%AF/">
+                        <span class="chip bg-color">前端</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/">
+                        <span class="chip bg-color">浏览器</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2020/03/05/%E5%89%8D%E7%AB%AF/bootstrap3/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="Bootstrap3响应式网站开发的方式">
+                        
+                        <span class="card-title">Bootstrap3响应式网站开发的方式</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-03-05
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%89%8D%E7%AB%AF/" class="post-category">
+                                    前端
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Bootstrap3/">
+                        <span class="chip bg-color">Bootstrap3</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="2829816518"
+                   fixed='true'
+                   autoplay='true'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.5'
+                   list-folded='false'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2018-2021</span>
+            
+            <a href="/about" target="_blank">记住</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+                &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                        class="white-color">287.2k</span>
+            
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+                <span id="sitetime"> Loading ...</span>
+                <script>
+                    var calcSiteTime = function () {
+                        var seconds = 1000;
+                        var minutes = seconds * 60;
+                        var hours = minutes * 60;
+                        var days = hours * 24;
+                        var years = days * 365;
+                        var today = new Date();
+                        var startYear = "2018";
+                        var startMonth = "10";
+                        var startDate = "28";
+                        var startHour = "9";
+                        var startMinute = "10";
+                        var startSecond = "30";
+                        var todayYear = today.getFullYear();
+                        var todayMonth = today.getMonth() + 1;
+                        var todayDate = today.getDate();
+                        var todayHour = today.getHours();
+                        var todayMinute = today.getMinutes();
+                        var todaySecond = today.getSeconds();
+                        var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                        var diff = t2 - t1;
+                        var diffYears = Math.floor(diff / years);
+                        var diffDays = Math.floor((diff / days) - diffYears * 365);
+
+                        // 区分是否有年份.
+                        var language = 'zh-CN';
+                        if (startYear === String(todayYear)) {
+                            document.getElementById("year").innerHTML = todayYear;
+                            var daysTip = 'This site has been running for ' + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                daysTip = '本站已运行 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                daysTip = '本站已運行 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = daysTip;
+                        } else {
+                            document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                            var yearsAndDaysTip = 'This site has been running for ' + diffYears + ' years and '
+                                + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                yearsAndDaysTip = '本站已运行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                yearsAndDaysTip = '本站已運行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = yearsAndDaysTip;
+                        }
+                    }
+
+                    calcSiteTime();
+                </script>
+            
+            <br>
+            
+
+            <img src="https://gitee.com/marmalade0/images/blob/master/www.marmalade.vip/beian.png"> <a
+                href="http://www.beian.miit.gov.cn/" style="color:#f72b07" target="_blank">你自己的备案号，如粤公网安备123456号</a>
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/heweiliang88?tab=repositories" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:15816073129@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+    <a href="https://www.facebook.com/xxx" class="tooltipped" target="_blank" data-tooltip="关注我的Facebook: https://www.facebook.com/xxx" data-position="top" data-delay="50">
+        <i class="fab fa-facebook-f"></i>
+    </a>
+
+
+
+    <a href="https://twitter.com/xxx" class="tooltipped" target="_blank" data-tooltip="关注我的Twitter: https://twitter.com/xxx" data-position="top" data-delay="50">
+        <i class="fab fa-twitter"></i>
+    </a>
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=15816073129" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 15816073129" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+    <a href="https://weibo.com/xxx" class="tooltipped" target="_blank" data-tooltip="关注我的微博: https://weibo.com/xxx" data-position="top" data-delay="50">
+        <i class="fab fa-weibo"></i>
+    </a>
+
+
+
+    <a href="https://www.zhihu.com/xxx" class="tooltipped" target="_blank" data-tooltip="关注我的知乎: https://www.zhihu.com/xxx" data-position="top" data-delay="50">
+        <i class="fab fa-zhihu1">知</i>
+    </a>
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    
+
+    
+
+    <!-- 雪花特效 -->
+    
+
+    <!-- 鼠标星星特效 -->
+     
+        <script type="text/javascript">
+            // 只在桌面版网页启用特效
+            var windowWidth = $(window).width();
+            if (windowWidth > 768) {
+                document.write('<script type="text/javascript" src="/"><\/script>');
+            }
+        </script>
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

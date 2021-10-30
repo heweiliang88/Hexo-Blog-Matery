@@ -1,0 +1,2628 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="让mock模拟你的数据, 前端、免流、技术、运维、手机">
+    <meta name="description" content="Mock.js
+Mock.js
+nuysoft/Mock: A simulation data generator
+Home · nuysoft/Mock Wiki文档生成随机数据，拦截 Ajax 请求
+
+
+Mock.mock()nodem">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>让mock模拟你的数据 | 从你的全世界路过</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.4.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="从你的全世界路过" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">从你的全世界路过</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">从你的全世界路过</div>
+        <div class="logo-desc">
+            
+            我希望有个如你一般的人。 如这山间清晨一般明亮清爽的人， 如奔赴古城道路上阳光一般的人， 温暖而不炙热，覆盖我所有肌肤。 由起点到夜晚，由山野到书房， 一切问题的答案都很简单。 我希望有个如你一般的人，贯彻未来，数遍生命的公路牌。
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/heweiliang88" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        /* color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px; */
+
+        color: #F062A7;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+
+        0%,
+        to {
+            transform: rotate(0);
+        }
+
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/heweiliang88" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+    data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path
+            d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+            fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path
+            d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+            fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/5.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">让mock模拟你的数据</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/mock/">
+                                <span class="chip bg-color">mock</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E5%89%8D%E7%AB%AF/" class="post-category">
+                                前端
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2020-08-28
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2021-10-21
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    7.3k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    35 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+
+                <div class="info-break-policy">
+                    
+                                <i class="fa fa-pencil"></i> 作者: 记住
+                                    
+                </div>
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="Mock-js"><a href="#Mock-js" class="headerlink" title="Mock.js"></a>Mock.js</h2><blockquote>
+<p><a target="_blank" rel="noopener" href="http://mockjs.com/">Mock.js</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/nuysoft/Mock/tree/refactoring">nuysoft/Mock: A simulation data generator</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/nuysoft/Mock/wiki">Home · nuysoft/Mock Wiki文档</a><br>生成随机数据，拦截 Ajax 请求</p>
+</blockquote>
+<ul>
+<li>Mock.mock()<h2 id="nodemon模块"><a href="#nodemon模块" class="headerlink" title="nodemon模块"></a>nodemon模块</h2><blockquote>
+<p>​                                     </p>
+</blockquote>
+<pre class=" language-js"><code class="language-js">yarn add nodemon
+nodemon 文件名
+</code></pre>
+<h2 id="express-服务器模块"><a href="#express-服务器模块" class="headerlink" title="express 服务器模块"></a>express 服务器模块</h2>开启服务器模块<h2 id="超级重点"><a href="#超级重点" class="headerlink" title="超级重点"></a>超级重点</h2><blockquote>
+<p>关于自已随机生成</p>
+</blockquote>
+<pre><code>
+</code></pre>
+<h2 id="开始-amp-安装"><a href="#开始-amp-安装" class="headerlink" title="开始 &amp; 安装"></a>开始 &amp; 安装</h2><h3 id="CDN"><a href="#CDN" class="headerlink" title="CDN"></a>CDN</h3><pre class=" language-js"><code class="language-js"><span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span> （必选）加载 Mock <span class="token operator">--</span><span class="token operator">></span>
+<span class="token operator">&lt;</span>script src<span class="token operator">=</span><span class="token string">"http://mockjs.com/dist/mock.js"</span><span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
+</code></pre>
+<h3 id="Node-CommonJS"><a href="#Node-CommonJS" class="headerlink" title="Node (CommonJS)"></a>Node (CommonJS)</h3><blockquote>
+<p><code>|</code> 分隔线</p>
+<p><code>-</code> 个数随机范围</p>
+<p><code>+1</code> 自增数</p>
+</blockquote>
+<pre class=" language-js"><code class="language-js"># 安装
+npm install mockjs
+<span class="token comment" spellcheck="true">// 使用 Mock</span>
+<span class="token keyword">var</span> Mock <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'mockjs'</span><span class="token punctuation">)</span>
+<span class="token keyword">var</span> data <span class="token operator">=</span> Mock<span class="token punctuation">.</span><span class="token function">mock</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  <span class="token comment" spellcheck="true">// 属性 list 的值是一个数组，其中含有 1 到 10 个元素 1-10</span>
+  <span class="token string">'list|1-10'</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">{</span>
+      <span class="token comment" spellcheck="true">// 属性 id 是一个自增数，起始值为 1，每次增 1</span>
+      <span class="token string">'id|+1'</span><span class="token punctuation">:</span> <span class="token number">1</span>
+  <span class="token punctuation">}</span><span class="token punctuation">]</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">// 模拟一个对象{}</span>
+<span class="token comment" spellcheck="true">// 输出结果</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>JSON<span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span>data<span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> Mock <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'mockjs'</span><span class="token punctuation">)</span>
+<span class="token keyword">let</span> name <span class="token operator">=</span> Mock<span class="token punctuation">.</span><span class="token function">mock</span><span class="token punctuation">(</span><span class="token string">'@cname'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span>
+<span class="token keyword">const</span> obj <span class="token operator">=</span> Mock<span class="token punctuation">.</span><span class="token function">mock</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  id<span class="token punctuation">:</span><span class="token string">"@id"</span><span class="token punctuation">,</span>
+  username<span class="token punctuation">:</span><span class="token string">"@cname()"</span><span class="token punctuation">,</span>
+  date<span class="token punctuation">:</span><span class="token string">"@date"</span><span class="token punctuation">,</span>
+  avatar<span class="token punctuation">:</span><span class="token string">"@image('200*200','red','#fff','avatar')"</span><span class="token punctuation">,</span>
+  description<span class="token punctuation">:</span><span class="token string">"@paragraph()"</span><span class="token punctuation">,</span>
+  ip<span class="token punctuation">:</span><span class="token string">"@ip()"</span><span class="token punctuation">,</span>
+  email<span class="token punctuation">:</span><span class="token string">"@email()"</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>JSON<span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span>obj<span class="token punctuation">,</span><span class="token keyword">null</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+Mock<span class="token punctuation">.</span><span class="token function">mock</span><span class="token punctuation">(</span><span class="token string">'/user/userinfo'</span><span class="token punctuation">,</span> <span class="token string">'get'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+  <span class="token string">"userlist|1-4"</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>
+      <span class="token punctuation">{</span>
+          id<span class="token punctuation">:</span> <span class="token string">'@id'</span><span class="token punctuation">,</span>
+          username<span class="token punctuation">:</span> <span class="token string">"@cname()"</span><span class="token punctuation">,</span>
+          date<span class="token punctuation">:</span> <span class="token string">"@date"</span><span class="token punctuation">,</span>
+          avatar<span class="token punctuation">:</span> <span class="token string">"@image('200*200','red','#fff','avatar')"</span><span class="token punctuation">,</span>
+          description<span class="token punctuation">:</span> <span class="token string">"@paragraph(1)"</span><span class="token punctuation">,</span>
+          ip<span class="token punctuation">:</span> <span class="token string">"@ip()"</span><span class="token punctuation">,</span>
+          email<span class="token punctuation">:</span> <span class="token string">"@email()"</span>
+      <span class="token punctuation">}</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre>
+<h3 id="Bower"><a href="#Bower" class="headerlink" title="Bower"></a>Bower</h3><pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># 安装</span>
+<span class="token function">npm</span> <span class="token function">install</span> -g bower
+bower <span class="token function">install</span> --save mockjs
+<span class="token operator">&lt;</span>script type<span class="token operator">=</span><span class="token string">"text/javascript"</span> src<span class="token operator">=</span><span class="token string">"./bower_components/mockjs/dist/mock.js"</span><span class="token operator">></span><span class="token operator">&lt;</span>/script<span class="token operator">></span>
+</code></pre>
+<h3 id="RequireJS-AMD"><a href="#RequireJS-AMD" class="headerlink" title="RequireJS (AMD)"></a>RequireJS (AMD)</h3><pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">// 配置 Mock 路径</span>
+require<span class="token punctuation">.</span><span class="token function">config</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  paths<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+      mock<span class="token punctuation">:</span> <span class="token string">'http://mockjs.com/dist/mock'</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">// 加载 Mock</span>
+<span class="token function">require</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'mock'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>Mock<span class="token punctuation">)</span><span class="token punctuation">{</span>
+  <span class="token comment" spellcheck="true">// 使用 Mock</span>
+  <span class="token keyword">var</span> data <span class="token operator">=</span> Mock<span class="token punctuation">.</span><span class="token function">mock</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+      <span class="token string">'list|1-10'</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">{</span>
+          <span class="token string">'id|+1'</span><span class="token punctuation">:</span> <span class="token number">1</span>
+      <span class="token punctuation">}</span><span class="token punctuation">]</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token comment" spellcheck="true">// 输出结果</span>
+  document<span class="token punctuation">.</span>body<span class="token punctuation">.</span>innerHTML <span class="token operator">+</span><span class="token operator">=</span>
+      <span class="token string">'&lt;pre>'</span> <span class="token operator">+</span>
+      JSON<span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span>data<span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span> <span class="token operator">+</span>
+      <span class="token string">'&lt;/pre>'</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">// ==></span>
+<span class="token punctuation">{</span>
+  <span class="token string">"list"</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>
+      <span class="token punctuation">{</span>
+          <span class="token string">"id"</span><span class="token punctuation">:</span> <span class="token number">1</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token punctuation">{</span>
+          <span class="token string">"id"</span><span class="token punctuation">:</span> <span class="token number">2</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token punctuation">{</span>
+          <span class="token string">"id"</span><span class="token punctuation">:</span> <span class="token number">3</span>
+      <span class="token punctuation">}</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h3 id="Sea-js-CMD"><a href="#Sea-js-CMD" class="headerlink" title="Sea.js (CMD)"></a>Sea.js (CMD)</h3>因为 Sea.js 社区尚未提供 webpack 插件，所以 Mock.js 暂<strong>不完整</strong>支持通过 Sea.js 加载。<br>一种变通的方式是，依然通过 Sea.js 配置和加载 Mock.js，然后访问全局变量 Mock。<pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">// 配置 Mock 路径</span>
+seajs<span class="token punctuation">.</span><span class="token function">config</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  alias<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+      mock<span class="token punctuation">:</span> <span class="token string">'http://mockjs.com/dist/mock.js'</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">// 加载 Mock</span>
+seajs<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span><span class="token string">'mock'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>__PLACEHOLDER<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment" spellcheck="true">// 使用 Mock（全局变量）</span>
+  <span class="token keyword">var</span> data <span class="token operator">=</span> Mock<span class="token punctuation">.</span><span class="token function">mock</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+      <span class="token string">'list|1-10'</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">{</span>
+          <span class="token string">'id|+1'</span><span class="token punctuation">:</span> <span class="token number">1</span>
+      <span class="token punctuation">}</span><span class="token punctuation">]</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  document<span class="token punctuation">.</span>body<span class="token punctuation">.</span>innerHTML <span class="token operator">+</span><span class="token operator">=</span>
+      <span class="token string">'&lt;pre>'</span> <span class="token operator">+</span>
+      JSON<span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span>data<span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span> <span class="token operator">+</span>
+      <span class="token string">'&lt;/pre>'</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre>
+<h3 id="Random-CLI"><a href="#Random-CLI" class="headerlink" title="Random CLI"></a>Random CLI</h3><pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># 全局安装</span>
+$ <span class="token function">npm</span> <span class="token function">install</span> mockjs -g
+<span class="token comment" spellcheck="true"># 执行</span>
+$ random url
+<span class="token comment" spellcheck="true"># => http://rmcpx.org/funzwc</span>
+<span class="token comment" spellcheck="true"># 帮助</span>
+random -h
+Options:
+-V, --version   output the version number
+-h, --help      display <span class="token function">help</span> <span class="token keyword">for</span> <span class="token function">command</span>
+Commands:
+boolean         Random.boolean<span class="token punctuation">(</span> min,  max,  cur <span class="token punctuation">)</span>
+bool            Random.bool<span class="token punctuation">(</span> min,  max,  cur <span class="token punctuation">)</span>
+natural         Random.natural<span class="token punctuation">(</span> min,  max <span class="token punctuation">)</span>
+integer         Random.integer<span class="token punctuation">(</span> min,  max <span class="token punctuation">)</span>
+int             Random.int<span class="token punctuation">(</span> min,  max <span class="token punctuation">)</span>
+float           Random.float<span class="token punctuation">(</span> min,  max,  dmin,  dmax <span class="token punctuation">)</span>
+character       Random.character<span class="token punctuation">(</span> pool <span class="token punctuation">)</span>
+char            Random.char<span class="token punctuation">(</span> pool <span class="token punctuation">)</span>
+string          Random.string<span class="token punctuation">(</span> pool,  min,  max <span class="token punctuation">)</span>
+str             Random.str<span class="token punctuation">(</span><span class="token punctuation">)</span>
+range           Random.range<span class="token punctuation">(</span> start,  stop,  step <span class="token punctuation">)</span>
+<span class="token function">date</span>            Random.date<span class="token punctuation">(</span> <span class="token function">format</span> <span class="token punctuation">)</span>
+<span class="token function">time</span>            Random.time<span class="token punctuation">(</span> <span class="token function">format</span> <span class="token punctuation">)</span>
+datetime        Random.datetime<span class="token punctuation">(</span> <span class="token function">format</span> <span class="token punctuation">)</span>
+now             Random.now<span class="token punctuation">(</span> unit,  <span class="token function">format</span> <span class="token punctuation">)</span>
+image           Random.image<span class="token punctuation">(</span> size,  background,  foreground,  format,  text    
+                <span class="token punctuation">)</span>
+img             Random.img<span class="token punctuation">(</span><span class="token punctuation">)</span>
+color           Random.color<span class="token punctuation">(</span> name <span class="token punctuation">)</span>
+hex             Random.hex<span class="token punctuation">(</span><span class="token punctuation">)</span>
+rgb             Random.rgb<span class="token punctuation">(</span><span class="token punctuation">)</span>
+rgba            Random.rgba<span class="token punctuation">(</span><span class="token punctuation">)</span>
+hsl             Random.hsl<span class="token punctuation">(</span><span class="token punctuation">)</span>
+paragraph       Random.paragraph<span class="token punctuation">(</span> min,  max <span class="token punctuation">)</span>
+cparagraph      Random.cparagraph<span class="token punctuation">(</span> min,  max <span class="token punctuation">)</span>
+sentence        Random.sentence<span class="token punctuation">(</span> min,  max <span class="token punctuation">)</span>
+csentence       Random.csentence<span class="token punctuation">(</span> min,  max <span class="token punctuation">)</span>
+word            Random.word<span class="token punctuation">(</span> min,  max <span class="token punctuation">)</span>
+cword           Random.cword<span class="token punctuation">(</span> pool,  min,  max <span class="token punctuation">)</span>
+title           Random.title<span class="token punctuation">(</span> min,  max <span class="token punctuation">)</span>
+ctitle          Random.ctitle<span class="token punctuation">(</span> min,  max <span class="token punctuation">)</span>
+first           Random.first<span class="token punctuation">(</span><span class="token punctuation">)</span>
+last            Random.last<span class="token punctuation">(</span><span class="token punctuation">)</span>
+name            Random.name<span class="token punctuation">(</span> middle <span class="token punctuation">)</span>
+cfirst          Random.cfirst<span class="token punctuation">(</span><span class="token punctuation">)</span>
+clast           Random.clast<span class="token punctuation">(</span><span class="token punctuation">)</span>
+cname           Random.cname<span class="token punctuation">(</span><span class="token punctuation">)</span>
+url             Random.url<span class="token punctuation">(</span> protocol,  host <span class="token punctuation">)</span>
+protocol        Random.protocol<span class="token punctuation">(</span><span class="token punctuation">)</span>
+domain          Random.domain<span class="token punctuation">(</span> tld <span class="token punctuation">)</span>
+tld             Random.tld<span class="token punctuation">(</span><span class="token punctuation">)</span>
+email           Random.email<span class="token punctuation">(</span> domain <span class="token punctuation">)</span>
+ip              Random.ip<span class="token punctuation">(</span><span class="token punctuation">)</span>
+region          Random.region<span class="token punctuation">(</span><span class="token punctuation">)</span>
+province        Random.province<span class="token punctuation">(</span><span class="token punctuation">)</span>
+city            Random.city<span class="token punctuation">(</span> prefix <span class="token punctuation">)</span>
+county          Random.county<span class="token punctuation">(</span> prefix <span class="token punctuation">)</span>
+<span class="token function">zip</span>             Random.zip<span class="token punctuation">(</span> len <span class="token punctuation">)</span>
+d4              Random.d4<span class="token punctuation">(</span><span class="token punctuation">)</span>
+d6              Random.d6<span class="token punctuation">(</span><span class="token punctuation">)</span>
+d8              Random.d8<span class="token punctuation">(</span><span class="token punctuation">)</span>
+d12             Random.d12<span class="token punctuation">(</span><span class="token punctuation">)</span>
+d20             Random.d20<span class="token punctuation">(</span><span class="token punctuation">)</span>
+d100            Random.d100<span class="token punctuation">(</span><span class="token punctuation">)</span>
+guid            Random.guid<span class="token punctuation">(</span><span class="token punctuation">)</span>
+uuid            Random.uuid<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token function">id</span>              Random.id<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token function">help</span> <span class="token punctuation">[</span>command<span class="token punctuation">]</span>  display <span class="token function">help</span> <span class="token keyword">for</span> <span class="token function">command</span>
+Examples:
+random <span class="token function">date</span> yyyy-MM-dd
+random <span class="token function">time</span> HH:mm:ss
+console.log<span class="token punctuation">(</span>Random.range<span class="token punctuation">(</span>0,10,2<span class="token punctuation">))</span><span class="token punctuation">;</span>
+</code></pre>
+<h2 id="JSON5"><a href="#JSON5" class="headerlink" title="JSON5"></a>JSON5</h2><a target="_blank" rel="noopener" href="https://github.com/json5/json5">json5/json5: JSON5 — JSON for humans</a><pre class=" language-bash"><code class="language-bash"><span class="token function">npm</span> i json5 -save-dev
+</code></pre>
+<pre class=" language-json"><code class="language-json">userInfo.json5
+// 重点 json 文件要用大括号包括
+<span class="token punctuation">{</span>
+  id<span class="token operator">:</span><span class="token string">"@id"</span><span class="token punctuation">,</span>
+  username<span class="token operator">:</span><span class="token string">"@cname()"</span><span class="token punctuation">,</span>
+  date<span class="token operator">:</span><span class="token string">"@date"</span><span class="token punctuation">,</span>
+  avatar<span class="token operator">:</span><span class="token string">"@image('200*200','red','#fff','avatar')"</span><span class="token punctuation">,</span>
+  description<span class="token operator">:</span><span class="token string">"@paragraph()"</span><span class="token punctuation">,</span>
+  ip<span class="token operator">:</span><span class="token string">"@ip()"</span><span class="token punctuation">,</span>
+  email<span class="token operator">:</span><span class="token string">"@email()"</span>
+<span class="token punctuation">}</span>
+useremail.json5
+<span class="token punctuation">{</span>
+  email<span class="token operator">:</span> <span class="token string">"@email()"</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<pre class=" language-js"><code class="language-js">testJSON5<span class="token punctuation">.</span>js
+<span class="token keyword">const</span> fs <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'fs'</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> path <span class="token operator">-</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'path'</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> JSON <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'json5'</span><span class="token punctuation">)</span>
+<span class="token keyword">var</span> json <span class="token operator">=</span> fs<span class="token punctuation">.</span><span class="token function">readFileSync</span><span class="token punctuation">(</span>path<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span>_dirname<span class="token punctuation">,</span><span class="token string">'./userInfo.json5'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>‘utf<span class="token number">-8</span>’<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">//console.log(json)</span>
+<span class="token keyword">var</span> obj <span class="token operator">=</span> JSON5<span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span>json<span class="token punctuation">)</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span>
+</code></pre>
+<h2 id="mock-和-vue-cli中的vue-config-js"><a href="#mock-和-vue-cli中的vue-config-js" class="headerlink" title="mock  和  vue-cli中的vue.config.js"></a>mock  和  vue-cli中的vue.config.js</h2></li>
+<li>webpack.config.js</li>
+<li>vue.config.js<pre class=" language-js"><code class="language-js">vue<span class="token punctuation">.</span>config<span class="token punctuation">.</span>js
+<span class="token comment" spellcheck="true">// 拦截</span>
+module<span class="token punctuation">.</span><span class="token keyword">export</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+  devServer<span class="token punctuation">:</span><span class="token punctuation">{</span>
+      before<span class="token punctuation">:</span><span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'./mock/index.js'</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<pre class=" language-js"><code class="language-js">mock<span class="token operator">/</span>index<span class="token punctuation">.</span>js
+<span class="token keyword">const</span> fs <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'fs'</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> path <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'path'</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> Mock <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'mockjs'</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> JSON5 <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'json5'</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">// 读取json文件</span>
+<span class="token keyword">function</span> <span class="token function">getJsonFile</span><span class="token punctuation">(</span>filePath<span class="token punctuation">)</span><span class="token punctuation">{</span>
+  <span class="token comment" spellcheck="true">// 读取指定的json文件</span>
+  <span class="token keyword">var</span> json  <span class="token operator">=</span> fs<span class="token punctuation">.</span><span class="token function">readFileSync</span><span class="token punctuation">(</span>path<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span>_dirname<span class="token punctuation">,</span>filePath<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token string">'utf-8'</span><span class="token punctuation">)</span>
+  <span class="token keyword">return</span> JSON5<span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span>json<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true">// 返回一个函数</span>
+module<span class="token punctuation">.</span><span class="token keyword">export</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span>app<span class="token punctuation">)</span><span class="token punctuation">{</span>
+  <span class="token comment" spellcheck="true">// 环境变量</span>
+  <span class="token keyword">if</span><span class="token punctuation">(</span>process<span class="token punctuation">.</span>env<span class="token punctuation">.</span>MOCK <span class="token operator">==</span> <span class="token string">'true'</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+      <span class="token comment" spellcheck="true">//  http://localhost:8080/user/userinfo  监听http请求</span>
+      <span class="token comment" spellcheck="true">// /user/userinfo 数据接口地址</span>
+      app<span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span><span class="token string">'/user/userinfo'</span><span class="token punctuation">,</span><span class="token keyword">function</span><span class="token punctuation">(</span>rep<span class="token punctuation">,</span>res<span class="token punctuation">)</span><span class="token punctuation">{</span>
+          <span class="token comment" spellcheck="true">// 每次响应请求时读取mock data的json文件</span>
+          <span class="token comment" spellcheck="true">// getJsonFile方法定义了如何读取json文件并解析成数据对象</span>
+          <span class="token keyword">var</span> json <span class="token operator">=</span> <span class="token function">getJsonFile</span><span class="token punctuation">(</span><span class="token string">'./userInfo.json5'</span><span class="token punctuation">)</span>
+          <span class="token comment" spellcheck="true">// 将json传入Mock.mock 方法，生成的数据返回浏览器</span>
+          res<span class="token punctuation">.</span><span class="token function">json</span><span class="token punctuation">(</span>Mock<span class="token punctuation">.</span><span class="token function">mock</span><span class="token punctuation">(</span>json<span class="token punctuation">)</span><span class="token punctuation">)</span>
+      <span class="token punctuation">}</span><span class="token punctuation">)</span>   
+      app<span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span><span class="token string">'/user/useremail'</span><span class="token punctuation">,</span><span class="token keyword">function</span><span class="token punctuation">(</span>rep<span class="token punctuation">,</span>res<span class="token punctuation">)</span><span class="token punctuation">{</span>
+          <span class="token comment" spellcheck="true">// 每次响应请求时读取mock data的json文件</span>
+          <span class="token comment" spellcheck="true">// getJsonFile方法定义了如何读取json文件并解析成数据对象</span>
+          <span class="token keyword">var</span> json <span class="token operator">=</span> <span class="token function">getJsonFile</span><span class="token punctuation">(</span><span class="token string">'./useremail.json5'</span><span class="token punctuation">)</span>
+          <span class="token comment" spellcheck="true">// 将json传入Mock.mock 方法，生成的数据返回浏览器</span>
+          res<span class="token punctuation">.</span><span class="token function">json</span><span class="token punctuation">(</span>Mock<span class="token punctuation">.</span><span class="token function">mock</span><span class="token punctuation">(</span>json<span class="token punctuation">)</span><span class="token punctuation">)</span>
+      <span class="token punctuation">}</span><span class="token punctuation">)</span>   
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+设置生产环境，关闭Mock的假数据<pre><code>.env.development
+MOCK=true // MOCK=false 移除mock代码
+</code></pre>
+<h2 id="Axios"><a href="#Axios" class="headerlink" title="Axios"></a>Axios</h2><blockquote>
+<p>导入相关文件的两种方法</p>
+<ul>
+<li>在组件中导入</li>
+</ul>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">import</span> axios <span class="token keyword">from</span> <span class="token string">'axios'</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span><span class="token punctuation">{</span>
+    <span class="token function">data</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">return</span><span class="token punctuation">{</span>
+            
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<ul>
+<li>在main.js 文件中导入</li>
+</ul>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">import</span> store <span class="token keyword">from</span> <span class="token string">'./store'</span>
+<span class="token keyword">import</span> router <span class="token keyword">from</span> <span class="token string">'./router'</span>
+<span class="token keyword">import</span> ElementUI <span class="token keyword">from</span> <span class="token string">'element-ui'</span>
+<span class="token keyword">import</span> <span class="token string">'element-ui/lib/theme-chalk/index.css'</span>
+Vue<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>ElementUI<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">new</span> <span class="token class-name">Vue</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    router<span class="token punctuation">,</span>
+    store<span class="token punctuation">,</span>
+    render<span class="token punctuation">:</span>h <span class="token operator">=</span><span class="token operator">></span> <span class="token function">h</span><span class="token punctuation">(</span>App<span class="token punctuation">)</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">$mount</span><span class="token punctuation">(</span><span class="token string">"#app"</span><span class="token punctuation">)</span>
+</code></pre>
+</blockquote>
+<pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">//使用方法1</span>
+<span class="token operator">&lt;</span>h1<span class="token operator">></span><span class="token punctuation">{</span><span class="token punctuation">{</span>id<span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>h1<span class="token operator">></span>
+helloworld<span class="token punctuation">.</span>vue 组件
+<span class="token comment" spellcheck="true">// 导入axios</span>
+<span class="token keyword">import</span> axios <span class="token keyword">from</span> <span class="token string">'axios'</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span><span class="token punctuation">{</span>
+  <span class="token function">data</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+      <span class="token keyword">return</span><span class="token punctuation">{</span>
+          id<span class="token punctuation">:</span><span class="token string">''</span>
+      <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  mounted<span class="token punctuation">:</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+      axios<span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span><span class="token string">'/user/userinfo'</span><span class="token punctuation">)</span>
+      <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span>res<span class="token operator">=</span><span class="token operator">></span><span class="token punctuation">{</span>
+          console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>res<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// 打印出data 的json 数据</span>
+          <span class="token comment" spellcheck="true">// </span>
+          <span class="token keyword">this</span><span class="token punctuation">.</span>id <span class="token operator">=</span> res<span class="token punctuation">.</span>data<span class="token punctuation">.</span>id
+      <span class="token punctuation">}</span><span class="token punctuation">)</span>
+      <span class="token punctuation">.</span><span class="token keyword">catch</span><span class="token punctuation">(</span>err <span class="token operator">=</span><span class="token operator">></span><span class="token punctuation">{</span>
+          console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span>
+      <span class="token punctuation">}</span><span class="token punctuation">)</span>
+        axios<span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span><span class="token string">'/user/useremail'</span><span class="token punctuation">)</span>
+        <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span>res<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+          console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>res<span class="token punctuation">)</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span>
+        <span class="token punctuation">.</span><span class="token keyword">catch</span><span class="token punctuation">(</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+          console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span>      
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+封装Axios<h2 id="JQuery使用Mock"><a href="#JQuery使用Mock" class="headerlink" title="JQuery使用Mock"></a>JQuery使用Mock</h2><pre class=" language-js"><code class="language-js">mock<span class="token punctuation">.</span>js
+<span class="token keyword">if</span><span class="token punctuation">(</span>MOCK <span class="token operator">==</span> <span class="token string">"true"</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+  Mock<span class="token punctuation">.</span><span class="token function">mock</span><span class="token punctuation">(</span><span class="token string">'/user/userinfo'</span><span class="token punctuation">,</span> <span class="token string">'get'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+  id<span class="token punctuation">:</span> <span class="token string">'@id'</span><span class="token punctuation">,</span>
+  username<span class="token punctuation">:</span> <span class="token string">"@cname()"</span><span class="token punctuation">,</span>
+  date<span class="token punctuation">:</span> <span class="token string">"@date"</span><span class="token punctuation">,</span>
+  avatar<span class="token punctuation">:</span> <span class="token string">"@image('200*200','red','#fff','avatar')"</span><span class="token punctuation">,</span>
+  description<span class="token punctuation">:</span> <span class="token string">"@paragraph(1)"</span><span class="token punctuation">,</span>
+  ip<span class="token punctuation">:</span> <span class="token string">"@ip()"</span><span class="token punctuation">,</span>
+  email<span class="token punctuation">:</span> <span class="token string">"@email()"</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+Mock<span class="token punctuation">.</span><span class="token function">mock</span><span class="token punctuation">(</span><span class="token string">'/user/userlist'</span><span class="token punctuation">,</span> <span class="token string">'get'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+  <span class="token string">"userlist|1-4"</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>
+      <span class="token punctuation">{</span>
+          id<span class="token punctuation">:</span> <span class="token string">'@id'</span><span class="token punctuation">,</span>
+          username<span class="token punctuation">:</span> <span class="token string">"@cname()"</span><span class="token punctuation">,</span>
+          date<span class="token punctuation">:</span> <span class="token string">"@date"</span><span class="token punctuation">,</span>
+          avatar<span class="token punctuation">:</span> <span class="token string">"@image('200*200','red','#fff','avatar')"</span><span class="token punctuation">,</span>
+          description<span class="token punctuation">:</span> <span class="token string">"@paragraph(1)"</span><span class="token punctuation">,</span>
+          ip<span class="token punctuation">:</span> <span class="token string">"@ip()"</span><span class="token punctuation">,</span>
+          email<span class="token punctuation">:</span> <span class="token string">"@email()"</span>
+      <span class="token punctuation">}</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre>
+<pre class=" language-js"><code class="language-js"><span class="token operator">&lt;</span>script src<span class="token operator">=</span><span class="token string">"https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"</span><span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
+<span class="token operator">&lt;</span>script src<span class="token operator">=</span><span class="token string">"http://mockjs.com/dist/mock.js"</span><span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
+<span class="token operator">&lt;</span>script<span class="token operator">></span> MOCK <span class="token operator">=</span> <span class="token string">'false'</span><span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span> <span class="token comment" spellcheck="true">//取消mock</span>
+<span class="token operator">&lt;</span>script src<span class="token operator">=</span><span class="token string">"./mock.js"</span><span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
+<span class="token operator">&lt;</span>h1<span class="token operator">></span>id<span class="token operator">&lt;</span><span class="token operator">/</span>h1<span class="token operator">></span>
+<span class="token operator">&lt;</span>h2<span class="token operator">></span>username<span class="token operator">&lt;</span><span class="token operator">/</span>h2<span class="token operator">></span>
+<span class="token operator">&lt;</span>script<span class="token operator">></span>
+  <span class="token function">$</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  $<span class="token punctuation">.</span><span class="token function">ajax</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+      url<span class="token punctuation">:</span> <span class="token string">'/user/userinfo'</span><span class="token punctuation">,</span>
+      dataType<span class="token punctuation">:</span> <span class="token string">'json'</span><span class="token punctuation">,</span>
+      success<span class="token punctuation">:</span> <span class="token punctuation">(</span>data<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+          <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">"h1"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">html</span><span class="token punctuation">(</span>data<span class="token punctuation">.</span>id<span class="token punctuation">)</span>
+          <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">"h2"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">html</span><span class="token punctuation">(</span>data<span class="token punctuation">.</span>username<span class="token punctuation">)</span>
+          console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
+ <span class="token function">$</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+          $<span class="token punctuation">.</span><span class="token function">ajax</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+              url<span class="token punctuation">:</span> <span class="token string">'/user/userinfo'</span><span class="token punctuation">,</span>
+              dataType<span class="token punctuation">:</span> <span class="token string">'json'</span><span class="token punctuation">,</span>
+              success<span class="token punctuation">:</span> <span class="token punctuation">(</span>data<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+                  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> data<span class="token punctuation">.</span>usernamelist<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>data<span class="token punctuation">.</span>usernamelist<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                  <span class="token punctuation">}</span>
+              <span class="token punctuation">}</span>
+          <span class="token punctuation">}</span><span class="token punctuation">)</span>
+      <span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre>
+<h2 id="Mock-mock"><a href="#Mock-mock" class="headerlink" title="Mock.mock()"></a>Mock.mock()</h2><h3 id="Mock-mock-rurl-rtype-template-function-options"><a href="#Mock-mock-rurl-rtype-template-function-options" class="headerlink" title="Mock.mock( rurl?, rtype?, template|function( options ) )"></a>Mock.mock( rurl?, rtype?, template|function( options ) )</h3>根据数据模板生成模拟数据。<h3 id="Mock-mock-template"><a href="#Mock-mock-template" class="headerlink" title="Mock.mock( template )"></a>Mock.mock( template )</h3>根据数据模板生成模拟数据。<br><a target="_blank" rel="noopener" href="http://jsfiddle.net/nuysoft/Y3rg6/7/">JSFiddle</a><h3 id="Mock-mock-rurl-template"><a href="#Mock-mock-rurl-template" class="headerlink" title="Mock.mock( rurl, template )"></a>Mock.mock( rurl, template )</h3>记录数据模板。当拦截到匹配 <code>rurl</code> 的 Ajax 请求时，将根据数据模板 <code>template</code> 生成模拟数据，并作为响应数据返回。<br><a target="_blank" rel="noopener" href="http://jsfiddle.net/nuysoft/BeENf/6/">JSFiddle</a><h3 id="Mock-mock-rurl-function-options"><a href="#Mock-mock-rurl-function-options" class="headerlink" title="Mock.mock( rurl, function( options ) )"></a>Mock.mock( rurl, function( options ) )</h3>记录用于生成响应数据的函数。当拦截到匹配 <code>rurl</code> 的 Ajax 请求时，函数 <code>function(options)</code> 将被执行，并把执行结果作为响应数据返回。<br><a target="_blank" rel="noopener" href="http://jsfiddle.net/nuysoft/2s5t5/15/">JSFiddle</a><h3 id="Mock-mock-rurl-rtype-template"><a href="#Mock-mock-rurl-rtype-template" class="headerlink" title="Mock.mock( rurl, rtype, template )"></a>Mock.mock( rurl, rtype, template )</h3>记录数据模板。当拦截到匹配 <code>rurl</code> 和 <code>rtype</code> 的 Ajax 请求时，将根据数据模板 <code>template</code> 生成模拟数据，并作为响应数据返回。<br><a target="_blank" rel="noopener" href="http://jsfiddle.net/nuysoft/Eq68p/3/">JSFiddle</a><h3 id="Mock-mock-rurl-rtype-function-options"><a href="#Mock-mock-rurl-rtype-function-options" class="headerlink" title="Mock.mock( rurl, rtype, function( options ) )"></a>Mock.mock( rurl, rtype, function( options ) )</h3>记录用于生成响应数据的函数。当拦截到匹配 <code>rurl</code> 和 <code>rtype</code> 的 Ajax 请求时，函数 <code>function(options)</code> 将被执行，并把执行结果作为响应数据返回。<br><a target="_blank" rel="noopener" href="http://jsfiddle.net/nuysoft/6dpV5/5/">JSFiddle</a><h3 id="rurl"><a href="#rurl" class="headerlink" title="rurl"></a>rurl</h3>可选。<br>表示需要拦截的 URL，可以是 URL 字符串或 URL 正则。例如 <code>/\/domain\/list\.json/</code>、<code>'/domian/list.json'</code>。<h3 id="rtype"><a href="#rtype" class="headerlink" title="rtype"></a>rtype</h3>可选。<br>表示需要拦截的 Ajax 请求类型。例如 <code>GET</code>、<code>POST</code>、<code>PUT</code>、<code>DELETE</code> 等。<h3 id="template"><a href="#template" class="headerlink" title="template"></a>template</h3>可选。<br>表示数据模板，可以是对象或字符串。例如 <code>{ 'data|1-10':[{}] }</code>、<code>'@EMAIL'</code>。<h3 id="function-options"><a href="#function-options" class="headerlink" title="function(options)"></a>function(options)</h3>可选。<br>表示用于生成响应数据的函数。<h4 id="options"><a href="#options" class="headerlink" title="options"></a>options</h4>指向本次请求的 Ajax 选项集，含有 <code>url</code>、<code>type</code> 和 <code>body</code> 三个属性，参见 <a target="_blank" rel="noopener" href="https://xhr.spec.whatwg.org/">XMLHttpRequest 规范</a>。<blockquote>
+<p>从 1.0 开始，Mock.js 通过覆盖和模拟原生 XMLHttpRequest 的行为来拦截 Ajax 请求，不再依赖于第三方 Ajax 工具库（例如 jQuery、Zepto 等）。</p>
+</blockquote>
+<pre class=" language-js"><code class="language-js">mock<span class="token punctuation">.</span>js 
+<span class="token keyword">import</span> Mock <span class="token keyword">from</span> <span class="token string">'mock.js'</span>
+Mock<span class="token punctuation">.</span><span class="token function">mock</span><span class="token punctuation">(</span><span class="token string">'/api/banner'</span><span class="token punctuation">,</span><span class="token punctuation">{</span>
+  urename<span class="token punctuation">:</span> <span class="token string">'hello mock'</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// 拦截的后端路径</span>
+main<span class="token punctuation">.</span>js
+<span class="token comment" spellcheck="true">// 是否是开发的环境</span>
+<span class="token keyword">if</span><span class="token punctuation">(</span>process<span class="token punctuation">.</span>env<span class="token punctuation">.</span>NODE_ENV <span class="token operator">===</span> <span class="token string">'development'</span><span class="token punctuation">)</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'@/api/mock'</span><span class="token punctuation">)</span>
+</code></pre>
+<h2 id="Mock-setup-settings"><a href="#Mock-setup-settings" class="headerlink" title="Mock.setup( settings )"></a>Mock.setup( settings )</h2></li>
+<li>Mock.setup( settings )  设置拦截延时时间<br>配置拦截 Ajax 请求时的行为。支持的配置项有：<code>timeout</code>。<h3 id="settings"><a href="#settings" class="headerlink" title="settings"></a>settings</h3>必选。<br>配置项集合。<h4 id="timeout"><a href="#timeout" class="headerlink" title="timeout"></a>timeout</h4>可选。<br><code>指定被拦截的 Ajax 请求的响应时间，单位是毫秒。</code>值可以是正整数，例如 <code>400</code>，表示 400 毫秒 后才会返回响应内容；也可以是横杠 <code>'-'</code> 风格的字符串，例如 <code>'200-600'</code>，表示响应时间介于 200 和 600 毫秒之间。默认值是<code>'10-100'</code>。<pre class=" language-js"><code class="language-js">Mock<span class="token punctuation">.</span><span class="token function">setup</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  timeout<span class="token punctuation">:</span> <span class="token number">400</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+Mock<span class="token punctuation">.</span><span class="token function">setup</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  timeout<span class="token punctuation">:</span> <span class="token string">'200-600'</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre>
+<blockquote>
+<p>目前，接口 <code>Mock.setup( settings )</code> 仅用于配置 Ajax 请求，将来可能用于配置 Mock 的其他行为。</p>
+</blockquote>
+<h2 id="Mock-Random"><a href="#Mock-Random" class="headerlink" title="Mock.Random"></a>Mock.Random</h2>Mock.Random 是一个工具类，用于生成各种随机数据。</li>
+</ul>
+<p><strong>Mock.Random 的方法在数据模板中称为『占位符』，书写格式为 <code>@占位符(参数 [, 参数])</code> 。</strong></p>
+<blockquote>
+<p>生成随机数的两种方法</p>
+<ul>
+<li>方法一：<code>Mock.mock('@date')</code></li>
+<li>方法二：<code>Random.email()</code></li>
+</ul>
+</blockquote>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">var</span> Random <span class="token operator">=</span> Mock<span class="token punctuation">.</span>Random
+<span class="token comment" spellcheck="true">// Random 没有（）</span>
+<span class="token comment" spellcheck="true">// 方法一</span>
+Random<span class="token punctuation">.</span><span class="token function">email</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">// => "n.clark@miller.io"</span>
+<span class="token comment" spellcheck="true">// 方法二</span>
+Mock<span class="token punctuation">.</span><span class="token function">mock</span><span class="token punctuation">(</span><span class="token string">'@email'</span><span class="token punctuation">)</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>Mock<span class="token punctuation">.</span><span class="token function">mock</span><span class="token punctuation">(</span><span class="token string">'@email'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>Mock<span class="token punctuation">.</span><span class="token function">mock</span><span class="token punctuation">(</span><span class="token string">'@uuid'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// => "y.lee@lewis.org"</span>
+<span class="token keyword">var</span> data <span class="token operator">=</span> Mock<span class="token punctuation">.</span><span class="token function">mock</span><span class="token punctuation">(</span> <span class="token punctuation">{</span> email<span class="token punctuation">:</span> <span class="token string">'@email'</span> <span class="token punctuation">}</span> <span class="token punctuation">)</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>JSON<span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span>data<span class="token punctuation">,</span><span class="token keyword">null</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// 格式化为JSON格式</span>
+<span class="token comment" spellcheck="true">// 4 是缩进字符</span>
+<span class="token comment" spellcheck="true">// => { email: "v.lewis@hall.gov" }</span>
+</code></pre>
+<h3 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h3><p>Mock.Random 提供的完整方法（占位符）如下：<br>| Type          | Method                                                       |<br>| ————- | ———————————————————— |<br>| Basic         | boolean, natural, integer, float, character, string, range, date, time, datetime, now |<br>| Image         | image, dataImage                                             |<br>| Color         | color                                                        |<br>| Text          | paragraph, sentence, word, title, cparagraph, csentence, cword, ctitle |<br>| Name          | first, last, name, cfirst, clast, cname                      |<br>| Web           | url, domain, email, ip, tld                                  |<br>| Address       | area, region                                                 |<br>| Helper        | capitalize, upper, lower, pick, shuffle                      |<br>| Miscellaneous | guid, id                                                     |</p>
+<h3 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h3><p>Mock.Random 中的方法与数据模板的 <code>@占位符</code> 一一对应，在需要时还可以为 Mock.Random 扩展方法，然后在数据模板中通过 <code>@扩展方法</code> 引用。例如：</p>
+<pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">// 自定义数据源</span>
+Random<span class="token punctuation">.</span><span class="token function">extend</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    constellation<span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span>date<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">var</span> constellations <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'白羊座'</span><span class="token punctuation">,</span> <span class="token string">'金牛座'</span><span class="token punctuation">,</span> <span class="token string">'双子座'</span><span class="token punctuation">,</span> <span class="token string">'巨蟹座'</span><span class="token punctuation">,</span> <span class="token string">'狮子座'</span><span class="token punctuation">,</span> <span class="token string">'处女座'</span><span class="token punctuation">,</span> <span class="token string">'天秤座'</span><span class="token punctuation">,</span> <span class="token string">'天蝎座'</span><span class="token punctuation">,</span> <span class="token string">'射手座'</span><span class="token punctuation">,</span> <span class="token string">'摩羯座'</span><span class="token punctuation">,</span> <span class="token string">'水瓶座'</span><span class="token punctuation">,</span> <span class="token string">'双鱼座'</span><span class="token punctuation">]</span>
+        <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">pick</span><span class="token punctuation">(</span>constellations<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+Random<span class="token punctuation">.</span><span class="token function">constellation</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">// => "水瓶座"</span>
+Mock<span class="token punctuation">.</span><span class="token function">mock</span><span class="token punctuation">(</span><span class="token string">'@CONSTELLATION'</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">// => "天蝎座"</span>
+Mock<span class="token punctuation">.</span><span class="token function">mock</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    constellation<span class="token punctuation">:</span> <span class="token string">'@CONSTELLATION'</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">// => { constellation: "射手座" }</span>
+</code></pre>
+<h3 id="Basic"><a href="#Basic" class="headerlink" title="Basic"></a>Basic</h3><h4 id="boolean"><a href="#boolean" class="headerlink" title="boolean"></a>boolean</h4><p>Random.boolean( min?, max?, current? )</p>
+<ul>
+<li>Random.boolean()</li>
+<li>Random.boolean( min, max, current )<br>返回一个随机的布尔值。<br>min<br>可选。<br>指示参数 current 出现的概率。概率计算公式为 <code>min / (min + max)</code>。该参数的默认值为 1，即有 50% 的概率返回参数 current。<br>max<br>可选。<br>指示参数 current 的相反值 <code>!current</code> 出现的概率。概率计算公式为 <code>max / (min + max)</code>。该参数的默认值为 <code>1</code>，即有 50% 的概率返回参数 <code>!current</code>。<br>current<br>可选。<br>可选值为布尔值 <code>true</code> 或 <code>false</code>。如果未传入任何参数，则返回 <code>true</code> 和 <code>false</code> 的概率各为 50%。该参数没有默认值。在该方法的内部，依据原生方法 Math.random() 返回的（浮点）数来计算和返回布尔值，例如在最简单的情况下，返回值是表达式 <code>Math.random() &gt;= 0.5</code> 的执行结果。<pre class=" language-js"><code class="language-js">Random<span class="token punctuation">.</span><span class="token function">boolean</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">// => true</span>
+Random<span class="token punctuation">.</span><span class="token function">boolean</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">9</span><span class="token punctuation">,</span> <span class="token boolean">true</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">// => false</span>
+Random<span class="token punctuation">.</span><span class="token function">bool</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">// => false</span>
+Random<span class="token punctuation">.</span><span class="token function">bool</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">9</span><span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">// => true</span>
+</code></pre>
+<h4 id="natural"><a href="#natural" class="headerlink" title="natural"></a>natural</h4>Random.natural( min?, max? )</li>
+<li>Random.natural()</li>
+<li>Random.natural( min )</li>
+<li>Random.natural( min, max )<br>返回一个随机的自然数（大于等于 0 的整数）。<br>min<br>可选。<br>指示随机自然数的最小值。默认值为 0。<br>max<br>可选。<br>指示随机自然数的最大值。默认值为 9007199254740992。<pre class=" language-js"><code class="language-js">Random<span class="token punctuation">.</span><span class="token function">natural</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">// => 1002794054057984</span>
+Random<span class="token punctuation">.</span><span class="token function">natural</span><span class="token punctuation">(</span><span class="token number">10000</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">// => 71529071126209</span>
+Random<span class="token punctuation">.</span><span class="token function">natural</span><span class="token punctuation">(</span><span class="token number">60</span><span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">// => 77</span>
+</code></pre>
+Random.integer( min?, max? )</li>
+<li>Random.integer()</li>
+<li>Random.integer( min )</li>
+<li>Random.integer( min, max )<br>返回一个随机的整数。<br>min<br>可选。<br>指示随机整数的最小值。默认值为 -9007199254740992。<br>max<br>可选。<br>指示随机整数的最大值。默认值为 9007199254740992。<pre><code>Random.integer()
+// =&gt; -3815311811805184
+Random.integer(10000)
+// =&gt; 4303764511003750
+Random.integer(60,100)
+// =&gt; 96
+</code></pre>
+<h4 id="float"><a href="#float" class="headerlink" title="float"></a>float</h4>Random.float( min?, max?, dmin?, dmax? )</li>
+<li>Random.float()</li>
+<li>Random.float( min )</li>
+<li>Random.float( min, max )</li>
+<li>Random.float( min, max, dmin )</li>
+<li>Random.float( min, max, dmin, dmax )<br>返回一个随机的浮点数。<br>min<br>可选。<br>整数部分的最小值。默认值为 -9007199254740992。<br>max<br>可选。<br>整数部分的最大值。默认值为 9007199254740992。<br>dmin<br>可选。<br>小数部分位数的最小值。默认值为 0。<br>dmax<br>可选。<br>小数部分位数的最大值。默认值为 17。<pre class=" language-js"><code class="language-js">Random<span class="token punctuation">.</span><span class="token function">float</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">// => -1766114241544192.8</span>
+Random<span class="token punctuation">.</span><span class="token function">float</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">// => 556530504040448.25</span>
+Random<span class="token punctuation">.</span><span class="token function">float</span><span class="token punctuation">(</span><span class="token number">60</span><span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">// => 82.56779679549358</span>
+Random<span class="token punctuation">.</span><span class="token function">float</span><span class="token punctuation">(</span><span class="token number">60</span><span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">// => 61.718533677927894</span>
+Random<span class="token punctuation">.</span><span class="token function">float</span><span class="token punctuation">(</span><span class="token number">60</span><span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">// => 70.6849</span>
+</code></pre>
+<h4 id="character"><a href="#character" class="headerlink" title="character"></a>character</h4>Random.character( pool? )</li>
+<li>Random.character()</li>
+<li>Random.character( ‘lower/upper/number/symbol’ )</li>
+<li>Random.character( pool )<br>返回一个随机字符。<br>pool<br>可选。<br>字符串。表示字符池，将从中选择一个字符返回。<br>如果传入了 <code>'lower'</code> 或 <code>'upper'</code>、<code>'number'</code>、<code>'symbol'</code>，表示从内置的字符池从选取：<pre><code>{
+  lower: "abcdefghijklmnopqrstuvwxyz",
+  upper: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+  number: "0123456789",
+  symbol: "!@#$%^&amp;*()[]"
+}
+</code></pre>
+如果未传入该参数，则从 <code>lower + upper + number + symbol</code> 中随机选取一个字符返回。<pre><code>Random.character()
+// =&gt; "P"
+Random.character('lower')
+// =&gt; "y"
+Random.character('upper')
+// =&gt; "X"
+Random.character('number')
+// =&gt; "1"
+Random.character('symbol')
+// =&gt; "&amp;"
+Random.character('aeiou')
+// =&gt; "u"
+</code></pre>
+Random.string( pool?, min?, max? )</li>
+<li>Random.string()</li>
+<li>Random.string( length )</li>
+<li>Random.string( pool, length )</li>
+<li>Random.string( min, max )</li>
+<li>Random.string( pool, min, max )<br>返回一个随机字符串。<br>pool<br>可选。<br>字符串。表示字符池，将从中选择一个字符返回。<br>如果传入 <code>'lower'</code> 或 <code>'upper'</code>、<code>'number'</code>、<code>'symbol'</code>，表示从内置的字符池从选取：<pre><code>{
+  lower: "abcdefghijklmnopqrstuvwxyz",
+  upper: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+  number: "0123456789",
+  symbol: "!@#$%^&amp;*()[]"
+}
+</code></pre>
+如果未传入该参数，则从 <code>lower + upper + number + symbol</code> 中随机选取一个字符返回。<br>min<br>可选。<br>随机字符串的最小长度。默认值为 3。<br>max<br>可选。<br>随机字符串的最大长度。默认值为 7。<pre class=" language-js"><code class="language-js">Random<span class="token punctuation">.</span><span class="token function">string</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">// => "pJjDUe"</span>
+Random<span class="token punctuation">.</span><span class="token function">string</span><span class="token punctuation">(</span> <span class="token number">5</span> <span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">// => "GaadY"</span>
+Random<span class="token punctuation">.</span><span class="token function">string</span><span class="token punctuation">(</span> <span class="token string">'lower'</span><span class="token punctuation">,</span> <span class="token number">5</span> <span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">// => "jseqj"</span>
+Random<span class="token punctuation">.</span><span class="token function">string</span><span class="token punctuation">(</span> <span class="token number">7</span><span class="token punctuation">,</span> <span class="token number">10</span> <span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">// => "UuGQgSYk"</span>
+Random<span class="token punctuation">.</span><span class="token function">string</span><span class="token punctuation">(</span> <span class="token string">'aeiou'</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">3</span> <span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">// => "ea"</span>
+Random<span class="token punctuation">.</span><span class="token function">string</span><span class="token punctuation">(</span> <span class="token string">'壹贰叁肆伍陆柒捌玖拾'</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">5</span> <span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">// => "肆捌伍叁"</span>
+</code></pre>
+range<br>Random.range( start?, stop, step? )</li>
+<li>Random.range( stop )</li>
+<li>Random.range( start, stop )</li>
+<li>Random.range( start, stop, step )<br>返回一个整型数组。<br>start<br>必选。<br>数组中整数的起始值。<br>stop<br>可选。<br>数组中整数的结束值（不包含在返回值中）。<br>step<br>可选。<br>数组中整数之间的步长。默认值为 1。<pre class=" language-js"><code class="language-js">Random<span class="token punctuation">.</span><span class="token function">range</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">// => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]</span>
+Random<span class="token punctuation">.</span><span class="token function">range</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">// => [3, 4, 5, 6]</span>
+Random<span class="token punctuation">.</span><span class="token function">range</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">// => [1, 3, 5, 7, 9]</span>
+Random<span class="token punctuation">.</span><span class="token function">range</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">// => [1, 4, 7]</span>
+</code></pre>
+<h3 id="Date"><a href="#Date" class="headerlink" title="Date"></a>Date</h3>Random.date( format? )</li>
+<li>Random.date()</li>
+<li>Random.date(format)<br>返回一个随机的日期字符串。<br>format<br>可选。<br>指示生成的日期字符串的格式。默认值为 <code>yyyy-MM-dd</code>。<br>可选的占位符参考自 <a target="_blank" rel="noopener" href="http://docs.sencha.com/ext-js/4-1/#!/api/Ext.Date">Ext.Date</a>，如下所示：<table>
+<thead>
+<tr>
+<th>Format</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>yyyy</td>
+<td>A full numeric representation of a year, 4 digits</td>
+<td>1999 or 2003</td>
+</tr>
+<tr>
+<td>yy</td>
+<td>A two digit representation of a year</td>
+<td>99 or 03</td>
+</tr>
+<tr>
+<td>y</td>
+<td>A two digit representation of a year</td>
+<td>99 or 03</td>
+</tr>
+<tr>
+<td>MM</td>
+<td>Numeric representation of a month, with leading zeros</td>
+<td>01 to 12</td>
+</tr>
+<tr>
+<td>M</td>
+<td>Numeric representation of a month, without leading zeros</td>
+<td>1 to 12</td>
+</tr>
+<tr>
+<td>dd</td>
+<td>Day of the month, 2 digits with leading zeros</td>
+<td>01 to 31</td>
+</tr>
+<tr>
+<td>d</td>
+<td>Day of the month without leading zeros</td>
+<td>1 to 31</td>
+</tr>
+<tr>
+<td>HH</td>
+<td>24-hour format of an hour with leading zeros</td>
+<td>00 to 23</td>
+</tr>
+<tr>
+<td>H</td>
+<td>24-hour format of an hour without leading zeros</td>
+<td>0 to 23</td>
+</tr>
+<tr>
+<td>hh</td>
+<td>12-hour format of an hour without leading zeros</td>
+<td>1 to 12</td>
+</tr>
+<tr>
+<td>h</td>
+<td>12-hour format of an hour with leading zeros</td>
+<td>01 to 12</td>
+</tr>
+<tr>
+<td>mm</td>
+<td>Minutes, with leading zeros</td>
+<td>00 to 59</td>
+</tr>
+<tr>
+<td>m</td>
+<td>Minutes, without leading zeros</td>
+<td>0 to 59</td>
+</tr>
+<tr>
+<td>ss</td>
+<td>Seconds, with leading zeros</td>
+<td>00 to 59</td>
+</tr>
+<tr>
+<td>s</td>
+<td>Seconds, without leading zeros</td>
+<td>0 to 59</td>
+</tr>
+<tr>
+<td>SS</td>
+<td>Milliseconds, with leading zeros</td>
+<td>000 to 999</td>
+</tr>
+<tr>
+<td>S</td>
+<td>Milliseconds, without leading zeros</td>
+<td>0 to 999</td>
+</tr>
+<tr>
+<td>A</td>
+<td>Uppercase Ante meridiem and Post meridiem</td>
+<td>AM or PM</td>
+</tr>
+<tr>
+<td>a</td>
+<td>Lowercase Ante meridiem and Post meridiem</td>
+<td>am or pm</td>
+</tr>
+<tr>
+<td>T</td>
+<td>Milliseconds, since 1970-1-1 00:00:00 UTC</td>
+<td>759883437303</td>
+</tr>
+</tbody></table>
+<pre class=" language-js"><code class="language-js">Random<span class="token punctuation">.</span><span class="token function">date</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">// => "2002-10-23"</span>
+Random<span class="token punctuation">.</span><span class="token function">date</span><span class="token punctuation">(</span><span class="token string">'yyyy-MM-dd'</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">// => "1983-01-29"</span>
+Random<span class="token punctuation">.</span><span class="token function">date</span><span class="token punctuation">(</span><span class="token string">'yy-MM-dd'</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">// => "79-02-14"</span>
+Random<span class="token punctuation">.</span><span class="token function">date</span><span class="token punctuation">(</span><span class="token string">'y-MM-dd'</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">// => "81-05-17"</span>
+Random<span class="token punctuation">.</span><span class="token function">date</span><span class="token punctuation">(</span><span class="token string">'y-M-d'</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">// => "84-6-5"</span>
+</code></pre>
+Random.time( format? )</li>
+<li>Random.time()</li>
+<li>Random.time( format )<br>返回一个随机的时间字符串。<br>format<br>可选。<br>指示生成的时间字符串的格式。默认值为 <code>HH:mm:ss</code>。<blockquote>
+<p>可选的占位符参考自 <a target="_blank" rel="noopener" href="http://docs.sencha.com/ext-js/4-1/#!/api/Ext.Date">Ext.Date</a>，请参见 Random.date( format? )。</p>
+</blockquote>
+<pre class=" language-js"><code class="language-js">Random<span class="token punctuation">.</span><span class="token function">time</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">// => "00:14:47"</span>
+Random<span class="token punctuation">.</span><span class="token function">time</span><span class="token punctuation">(</span><span class="token string">'A HH:mm:ss'</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">// => "PM 20:47:37"</span>
+Random<span class="token punctuation">.</span><span class="token function">time</span><span class="token punctuation">(</span><span class="token string">'a HH:mm:ss'</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">// => "pm 17:40:00"</span>
+Random<span class="token punctuation">.</span><span class="token function">time</span><span class="token punctuation">(</span><span class="token string">'HH:mm:ss'</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">// => "03:57:53"</span>
+Random<span class="token punctuation">.</span><span class="token function">time</span><span class="token punctuation">(</span><span class="token string">'H:m:s'</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">// => "3:5:13"</span>
+</code></pre>
+Random.datetime( format? )</li>
+<li>Random.datetime()</li>
+<li>Random.datetime( format )<br>返回一个随机的日期和时间字符串。<br>format<br>可选。<br>指示生成的日期和时间字符串的格式。默认值为 <code>yyyy-MM-dd HH:mm:ss</code>。<blockquote>
+<p>可选的占位符参考自 <a target="_blank" rel="noopener" href="http://docs.sencha.com/ext-js/4-1/#!/api/Ext.Date">Ext.Date</a>，请参见 Random.date( format? )。</p>
+</blockquote>
+<pre class=" language-js"><code class="language-js">Random<span class="token punctuation">.</span><span class="token function">datetime</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">// => "1977-11-17 03:50:15"</span>
+Random<span class="token punctuation">.</span><span class="token function">datetime</span><span class="token punctuation">(</span><span class="token string">'yyyy-MM-dd A HH:mm:ss'</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">// => "1976-04-24 AM 03:48:25"</span>
+Random<span class="token punctuation">.</span><span class="token function">datetime</span><span class="token punctuation">(</span><span class="token string">'yy-MM-dd a HH:mm:ss'</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">// => "73-01-18 pm 22:12:32"</span>
+Random<span class="token punctuation">.</span><span class="token function">datetime</span><span class="token punctuation">(</span><span class="token string">'y-MM-dd HH:mm:ss'</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">// => "79-06-24 04:45:16"</span>
+Random<span class="token punctuation">.</span><span class="token function">datetime</span><span class="token punctuation">(</span><span class="token string">'y-M-d H:m:s'</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">// => "02-4-23 2:49:40"</span>
+</code></pre>
+<h3 id="Now"><a href="#Now" class="headerlink" title="Now"></a>Now</h3>Random.now( unit?, format? )</li>
+<li>Ranndom.now( unit, format )</li>
+<li>Ranndom.now()</li>
+<li>Ranndom.now( format )</li>
+<li>Ranndom.now( unit )<br>返回当前的日期和时间字符串。<br>unit<br>可选。<br>表示时间单位，用于对当前日期和时间进行格式化。可选值有：<code>year</code>、<code>month</code>、<code>week</code>、<code>day</code>、<code>hour</code>、<code>minute</code>、<code>second</code>、<code>week</code>，默认不会格式化。<br>format<br>可选。<br>指示生成的日期和时间字符串的格式。默认值为 <code>yyyy-MM-dd HH:mm:ss</code>。可选的占位符参考自 <a target="_blank" rel="noopener" href="http://docs.sencha.com/ext-js/4-1/#!/api/Ext.Date">Ext.Date</a>，请参见 <a target="_blank" rel="noopener" href="https://github.com/nuysoft/Mock/wiki/Date#date">Random.date(format)</a>。<blockquote>
+<p><code>Random.now()</code> 的实现参考了 <a target="_blank" rel="noopener" href="http://momentjs.cn/docs/#/manipulating/start-of/">Moment.js</a>。</p>
+</blockquote>
+<pre class=" language-js"><code class="language-js">Random<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">// => "2014-04-29 20:08:38 "</span>
+Random<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token string">'day'</span><span class="token punctuation">,</span> <span class="token string">'yyyy-MM-dd HH:mm:ss SS'</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">// => "2014-04-29 00:00:00 000"</span>
+Random<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token string">'day'</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">// => "2014-04-29 00:00:00 "</span>
+Random<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token string">'yyyy-MM-dd HH:mm:ss SS'</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">// => "2014-04-29 20:08:38 157"</span>
+Random<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token string">'year'</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">// => "2014-01-01 00:00:00"</span>
+Random<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token string">'month'</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">// => "2014-04-01 00:00:00"</span>
+Random<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token string">'week'</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">// => "2014-04-27 00:00:00"</span>
+Random<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token string">'day'</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">// => "2014-04-29 00:00:00"</span>
+Random<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token string">'hour'</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">// => "2014-04-29 20:00:00"</span>
+Random<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token string">'minute'</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">// => "2014-04-29 20:08:00"</span>
+Random<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token string">'second'</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">// => "2014-04-29 20:08:38"</span>
+</code></pre>
+<h3 id="Image"><a href="#Image" class="headerlink" title="Image"></a>Image</h3>Random.image( size?, background?, foreground?, format?, text? )</li>
+<li>Random.image()</li>
+<li>Random.image( size )</li>
+<li>Random.image( size, background )</li>
+<li>Random.image( size, background, text )</li>
+<li>Random.image( size, background, foreground, text )</li>
+<li>Random.image( size, background, foreground, format, text )<br>生成一个随机的图片地址。<blockquote>
+<p><strong>Random.image()</strong> 用于生成高度自定义的图片地址，一般情况下，应该使用更简单的 **<a target="_blank" rel="noopener" href="https://github.com/nuysoft/Mock/wiki/Image#randomdataimage-size-text-">Random.dataImage()</a>**。<br>size<br>可选。<br>指示图片的宽高，格式为 <code>'宽x高'</code>。默认从下面的数组中随机读取一个：</p>
+</blockquote>
+<pre><code>[
+  '300x250', '250x250', '240x400', '336x280', 
+  '180x150', '720x300', '468x60', '234x60', 
+  '88x31', '120x90', '120x60', '120x240', 
+  '125x125', '728x90', '160x600', '120x600', 
+  '300x600'
+]
+</code></pre>
+background<br>可选。<br>指示图片的背景色。默认值为 <code>'#000000'</code>。<br>foreground<br>可选。<br>指示图片的前景色（文字）。默认值为 <code>'#FFFFFF'</code>。<br>format<br>可选。<br>指示图片的格式。默认值为 <code>'png'</code>，可选值包括：<code>'png'</code>、<code>'gif'</code>、<code>'jpg'</code>。<br>text<br>可选。<br>指示图片上的文字。默认值为参数 size。<pre><code>Random.image()
+// =&gt; "http://dummyimage.com/125x125"
+Random.image('200x100')
+// =&gt; "http://dummyimage.com/200x100"
+Random.image('200x100', '#fb0a2a')
+// =&gt; "http://dummyimage.com/200x100/fb0a2a"
+Random.image('200x100', '#02adea', 'Hello')
+// =&gt; "http://dummyimage.com/200x100/02adea&amp;text=Hello"
+Random.image('200x100', '#00405d', '#FFF', 'Mock.js')
+// =&gt; "http://dummyimage.com/200x100/00405d/FFF&amp;text=Mock.js"
+Random.image('200x100', '#ffcc33', '#FFF', 'png', '!')
+// =&gt; "http://dummyimage.com/200x100/ffcc33/FFF.png&amp;text=!"
+</code></pre>
+dataImage<br>Random.dataImage( size?, text? )</li>
+<li>Random.dataImage()</li>
+<li>Random.dataImage( size )</li>
+<li>Random.dataImage( size, text )<br>生成一段随机的 Base64 图片编码。<blockquote>
+<p>如果需要生成高度自定义的图片，请使用 **<a target="_blank" rel="noopener" href="https://github.com/nuysoft/Mock/wiki/Image#randomimage-size-background-foreground-format-text-">Random.image()</a>**。<br>size<br>可选。<br>指示图片的宽高，格式为 <code>'宽x高'</code>。默认从下面的数组中随机读取一个：</p>
+</blockquote>
+<pre><code>[
+  '300x250', '250x250', '240x400', '336x280', 
+  '180x150', '720x300', '468x60', '234x60', 
+  '88x31', '120x90', '120x60', '120x240', 
+  '125x125', '728x90', '160x600', '120x600', 
+  '300x600'
+]
+</code></pre>
+text<br>可选。<br>指示图片上的文字。默认值为参数 size。<blockquote>
+<p>图片的背景色是随机的，取值范围参考自 <a target="_blank" rel="noopener" href="http://brandcolors.net/%E3%80%82">http://brandcolors.net/。</a></p>
+</blockquote>
+<pre><code>Random.dataImage()
+// =&gt; "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAH0AAAB9CAYAAACPgGwlAAAFJElEQVR4Xu2dS0hUURzG/1Yqlj2otJe10AqCoiJaFFTUpgcUhLaKCIogKCEiCl0U1SIIF1EIQlFEtCmkpbWSHlAQYRYUlI9Ie6nYmI9hfIx1LpzL3PGO/aeuM/r/f7PRufe7d873/ea75xw3ZjTumDtMeKlKIAPQVfF2zAK6PuaArpA5oAO6xgQUesacDugKE1BoGU0HdIUJKLSMpgO6wgQUWkbTAV1hAgoto+mArjABhZbRdEBXmIBCy2g6oCtMQKFlNB3QFSag0DKaDugKE1BoGU0HdIUJKLSMpgO6wgQUWkbTAV1hAgoto+mArjABhZbRdEBXmIBCy2g6oCtMQKFlNB3QFSag0DKaDugKE1BoGU0HdIUJKLSMpgO6wgQUWkbTAV1hAgoto+mArjABhZbRdEBXmIBCy2g6oCtMQKFlNB3QFSag0DKaDugKE1BoGU0HdIUJKLQ8bpo+fft+ylxYSJ23LvpisOfNST/N7ENniYa9/0xy4GsTdT+6+09Yx9t4/slEgovSDt2EO3P3YcoqWuUMsWln3oihFlTWUlbhSvf4UKid2iqOUfhVrXussKZ9xHXh10/oW1lxUnmNt/EkNXimOK3QTTtn7Sv1DDUees66rTT/3B0a/NFCvc9raOqf9+YL0PfiIX0/f8ADPdrXTZEPde6xyMd66rx5wXlvnwThN8/cL4ttc7S3i0L3rjqaVI2HyWdMZGmFbhwtvv7cgZm7ZS9NyS/wbboBb1ttwQy2tdLng2s90OOPxSa24FI15azZTAOtDdRyZAOZe84ru0GTps2g0P1r7pcjVeMZE5rMm6Yduh3nktt1CaHHesk/XUW5W4sp8v4lfTm5ywN9eCBCQz/baOBLE0Ua3rgg4z/DPCUmz5xD2SvWU6IpIBXjYTIKXDahoNtHvUmho/KMZ5HmN6f31FZT2+Wjbmix12dkZtNoTwYO9P8dT+A0mTecMNBNwPmnKmnyrDyKhxnv1U4B0d5f9KmkyHPaPinMwfYrJxKu7v8GPajxMDkFKpsQ0JMJ2KZjmm8e9817CjxNt/O4Odjf+JZaj2/zDXQ06EGNJ1CSSdws7dDNAsvsr7OXr3UWVeG6x87wv5WXOD9jAzZbtf7md669nscP3KbOLa2gaE+Xc27axl2UWbB0xLxvFmnmuJnTzU/7e+wuIJXjSYJToNK0Q/ebi41Du3Xz20bZBGJX3fH3Mav0jqpyd9Xvt3o3W0Ezt492H/tZQY8nUIpJ3izt0J39s8/L7q9N03NWb/LVhOuferZyWYuX0WDnD2evHv+XOPs5sdc4+/RFRX+eECFnn25eqRpPkpwClacdeqBucDNWAoDOikmWCNBl8WS5AXRWTLJEgC6LJ8sNoLNikiUCdFk8WW4AnRWTLBGgy+LJcgPorJhkiQBdFk+WG0BnxSRLBOiyeLLcADorJlkiQJfFk+UG0FkxyRIBuiyeLDeAzopJlgjQZfFkuQF0VkyyRIAuiyfLDaCzYpIlAnRZPFluAJ0VkywRoMviyXID6KyYZIkAXRZPlhtAZ8UkSwTosniy3AA6KyZZIkCXxZPlBtBZMckSAbosniw3gM6KSZYI0GXxZLkBdFZMskSALosnyw2gs2KSJQJ0WTxZbgCdFZMsEaDL4slyA+ismGSJAF0WT5YbQGfFJEsE6LJ4stwAOismWSJAl8WT5QbQWTHJEgG6LJ4sN4DOikmWCNBl8WS5AXRWTLJEgC6LJ8sNoLNikiUCdFk8WW4AnRWTLNFvXskYA3TG3JwAAAAASUVORK5CYII="
+Random.dataImage('200x100')
+// =&gt; "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAABkCAYAAADDhn8LAAAIaklEQVR4Xu2ae2xVVRaHf31BAXnVUijgQKlArYO1YFsGZaYS8YEYqVQFoRmrhhkQRUVgRsmo+GjUgppCfCBo8AE1GoiYaBSEQFAoUNryaAELRAoVbOnzFim9vZO9Te9w5bYudvxr1u/8Q+hZa5+zvrW/c/Y554ZsRXcfuJEACQQlEEJBODNIoH0CFISzgwQ6IEBBOD1IgIJwDpCAGwHeQdy4MUsJAQqipNEs040ABXHjxiwlBCiIkkazTDcCFMSNG7OUEKAgShrNMt0IUBA3bsxSQoCCKGk0y3QjQEHcuDFLCQEKoqTRLNONAAVx48YsJQQoiJJGs0w3AhTEjRuzlBCgIEoazTLdCFAQN27MUkKAgihpNMt0I0BB3LgxSwkBCqKk0SzTjQAFcePGLCUEKIiSRrNMNwIUxI0bs5QQoCBKGs0y3QhQEDduzFJCgIIoaTTLdCNAQdy4MUsJAQqipNEs040ABXHjxiwlBCiIkkazTDcCFMSNG7OUEKAgShrNMt0IUBA3bsxSQoCCKGk0y3QjQEHcuDFLCQEKoqTRLNONAAVx48YsJQQoiJJGs0w3AhTEjRuzlBCgIEoazTLdCFCQS+B2ecZE9J8zC2HdL0PTgTKUz3oC3oZG/wgD5j6CPlMmA6GhqN+yDUce/3fA6PHLFqPHX1LR2tyM0x/mo3LpO6Kj9xp/I6Im3oqWunqcePWNgGOaAToa15zrsFXvIHLQFWiprUP57LloOnBQdFwGARREOAvi815F7Ox/2OjWX35BaGQkzv9chZIbbsbZQz/Av9/ng6+lBSEREajbtAV7x020Odds+Qo9xo6Br7nZ7jPbiSV5OPrkwt89g9SKMnQa0B++8+ex59oxARO8o3EjYqKRXPQdOsX2Q6vHg9Bu3ewYpZOn48z6L3/3uAygIKI5EDlkMEaV7rJCmAlvhLhyeR76PfR3/PxRPo7+6xmklJfA6/FYYcwVOmn7RnRPS8GxBf+Bt7ER8cuWwFOyD3uSxsBM3JH7ChDeq+dFE769Exq26m30mZKJwj+n2eObLXbWQx2O+6fnnkZ05iSc/nANDmXNQMz90zB0eR6aK05gZ9wIUe3ag3gHEcyA2NkzEJ+Xix+fy8GPz+bYDLN0ST1eiuafTuP0R/kYtGhhwP5OA/tbaRqLStDa6EHP9LEovn48GrbvDJjcVZ+us8suz9792H/bZLsvLvcFxEy7F8cWLsKpFR/Yv8UvzUXsPx/E7sQUvyAjNq5vd9yflr+PqAk3IyQsDDtih/qrTPj0A0Rn3IEDk6byLiLoPQURQDLPHt2SkwLW/20C1G7cjHMVJ9HvgSzsSU2Hp7DYP+LIvdutSGbtHxF9OQoGJvj3mb+nVR5GzYbNiIjqbZdfx1/KxakVqzCqbDe8DQ0oTBqD5oqT7QqSXLSt3XFrN29Fr/SxqNuyDfsnZPqPG31PBhLWvI/yR+eJn4EEiP5vQyiIY2tH7i9A16uG4+i8hYiMG3TR1d0Mm1y41Qri9TQhvGePgGVNmyBnvtqAw9kzkXJs36/PNdVn0HlAf5RmTkf12i/8ZxfsDmIEaW9cI17vm9Jhxi/LzPKP0/v2W3D15/konzOfggh6T0EEkH4bYpc24/6G6nVfoDTjvqDLnzZBwnv3sm+fOhLETGB7Zf94JRAW5n9muPC4FMShUX9ACgW5RIiJn69B1B0T0FCwC8Vp42y2fWDPnn7REssslUI7d4K30QMjyoVLLLtE+6HYXuFLJ02FubInrluNkPBwVL61AuUzHw84s2CCmCVce+PWbNgUdInV94EsDH13KZdYwr5TECEoE2beJMVkTfW/jWpLHTj/MQx+eVHAQ7p981W2G/Xf7YC3vh5Rt98a8JBuvpnE5b6I4zmLUZGz2MZGxPRBS1W1/fe3D9HBBLGydjBuzLR7ENqlC3bEDPFX2ZZTkn4b6rd+fwnV6wylIMK+t33nMJO9/NH59spt7g7nTlSi9uuNSDmyFz6vFwcy7kPjzkIkbf/WPqMcyp6J1rNnkbD6PTQdPIzitBvRJWEYzDINISEoGvVX+9bK3JVOvr4MlW+ugHm+MaJc+PYpmCB2WdbBuAPmzbGvoqvXrkfpXdMwcMFjGPziM2gqPYjCEaOFlesOoyCC/puJFvfK80EjzTeFgiuugo3JedY+Q7RtVfmfoWxKtv3v8NUr7XcM/9baiiNPPg1vXb1d8niKSrBn5Fi728rw8AzUbtiEfePvDFjGFV4zOuBDYXvjnnxtmc2zLxMS//f2rKWmxv+tRlC6+hAKIpgCXROHo8f1wa+45hVvzZff2FHMT0L6Zk+3dwbzUxNzN7hwM8uqy65LBnw+VL75rn+J0/fBLFR9sjbgJyTRd0+yslWt+cwOYc6h++hUnFr563cRybhtMXFLXrJf083PYo7Ofeqin6oIEKgNoSBqW8/CJQQoiIQSY9QSoCBqW8/CJQQoiIQSY9QSoCBqW8/CJQQoiIQSY9QSoCBqW8/CJQQoiIQSY9QSoCBqW8/CJQQoiIQSY9QSoCBqW8/CJQQoiIQSY9QSoCBqW8/CJQQoiIQSY9QSoCBqW8/CJQQoiIQSY9QSoCBqW8/CJQQoiIQSY9QSoCBqW8/CJQQoiIQSY9QSoCBqW8/CJQQoiIQSY9QSoCBqW8/CJQQoiIQSY9QSoCBqW8/CJQQoiIQSY9QSoCBqW8/CJQQoiIQSY9QSoCBqW8/CJQQoiIQSY9QSoCBqW8/CJQQoiIQSY9QSoCBqW8/CJQQoiIQSY9QSoCBqW8/CJQQoiIQSY9QSoCBqW8/CJQQoiIQSY9QSoCBqW8/CJQQoiIQSY9QSoCBqW8/CJQQoiIQSY9QSoCBqW8/CJQQoiIQSY9QSoCBqW8/CJQT+C8lshm60+8xmAAAAAElFTkSuQmCC"
+Random.dataImage('200x100', 'Hello Mock.js!')
+// =&gt; "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAABkCAYAAADDhn8LAAALI0lEQVR4Xu2aCXCO1xrH/1nIIrFzUVpLbdHYYt8bWm6rRBWJpcQNg9RWak/t281tqpbWtbRoSS9XEEuZwaXo2EpariqGsdyh0UpjyR6585y57zdvEkn6nWtG5PzfGdO83/c+5z3P73n+53nO+eqCgOFZ4EUCJPBEAi4UCDODBPImQIEwO0ggHwIUCNODBCgQ5gAJ6BFgBdHjRitDCFAghgSabuoRoED0uNHKEAIUiCGBppt6BCgQPW60MoQABWJIoOmmHgEKRI8brQwhQIEYEmi6qUeAAtHjRitDCFAghgSabuoRoED0uNHKEAIUiCGBppt6BCgQPW60MoQABWJIoOmmHgEKRI8brQwhQIEYEmi6qUeAAtHjRitDCFAghgSabuoRoED0uNHKEAIUiCGBppt6BCgQPW60MoQABWJIoOmmHgEKRI8brQwhQIEYEmi6qUeAAtHjRitDCFAghgSabuoRoED0uNHKEAIUiCGBppt6BCgQPW60MoQABWJIoOmmHgEKRI8brQwhQIEYEmi6qUeAAtHjRitDCFAghgSabuoRoED0uNHKEAIUiCGBppt6BCgQPW60MoQABWJIoOmmHgEKRI8brQwhUCQF4uvtgcVjesPN1RVfxB7D8fPXVDjtn+85dg47Dv+Qb5h7BzZB9/YNcTfhISYt3Yqc987miPV+dzdXZGUB9jm81rI++nQJUEOmpKZj+qfb8SAp1dlXZHte3jdvVBBS0zIwd82uAscb0r218jfhQRLej9pc4PMy/pwRPeHm6oIDpy4WyPP/cuYZGRdJgfTtEoDoBcPg6uqC0X+NxvLNhxRe++c7DsUhaOJn+WJfNX0ghvVqj/SMTDQOmYtx/Ttnu79w7bZTYbO/Xwx3fvsjery/Qo1xeNVEdGhaW/1tvc/Z8XNOxnpf5uPHav4Fjbd6xiCEBbVDZuZjNAyeU+DzzvJ0ClYhebhICuTNdv7Y8dEoJZDwxdH47J+HFW7rczc3V2zZ/z36TlmVbxiWTwpBeN9OeJSciqYD5mFMcOds95duxDsVRvv7xfDyjXjUeTtCVbZ/b56FapXKqvGSU9LQuP9cODt+zslY70tJS1fzL2i8Dwa9jtAebfBb4iOETFuNW/G/5+ufszydglVIHi7yAuk3dbUSg1xtG9VSK7VdIIO7t8aC8CBULOOLzMdZuBWfgPBFm7Dv+AVYArES1hKIPYFl1R3QrQW8PIurd9y8cw/D5n2p7PNKWHm/XJbwMjIfK4F4ehTLJZBR73TEzOFvoWJZX/Vd4sNkLP36ID5cGavuRVw7osLRrvHLcAHwMDkVe46dx4AZax0LgiUQ/5dfwEfj+8CjmLuqDp1HfpxtihFhb2Joj7ZIuP9IVba09EzsWvIemtStBnd3NzXfb89cxhtjlyk7aQmj54cpnhu/OYGBEZ8XkrR+etMo0gKRwJ2+cB0PklIUMW/P4mjRoDpcXFyUaOSfFWA70vsPk9E6dDFG9emkKkZeApk29A2IwOSStsRKfGmROoRFOvY+1tj2yiardLlSJRA6ez3Kl/ZB5Nje+P1BMsqU9Ha8T5J+1fRBjnGzsrLU3OW/s/6+E3PW7FbC8qtZOVdGfBH7HbYePKMqaXJqOloOXojj66bAt4Sn2uMETfg0l4itllK+Dxg4H9ELwtCwdlVkZGTiUUoaSvl4qfdY7aksKhe3zkFpX69slfrppeezH6nICyQvxCKOSuVKon2T2rib8EC1ILLCxkSOVCu5JFhSSlqeAuk6+hPsXTZWie7C1dtoNWQhegc2hVQUWW0Pnf4Zr46IyvZ6SyCS5MfPXUWbRrVU+1faxwvBXZvjzMUbaFrvRZXA0mLFRoWjbvVKEMHKWPH37uPUhmmoVL4Ubv+aiHlrdmPZpBDVSu4+ek61RVe2z1fV5tYvCRixcKMSSGp6Bu4lPkLVP5VRY0trufPIj7nQ2Ctm4Mgo7Fs2FiV9vHDy/DW0HLII3ywdg1b+NXDl5l00f3eBql7Xdy2iQJ69jp2bgb03lkSUldnFBSjh5aHaLKuCBNR7ETWrVkBaegYS7iepz61WRgQUf+9BngKZsjwGUeP7quQcE/m14yDg7MYZaFy3Gq7cjEftXhF5CmTtjqP4S892Sig+3h54pdYLasWXtkUqlj1Btx+KQ6//HSjYV3lJcut5a8/StZUf6teojDu/JapTKBGIVdnsq/+TiNoF0nboYuxdPs7BQ54XHofPXMq2d/shOgL1qleCf7/ZBe5xnIti4Xi6SFcQSd689iDb/nUWHZvWQdlSJVRvLfsAueRItJi7m0pW+TuvFssukLC5G/B57HfK/uT6qWjeoLpjA24Ps73Fmrw0BvNG9cSj5DR1TCrv37T3JN7r96oSiCTogZUTVMtl7++XfRDseGbboTj079YCD5NSETAw9yY856GAzCWv9k++y7nnqlGlvNqziOCEpXX9dO02/PrMUreyIEjl9eszkwIpHJoueBZ/9BRLEqCZ30s4d+U/6lhTrg2zQ1WlkZX9pcrl8hTI0Dnr8eWcoaqdslZ4qyeXpLaP+aQ9iAhX9h3yDpVoF2+oPcGUId0cAtn1yWhUqVA6m9jiNkWgUZ2qShRb9p9GaI+2ak9iVTFpwcQnOSEbH7VZVRCpjB9v2o+xwYFqvlbL1LNjI3RpUV/97iGbfrtAZLyJg15XBxcTl2xBxbIlMWHga0oM1h5FNvorJofA19sT01ZsK/DUq+DIFb4ninwFye+YV/r08QO6qKjI39KKVC5fSt3PXBmrksKqIM0GLci2aZf7tR++i1b+NdXzV2/dVZtt6dntCZtXBQmeuhoj3+mITs3qqke+2nNCtUWSlDkPBeR72SdJRZN9hFzSAsqPeT/HzFX7IPnu5i/3UKtqBSUIqTrR+04pgcgpVr3eH2L97FAENq/nmJ9swO2/89gPJewLgOxfvv/pOhrUqqIEe+fXRHU8/ec2r6jfm6R9tbeZhS/N9WdkrECstiUmcgR6dmzsaCEkuTfsPo4hs9Y5VlSrhbGOea172SifWD9VtSDWJfZrth/F8Plf5YqKvbJJWyZ2Igixsd9bx7/yu4Vs1Lu391dJb11Hzl5Gh2F/U7eyqs8fFQSP4u6O74/GXUH7sMhcx7zSxp3/x0x1JC1zjzl4Vi0AOf2z3j/87Q4YF9I52x5GDi7kcGDhur2O8XP+3qSfjoXPskgKxFnMfjUq460ODdVKvHrbEadbBflfNCTZZaXWsS9ovoHN6qpK41m8GEQcOU+g5DRpfP8u8PH2RNylm2ovo3NZ+xt7CyVjS2WRtlMqyZLoAzpDP7c2FMhzG7qnO3H5sXTy4G6qkkp1qdJt0tN9wXM6GgXynAbuaU/b2qDLj4Ib955ULSYvgAJhFpBAPgQoEKYHCVAgzAES0CPACqLHjVaGEKBADAk03dQjQIHocaOVIQQoEEMCTTf1CFAgetxoZQgBCsSQQNNNPQIUiB43WhlCgAIxJNB0U48ABaLHjVaGEKBADAk03dQjQIHocaOVIQQoEEMCTTf1CFAgetxoZQgBCsSQQNNNPQIUiB43WhlCgAIxJNB0U48ABaLHjVaGEKBADAk03dQjQIHocaOVIQQoEEMCTTf1CFAgetxoZQgBCsSQQNNNPQIUiB43WhlCgAIxJNB0U48ABaLHjVaGEKBADAk03dQjQIHocaOVIQQoEEMCTTf1CFAgetxoZQgBCsSQQNNNPQIUiB43WhlCgAIxJNB0U48ABaLHjVaGEKBADAk03dQjQIHocaOVIQQoEEMCTTf1CFAgetxoZQgBCsSQQNNNPQIUiB43WhlC4L8WolIQDDthEAAAAABJRU5ErkJggg=="
+</code></pre>
+Color<br>Random.color()</li>
+<li>Random.color()<br>随机生成一个有吸引力的颜色，格式为 ‘#RRGGBB’。<pre><code>Random.color()
+// =&gt; "#3538B2"
+</code></pre>
+Random.hex()</li>
+<li>Random.hex()<br>随机生成一个有吸引力的颜色，格式为 ‘#RRGGBB’。<pre><code>Random.hex()
+// =&gt; "#3538B2"
+</code></pre>
+Random.rgb()</li>
+<li>Random.rgb()<br>随机生成一个有吸引力的颜色，格式为 ‘rgb(r, g, b)’。<pre><code>Random.rgb()
+// =&gt; "rgb(242, 198, 121)"
+</code></pre>
+Random.rgba()</li>
+<li>Random.rgba()<br>随机生成一个有吸引力的颜色，格式为 ‘rgba(r, g, b, a)’。<pre><code>Random.rgba()
+// =&gt; "rgba(242, 198, 121, 0.13)"
+</code></pre>
+Random.hsl()</li>
+<li>Random.hsl()<br>随机生成一个有吸引力的颜色，格式为 ‘hsl(h, s, l)’。<pre><code>Random.hsl()
+// =&gt; "hsl(345, 82, 71)"
+</code></pre>
+Text<br>Random.paragraph( min?, max? )</li>
+<li>Random.paragraph()</li>
+<li>Random.paragraph( len )</li>
+<li>Random.paragraph( min, max )<br>随机生成一段文本。<br>len<br>可选。<br>指示文本中句子的个数。默认值为 3 到 7 之间的随机数。<br>min<br>可选。<br>指示文本中句子的最小个数。默认值为 3。<br>max<br>可选。<br>指示文本中句子的最大个数。默认值为 7。<pre><code>Random.paragraph()
+// =&gt; "Yohbjjz psxwibxd jijiccj kvemj eidnus disnrst rcconm bcjrof tpzhdo ncxc yjws jnmdmty. Dkmiwza ibudbufrnh ndmcpz tomdyh oqoonsn jhoy rueieihtt vsrjpudcm sotfqsfyv mjeat shnqmslfo oirnzu cru qmpt ggvgxwv jbu kjde. Kzegfq kigj dtzdd ngtytgm comwwoox fgtee ywdrnbam utu nyvlyiv tubouw lezpkmyq fkoa jlygdgf pgv gyerges wbykcxhwe bcpmt beqtkq. Mfxcqyh vhvpovktvl hrmsgfxnt jmnhyndk qohnlmgc sicmlnsq nwku dxtbmwrta omikpmajv qda qrn cwoyfaykxa xqnbv bwbnyov hbrskzt. Pdfqwzpb hypvtknt bovxx noramu xhzam kfb ympmebhqxw gbtaszonqo zmsdgcku mjkjc widrymjzj nytudruhfr uudsitbst cgmwewxpi bye. Eyseox wyef ikdnws weoyof dqecfwokkv svyjdyulk glusauosnu achmrakky kdcfp kujrqcq xojqbxrp mpfv vmw tahxtnw fhe lcitj."
+Random.paragraph(2)
+// =&gt; "Dlpec hnwvovvnq slfehkf zimy qpxqgy vwrbi mok wozddpol umkek nffjcmk gnqhhvm ztqkvjm kvukg dqubvqn xqbmoda. Vdkceijr fhhyemx hgkruvxuvr kuez wmkfv lusfksuj oewvvf cyw tfpo jswpseupm ypybap kwbofwg uuwn rvoxti ydpeeerf."
+Random.paragraph(1, 3)
+// =&gt; "Qdgfqm puhxle twi lbeqjqfi bcxeeecu pqeqr srsx tjlnew oqtqx zhxhkvq pnjns eblxhzzta hifj csvndh ylechtyu."
+</code></pre>
+Random.cparagraph( min?, max? )</li>
+<li>Random.cparagraph()</li>
+<li>Random.cparagraph( len )</li>
+<li>Random.cparagraph( min, max )<br>随机生成一段中文文本。<br>参数的含义和默认值同 [Random.paragraph( min?, max? )](#Random.paragraph( min?, max? ))<pre><code>Random.cparagraph()
+// =&gt; "给日数时化周作少情者美制论。到先争劳今已美变江以好较正新深。族国般建难出就金感基酸转。任部四那响成族利标铁导术一或已于。省元切世权往着路积会其区素白思断。加把他位间存定国工取除许热规先法方。"
+Random.cparagraph(2)
+// =&gt; "去话起时为无子议气根复即传月广。题林里油步不约认山形两标命导社干。"
+Random.cparagraph(1, 3)
+// =&gt; "候无部社心性有构员其深例矿取民为。须被亲需报每完认支这明复几下在铁需连。省备可离展五斗器就石正队除解动。"
+</code></pre>
+Random.sentence( min?, max? )</li>
+<li>Random.sentence()</li>
+<li>Random.sentence( len )</li>
+<li>Random.sentence( min, max )<br>随机生成一个句子，第一个单词的首字母大写。<br>len<br>可选。<br>指示句子中单词的个数。默认值为 12 到 18 之间的随机数。<br>min<br>可选。<br>指示句子中单词的最小个数。默认值为 12。<br>max<br>可选。<br>指示句子中单词的最大个数。默认值为 18。<pre><code>Random.sentence()
+// =&gt; "Jovasojt qopupwh plciewh dryir zsqsvlkga yeam."
+Random.sentence(5)
+// =&gt; "Fwlymyyw htccsrgdk rgemfpyt cffydvvpc ycgvno."
+Random.sentence(3, 5)
+// =&gt; "Mgl qhrprwkhb etvwfbixm jbqmg."
+</code></pre>
+Random.csentence( min?, max? )</li>
+<li>Random.csentence()</li>
+<li>Random.csentence( len )</li>
+<li>Random.csentence( min, max )<br>随机生成一段中文文本。<br>参数的含义和默认值同 [Random.sentence( min?, max? )](#Random.sentence( min?, max? ))<pre><code>Random.csentence()
+// =&gt; "第任人九同段形位第律认得。"
+Random.csentence(2)
+// =&gt; "维总。"
+Random.csentence(1, 3)
+// =&gt; "厂存。"
+</code></pre>
+Random.word( min?, max? )</li>
+<li>Random.word()</li>
+<li>Random.word( len )</li>
+<li>Random.word( min, max )<br>随机生成一个单词。<br>len<br>可选。<br>指示单词中字符的个数。默认值为 3 到 10 之间的随机数。<br>min<br>可选。<br>指示单词中字符的最小个数。默认值为 3。<br>max<br>可选。<br>指示单词中字符的最大个数。默认值为 10。<pre><code>Random.word()
+// =&gt; "fxpocl"
+Random.word(5)
+// =&gt; "xfqjb"
+Random.word(3, 5)
+// =&gt; "kemh"
+</code></pre>
+<blockquote>
+<p>目前单词中的字符是随机的小写字母，未来会根据词法生成『可读』的单词。<br>Random.cword( pool?, min?, max? )</p>
+</blockquote>
+</li>
+<li>Random.cword()</li>
+<li>Random.cword( pool )</li>
+<li>Random.cword( length )</li>
+<li>Random.cword( pool, length )</li>
+<li>Random.cword( min, max )</li>
+<li>Random.cword( pool, min, max )<br>随机生成一个汉字。<br>pool<br>可选。<br>汉字字符串。表示汉字字符池，将从中选择一个汉字字符返回。<br>min<br>可选。<br>随机汉字字符串的最小长度。默认值为 1。<br>max<br>可选。<br>随机汉字字符串的最大长度。默认值为 1。<pre><code>Random.cword()
+// =&gt; "干"
+Random.cword('零一二三四五六七八九十')
+// =&gt; "六"
+Random.cword(3)
+// =&gt; "别金提"
+Random.cword('零一二三四五六七八九十', 3)
+// =&gt; ""七七七""
+Random.cword(5, 7)
+// =&gt; "设过证全争听"
+Random.cword('零一二三四五六七八九十', 5, 7)
+// =&gt; "九七七零四"
+</code></pre>
+Random.title( min?, max? )</li>
+<li>Random.title()</li>
+<li>Random.title( len )</li>
+<li>Random.title( min, max )<br>随机生成一句标题，其中每个单词的首字母大写。<br>len<br>可选。<br>指示单词中字符的个数。默认值为 3 到 7 之间的随机数。<br>min<br>可选。<br>指示单词中字符的最小个数。默认值为 3。<br>max<br>可选。<br>指示单词中字符的最大个数。默认值为 7。<pre><code>Random.title()
+// =&gt; "Rduqzr Muwlmmlg Siekwvo Ktn Nkl Orn"
+Random.title(5)
+// =&gt; "Ahknzf Btpehy Xmpc Gonehbnsm Mecfec"
+Random.title(3, 5)
+// =&gt; "Hvjexiondr Pyickubll Owlorjvzys Xfnfwbfk"
+</code></pre>
+Random.ctitle( min?, max? )</li>
+<li>Random.ctitle()</li>
+<li>Random.ctitle( len )</li>
+<li>Random.ctitle( min, max )<br>随机生成一句中文标题。<br>参数的含义和默认值同 [Random.title( min?, max? )](#Random.title( min?, max? ))<br>len<br>可选。<br>指示单词中字符的个数。默认值为 3 到 7 之间的随机数。<br>min<br>可选。<br>指示单词中字符的最小个数。默认值为 3。<br>max<br>可选。<br>指示单词中字符的最大个数。默认值为 7。<pre><code>Random.ctitle()
+// =&gt; "证构动必作"
+Random.ctitle(5)
+// =&gt; "应青次影育"
+Random.ctitle(3, 5)
+// =&gt; "出料阶相"
+</code></pre>
+Name<br>Random.first()</li>
+<li>Random.first()<br>随机生成一个常见的英文名。<pre><code>Random.first()
+// =&gt; "Nancy"
+</code></pre>
+Random.last()</li>
+<li>Random.last()<br>随机生成一个常见的英文姓。<pre><code>Random.last()
+// =&gt; "Martinez"
+</code></pre>
+Random.name( middle? )</li>
+<li>Random.name()</li>
+<li>Random.name( middle )<br>随机生成一个常见的英文姓名。<br>middle<br>可选。<br>布尔值。指示是否生成中间名。<pre><code>Random.name()
+// =&gt; "Larry Wilson"
+Random.name(true)
+// =&gt; "Helen Carol Martinez"
+</code></pre>
+Random.cfirst()</li>
+<li>Random.cfirst()<br>随机生成一个常见的中文名。<pre><code>Random.cfirst()
+// =&gt; "曹"
+</code></pre>
+Random.clast()</li>
+<li>Random.clast()<br>随机生成一个常见的中文姓。<pre><code>Random.clast()
+// =&gt; "艳"
+</code></pre>
+Random.cname()</li>
+<li>Random.cname()<br>随机生成一个常见的中文姓名。<pre><code>Random.cname()
+// =&gt; "袁军"
+</code></pre>
+<h3 id="Web"><a href="#Web" class="headerlink" title="Web"></a>Web</h3>Random.url( protocol?, host? )</li>
+<li>Random.url()</li>
+<li>Random.url( protocol, host )<br>随机生成一个 URL。<h3 id="protocol"><a href="#protocol" class="headerlink" title="protocol"></a>protocol</h3>指定 URL 协议。例如 <code>http</code>。<h3 id="host"><a href="#host" class="headerlink" title="host"></a>host</h3>指定 URL 域名和端口号。例如 <code>nuysoft.com</code>。<pre><code>Random.url()
+// =&gt; "mid://axmg.bg/bhyq"
+Random.url('http')
+// =&gt; "http://splap.yu/qxzkyoubp"
+Random.url('http', 'nuysoft.com')
+// =&gt; "http://nuysoft.com/ewacecjhe"
+</code></pre>
+Random.protocol()</li>
+<li>Random.protocol()<br>随机生成一个 URL 协议。返回以下值之一：<code>'http'</code>、<code>'ftp'</code>、<code>'gopher'</code>、<code>'mailto'</code>、<code>'mid'</code>、<code>'cid'</code>、<code>'news'</code>、<code>'nntp'</code>、<code>'prospero'</code>、<code>'telnet'</code>、<code>'rlogin'</code>、<code>'tn3270'</code>、<code>'wais'</code>。<pre><code>Random.protocol()
+// =&gt; "ftp"
+</code></pre>
+Random.domain()</li>
+<li>Random.domain()<br>随机生成一个域名。<pre><code>Random.domain()
+// =&gt; "kozfnb.org"
+</code></pre>
+Random.tld()</li>
+<li>Random.tld()<br>随机生成一个顶级域名（Top Level Domain）。<pre><code>Random.tld()
+// =&gt; "net"
+</code></pre>
+Random.email( domain? )</li>
+<li>Random.email()</li>
+<li>Random.email( domain )<br>随机生成一个邮件地址。<h3 id="domain"><a href="#domain" class="headerlink" title="domain"></a>domain</h3>指定邮件地址的域名。例如 <code>nuysoft.com</code>。<pre><code>Random.email()
+// =&gt; "x.davis@jackson.edu"
+Random.email('nuysoft.com')
+// =&gt; "h.pqpneix@nuysoft.com"
+</code></pre>
+Random.ip()</li>
+<li>Random.ip()<br>随机生成一个 IP 地址。<pre><code>Random.ip()
+// =&gt; "34.206.109.169"
+</code></pre>
+<h3 id="Address"><a href="#Address" class="headerlink" title="Address"></a>Address</h3>Random.region()</li>
+<li>Random.region()<br>随机生成一个（中国）大区。<pre><code>Random.region()
+// =&gt; "华北"
+</code></pre>
+Random.province()</li>
+<li>Random.province()<br>随机生成一个（中国）省（或直辖市、自治区、特别行政区）。<pre><code>Random.province()
+// =&gt; "黑龙江省"
+</code></pre>
+Random.city( prefix? )</li>
+<li>Random.city()</li>
+<li>Random.city( prefix )<br>随机生成一个（中国）市。<br>prefix<br>可选。<br>布尔值。指示是否生成所属的省。<pre><code>Random.city()
+// =&gt; "唐山市"
+Random.city(true)
+// =&gt; "福建省 漳州市"
+</code></pre>
+Random.county( prefix? )</li>
+<li>Random.county()</li>
+<li>Random.county( prefix )<br>随机生成一个（中国）县。<br>prefix<br>可选。<br>布尔值。指示是否生成所属的省、市。<pre><code>Random.county()
+// =&gt; "上杭县"
+Random.county(true)
+// =&gt; "甘肃省 白银市 会宁县"
+</code></pre>
+Random.zip()</li>
+<li>Random.zip()<br>随机生成一个邮政编码（六位数字）。<pre><code>Random.zip()
+// =&gt; "908812"
+</code></pre>
+<h3 id="Helper"><a href="#Helper" class="headerlink" title="Helper"></a>Helper</h3>Random.capitalize( word )</li>
+<li>Random.capitalize(word)<br>把字符串的第一个字母转换为大写。<pre><code>Random.capitalize('hello')
+// =&gt; "Hello"
+</code></pre>
+Random.upper( str )</li>
+<li>Random.upper( str )<br>把字符串转换为大写。<pre><code>Random.upper('hello')
+// =&gt; "HELLO"
+</code></pre>
+Random.lower( str )</li>
+<li>Random.lower( str )<br>把字符串转换为小写。<pre><code>Random.lower('HELLO')
+// =&gt; "hello"
+</code></pre>
+Random.pick( arr )</li>
+<li>Random.pick( arr )<br>从数组中随机选取一个元素，并返回。<pre><code>Random.pick(['a', 'e', 'i', 'o', 'u'])
+// =&gt; "o"
+</code></pre>
+Random.shuffle( arr )</li>
+<li>Random.shuffle( arr )<br>打乱数组中元素的顺序，并返回。<pre><code>Random.shuffle(['a', 'e', 'i', 'o', 'u'])
+// =&gt; ["o", "u", "e", "i", "a"]
+</code></pre>
+Micekkaneous<br>Random.guid()</li>
+<li>Random.guid()<br>随机生成一个 GUID。<pre><code>Random.guid()
+// =&gt; "662C63B4-FD43-66F4-3328-C54E3FF0D56E"
+</code></pre>
+<blockquote>
+<p><code>Random.guid()</code> 的实现参考了 <a target="_blank" rel="noopener" href="http://www.ietf.org/rfc/rfc4122.txt">UUID 规范</a>。<br>Random.id()</p>
+</blockquote>
+</li>
+<li>Random.id()<br>随机生成一个 18 位身份证。<pre><code>Random.id()
+// =&gt; "420000200710091854"
+</code></pre>
+Random.increment( step? )</li>
+<li>Random.increment()</li>
+<li>Random.increment( step )<br>生成一个全局的自增整数。<br>step<br>可选。<br>整数自增的步长。默认值为 1。<pre><code>Random.increment()
+// =&gt; 1
+Random.increment(100)
+// =&gt; 101
+Random.increment(1000)
+// =&gt; 1101
+</code></pre>
+<h2 id="Mock-valid-template-data"><a href="#Mock-valid-template-data" class="headerlink" title="Mock.valid( template, data )"></a>Mock.valid( template, data )</h2>Mock.valid( template, data )<br>校验真实数据 <code>data</code> 是否与数据模板 <code>template</code> 匹配。<h3 id="template-1"><a href="#template-1" class="headerlink" title="template"></a>template</h3>必选。<br>表示数据模板，可以是对象或字符串。例如 <code>{ 'list|1-10':[{}] }</code>、<code>'@EMAIL'</code>。<h3 id="data"><a href="#data" class="headerlink" title="data"></a>data</h3>必选。<br>表示真实数据。<pre class=" language-js"><code class="language-js"><span class="token keyword">var</span> template <span class="token operator">=</span> <span class="token punctuation">{</span>
+  name<span class="token punctuation">:</span> <span class="token string">'value1'</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">var</span> data <span class="token operator">=</span> <span class="token punctuation">{</span>
+  name<span class="token punctuation">:</span> <span class="token string">'value2'</span>
+<span class="token punctuation">}</span>
+Mock<span class="token punctuation">.</span><span class="token function">valid</span><span class="token punctuation">(</span>template<span class="token punctuation">,</span> data<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">// =></span>
+<span class="token punctuation">[</span>
+  <span class="token punctuation">{</span>
+      <span class="token string">"path"</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>
+          <span class="token string">"data"</span><span class="token punctuation">,</span>
+          <span class="token string">"name"</span>
+      <span class="token punctuation">]</span><span class="token punctuation">,</span>
+      <span class="token string">"type"</span><span class="token punctuation">:</span> <span class="token string">"value"</span><span class="token punctuation">,</span>
+      <span class="token string">"actual"</span><span class="token punctuation">:</span> <span class="token string">"value2"</span><span class="token punctuation">,</span>
+      <span class="token string">"expected"</span><span class="token punctuation">:</span> <span class="token string">"value1"</span><span class="token punctuation">,</span>
+      <span class="token string">"action"</span><span class="token punctuation">:</span> <span class="token string">"equal to"</span><span class="token punctuation">,</span>
+      <span class="token string">"message"</span><span class="token punctuation">:</span> <span class="token string">"[VALUE] Expect ROOT.name'value is equal to value1, but is value2"</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">]</span>
+</code></pre>
+<h2 id="Mock-toJSONSchema-template"><a href="#Mock-toJSONSchema-template" class="headerlink" title="Mock.toJSONSchema( template )"></a>Mock.toJSONSchema( template )</h2></li>
+<li>Mock.toJSONSchema( template )<br>把 Mock.js 风格的数据模板 <code>template</code> 转换成 <a target="_blank" rel="noopener" href="http://json-schema.org/">JSON Schema</a>。<br>必选。<br>表示数据模板，可以是对象或字符串。例如 <code>{ 'list|1-10':[{}] }</code>、<code>'@EMAIL'</code>。<pre class=" language-js"><code class="language-js"><span class="token keyword">var</span> template <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token string">'key|1-10'</span><span class="token punctuation">:</span> <span class="token string">'★'</span>
+<span class="token punctuation">}</span>
+Mock<span class="token punctuation">.</span><span class="token function">toJSONSchema</span><span class="token punctuation">(</span>template<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+  <span class="token string">"name"</span><span class="token punctuation">:</span> undefined<span class="token punctuation">,</span>
+  <span class="token string">"path"</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>
+      <span class="token string">"ROOT"</span>
+  <span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token string">"type"</span><span class="token punctuation">:</span> <span class="token string">"object"</span><span class="token punctuation">,</span>
+  <span class="token string">"template"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+      <span class="token string">"key|1-10"</span><span class="token punctuation">:</span> <span class="token string">"★"</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token string">"rule"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token string">"properties"</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">{</span>
+      <span class="token string">"name"</span><span class="token punctuation">:</span> <span class="token string">"key"</span><span class="token punctuation">,</span>
+      <span class="token string">"path"</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>
+          <span class="token string">"ROOT"</span><span class="token punctuation">,</span>
+          <span class="token string">"key"</span>
+      <span class="token punctuation">]</span><span class="token punctuation">,</span>
+      <span class="token string">"type"</span><span class="token punctuation">:</span> <span class="token string">"string"</span><span class="token punctuation">,</span>
+      <span class="token string">"template"</span><span class="token punctuation">:</span> <span class="token string">"★"</span><span class="token punctuation">,</span>
+      <span class="token string">"rule"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+          <span class="token string">"parameters"</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">"key|1-10"</span><span class="token punctuation">,</span> <span class="token string">"key"</span><span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">,</span> <span class="token string">"1-10"</span><span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+          <span class="token string">"range"</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">"1-10"</span><span class="token punctuation">,</span> <span class="token string">"1"</span><span class="token punctuation">,</span> <span class="token string">"10"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+          <span class="token string">"min"</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+          <span class="token string">"max"</span><span class="token punctuation">:</span> <span class="token number">10</span><span class="token punctuation">,</span>
+          <span class="token string">"count"</span><span class="token punctuation">:</span> <span class="token number">3</span><span class="token punctuation">,</span>
+          <span class="token string">"decimal"</span><span class="token punctuation">:</span> undefined<span class="token punctuation">,</span>
+          <span class="token string">"dmin"</span><span class="token punctuation">:</span> undefined<span class="token punctuation">,</span>
+          <span class="token string">"dmax"</span><span class="token punctuation">:</span> undefined<span class="token punctuation">,</span>
+          <span class="token string">"dcount"</span><span class="token punctuation">:</span> undefined
+      <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">var</span> template <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token string">'list|1-10'</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+Mock<span class="token punctuation">.</span><span class="token function">toJSONSchema</span><span class="token punctuation">(</span>template<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+  <span class="token string">"name"</span><span class="token punctuation">:</span> undefined<span class="token punctuation">,</span>
+  <span class="token string">"path"</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">"ROOT"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token string">"type"</span><span class="token punctuation">:</span> <span class="token string">"object"</span><span class="token punctuation">,</span>
+  <span class="token string">"template"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+      <span class="token string">"list|1-10"</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">]</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token string">"rule"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token string">"properties"</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">{</span>
+      <span class="token string">"name"</span><span class="token punctuation">:</span> <span class="token string">"list"</span><span class="token punctuation">,</span>
+      <span class="token string">"path"</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">"ROOT"</span><span class="token punctuation">,</span> <span class="token string">"list"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+      <span class="token string">"type"</span><span class="token punctuation">:</span> <span class="token string">"array"</span><span class="token punctuation">,</span>
+      <span class="token string">"template"</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+      <span class="token string">"rule"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+          <span class="token string">"parameters"</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">"list|1-10"</span><span class="token punctuation">,</span> <span class="token string">"list"</span><span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">,</span> <span class="token string">"1-10"</span><span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+          <span class="token string">"range"</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">"1-10"</span><span class="token punctuation">,</span> <span class="token string">"1"</span><span class="token punctuation">,</span> <span class="token string">"10"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+          <span class="token string">"min"</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+          <span class="token string">"max"</span><span class="token punctuation">:</span> <span class="token number">10</span><span class="token punctuation">,</span>
+          <span class="token string">"count"</span><span class="token punctuation">:</span> <span class="token number">6</span><span class="token punctuation">,</span>
+          <span class="token string">"decimal"</span><span class="token punctuation">:</span> undefined<span class="token punctuation">,</span>
+          <span class="token string">"dmin"</span><span class="token punctuation">:</span> undefined<span class="token punctuation">,</span>
+          <span class="token string">"dmax"</span><span class="token punctuation">:</span> undefined<span class="token punctuation">,</span>
+          <span class="token string">"dcount"</span><span class="token punctuation">:</span> undefined
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token string">"items"</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">{</span>
+          <span class="token string">"name"</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+          <span class="token string">"path"</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">"data"</span><span class="token punctuation">,</span> <span class="token string">"list"</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+          <span class="token string">"type"</span><span class="token punctuation">:</span> <span class="token string">"object"</span><span class="token punctuation">,</span>
+          <span class="token string">"template"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+          <span class="token string">"rule"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+          <span class="token string">"properties"</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+      <span class="token punctuation">}</span><span class="token punctuation">]</span>
+  <span class="token punctuation">}</span><span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h1 id="Mock-Date"><a href="#Mock-Date" class="headerlink" title="Mock Date"></a>Mock Date</h1><table>
+<thead>
+<tr>
+<th>技术</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Swagger</td>
+<td></td>
+</tr>
+<tr>
+<td>Easy-Mock</td>
+<td></td>
+</tr>
+<tr>
+<td>Mockjs</td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="Swagger"><a href="#Swagger" class="headerlink" title="Swagger"></a>Swagger</h2><a target="_blank" rel="noopener" href="https://swagger.io/">API Documentation &amp; Design Tools for Teams | Swagger</a><br><a target="_blank" rel="noopener" href="https://petstore.swagger.io/?_ga=2.222649619.983598878.1509960455-2044209180.1509960455#/">Swagger UI</a><h2 id="Easy-Mock"><a href="#Easy-Mock" class="headerlink" title="Easy-Mock"></a>Easy-Mock</h2><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/139940483">搭建easy-mock数据模拟服务器 - 知乎</a><pre><code>var template = {
+  'key|1-10': '★'
+}
+Mock.toJSONSchema(template)
+// =&gt;
+{
+  "name": undefined,
+  "path": [
+      "ROOT"
+  ],
+  "type": "object",
+  "template": {
+      "key|1-10": "★"
+  },
+  "rule": {},
+  "properties": [{
+      "name": "key",
+      "path": [
+          "ROOT",
+          "key"
+      ],
+      "type": "string",
+      "template": "★",
+      "rule": {
+          "parameters": ["key|1-10", "key", null, "1-10", null],
+          "range": ["1-10", "1", "10"],
+          "min": 1,
+          "max": 10,
+          "count": 3,
+          "decimal": undefined,
+          "dmin": undefined,
+          "dmax": undefined,
+          "dcount": undefined
+      }
+  }]
+}
+var template = {
+  'list|1-10': [{}]
+}
+Mock.toJSONSchema(template)
+// =&gt;
+{
+  "name": undefined,
+  "path": ["ROOT"],
+  "type": "object",
+  "template": {
+      "list|1-10": [{}]
+  },
+  "rule": {},
+  "properties": [{
+      "name": "list",
+      "path": ["ROOT", "list"],
+      "type": "array",
+      "template": [{}],
+      "rule": {
+          "parameters": ["list|1-10", "list", null, "1-10", null],
+          "range": ["1-10", "1", "10"],
+          "min": 1,
+          "max": 10,
+          "count": 6,
+          "decimal": undefined,
+          "dmin": undefined,
+          "dmax": undefined,
+          "dcount": undefined
+      },
+      "items": [{
+          "name": 0,
+          "path": ["data", "list", 0],
+          "type": "object",
+          "template": {},
+          "rule": {},
+          "properties": []
+      }]
+  }]
+}
+</code></pre>
+</li>
+</ul>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">记住</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://heweiliang88.github.io/2020/08/28/%E5%89%8D%E7%AB%AF/mock/">https://heweiliang88.github.io/2020/08/28/%E5%89%8D%E7%AB%AF/mock/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">记住</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/mock/">
+                                    <span class="chip bg-color">mock</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid="></script>
+    <div class="addthis_inline_share_toolbox"></div>
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+    <div class="livere-card card" data-aos="fade-up">
+    <!-- 来必力City版安装代码 -->
+    <div id="lv-container" class="card-content" data-id="city" data-uid="MTAyMC81MDY1MC8yNzEzMw==">
+        <script type="text/javascript">
+            (function (d, s) {
+                let j, e = d.getElementsByTagName(s)[0];
+                if (typeof LivereTower === 'function') {
+                    return;
+                }
+
+                j = d.createElement(s);
+                j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+                j.async = true;
+
+                e.parentNode.insertBefore(j, e);
+            })(document, 'script');
+        </script>
+        <noscript>为正常使用来必力评论功能请激活JavaScript。</noscript>
+    </div>
+    <!-- City版安装代码已完成 -->
+</div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2020/11/01/%E5%89%8D%E7%AB%AF/fontawesome/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="Font Awesome图标的使用">
+                        
+                        <span class="card-title">Font Awesome图标的使用</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-11-01
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%89%8D%E7%AB%AF/" class="post-category">
+                                    前端
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/FontAwesome/">
+                        <span class="chip bg-color">FontAwesome</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2020/08/04/%E5%89%8D%E7%AB%AF/%E8%B7%A8%E5%9F%9F/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="前端常见跨域解决方案">
+                        
+                        <span class="card-title">前端常见跨域解决方案</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-08-04
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%89%8D%E7%AB%AF/" class="post-category">
+                                    前端
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E8%B7%A8%E5%9F%9F/">
+                        <span class="chip bg-color">跨域</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="2829816518"
+                   fixed='true'
+                   autoplay='true'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.5'
+                   list-folded='false'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2018-2021</span>
+            
+            <a href="/about" target="_blank">记住</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+                &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                        class="white-color">287.2k</span>
+            
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+                <span id="sitetime"> Loading ...</span>
+                <script>
+                    var calcSiteTime = function () {
+                        var seconds = 1000;
+                        var minutes = seconds * 60;
+                        var hours = minutes * 60;
+                        var days = hours * 24;
+                        var years = days * 365;
+                        var today = new Date();
+                        var startYear = "2018";
+                        var startMonth = "10";
+                        var startDate = "28";
+                        var startHour = "9";
+                        var startMinute = "10";
+                        var startSecond = "30";
+                        var todayYear = today.getFullYear();
+                        var todayMonth = today.getMonth() + 1;
+                        var todayDate = today.getDate();
+                        var todayHour = today.getHours();
+                        var todayMinute = today.getMinutes();
+                        var todaySecond = today.getSeconds();
+                        var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                        var diff = t2 - t1;
+                        var diffYears = Math.floor(diff / years);
+                        var diffDays = Math.floor((diff / days) - diffYears * 365);
+
+                        // 区分是否有年份.
+                        var language = 'zh-CN';
+                        if (startYear === String(todayYear)) {
+                            document.getElementById("year").innerHTML = todayYear;
+                            var daysTip = 'This site has been running for ' + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                daysTip = '本站已运行 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                daysTip = '本站已運行 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = daysTip;
+                        } else {
+                            document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                            var yearsAndDaysTip = 'This site has been running for ' + diffYears + ' years and '
+                                + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                yearsAndDaysTip = '本站已运行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                yearsAndDaysTip = '本站已運行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = yearsAndDaysTip;
+                        }
+                    }
+
+                    calcSiteTime();
+                </script>
+            
+            <br>
+            
+
+            <img src="https://gitee.com/marmalade0/images/blob/master/www.marmalade.vip/beian.png"> <a
+                href="http://www.beian.miit.gov.cn/" style="color:#f72b07" target="_blank">你自己的备案号，如粤公网安备123456号</a>
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/heweiliang88?tab=repositories" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:15816073129@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+    <a href="https://www.facebook.com/xxx" class="tooltipped" target="_blank" data-tooltip="关注我的Facebook: https://www.facebook.com/xxx" data-position="top" data-delay="50">
+        <i class="fab fa-facebook-f"></i>
+    </a>
+
+
+
+    <a href="https://twitter.com/xxx" class="tooltipped" target="_blank" data-tooltip="关注我的Twitter: https://twitter.com/xxx" data-position="top" data-delay="50">
+        <i class="fab fa-twitter"></i>
+    </a>
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=15816073129" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 15816073129" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+    <a href="https://weibo.com/xxx" class="tooltipped" target="_blank" data-tooltip="关注我的微博: https://weibo.com/xxx" data-position="top" data-delay="50">
+        <i class="fab fa-weibo"></i>
+    </a>
+
+
+
+    <a href="https://www.zhihu.com/xxx" class="tooltipped" target="_blank" data-tooltip="关注我的知乎: https://www.zhihu.com/xxx" data-position="top" data-delay="50">
+        <i class="fab fa-zhihu1">知</i>
+    </a>
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    
+
+    
+
+    <!-- 雪花特效 -->
+    
+
+    <!-- 鼠标星星特效 -->
+     
+        <script type="text/javascript">
+            // 只在桌面版网页启用特效
+            var windowWidth = $(window).width();
+            if (windowWidth > 768) {
+                document.write('<script type="text/javascript" src="/"><\/script>');
+            }
+        </script>
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

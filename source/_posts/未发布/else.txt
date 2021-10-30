@@ -1,0 +1,1085 @@
+
+
+# html5
+
+## html
+
+- 超文本标记语言
+- `<!DOCTYPE html>`   
+
+- head title base link meta script style 
+- dis span p h1~h5  br  a （target id ）  hr   img(src width height alt  align对齐 )
+- (strong)b (em)i code sub sup small  ins(插入字) del  
+- code 代码 kbd 键盘 samp 代码样本 var  变量 pre 预格式文本
+- abbr 缩写 address 地址 bdo 文字方向 blockquote 长的引用 q 短的引用语  cite 引用 引证 dfn 定义项目 
+- 表格 table 
+	- caption 表格标题
+	- table thead tbody tfoot + tr + td
+	- table th 标题栏  tr 行  td 列 
+		- border="0"
+		- cellspacing 表格单元格之间的空间
+		- cellpadding 单元格与单元格内容之间的距离
+	- 合并单元格 作用在 td 上
+		- colspan 合并列
+		- rowspan  合并行
+	- colgroup 表格组
+	- col 列属性 
+- 列表 list
+	- 无序列表 ul li
+	- 有序列表 ol li
+	- 自定义列表 dl dt dd
+- 表单 form
+	- input 输入框
+		-  type text  文本域
+		-  password 密码
+		-  radio 单选按钮
+		-  checkbox 复选按钮
+		-  sumbit 提交按钮
+	- textarea 文本域 rows cols 
+	- fieldset
+	- legend
+	- select option 下拉列表选项
+		- `<option selected="selected">`
+	- label  标签
+	- button 按钮
+	- datalist 输入控件选项列表  keygen  密钥对  output 计算结果
+- 符号实体
+- iframe src width height  fameborder="0"  class id style title 
+	- frameset标签 HTML5 不支持 src 
+	- frame
+- media 
+	- video audio
+	- 插件
+		- object 插件  插入对象Java 小程序 PDF阅读器 Flash 播放器`object` data type height width usemap name form 
+		- embed 
+- 属性 class id style title
+
+## html5
+
+- header、footer、
+
+# css3
+
+> `> 后代、+ 相邻 、^ 父级兄弟、[] 属性、* 个数 、$ 数字通配符、{} 内容、# id、. class @- 倒序 @3 从3开始 () 分组 .item$@-*5`
+
+行内样式 > 内部样式 > 外部样式 > 导入式（就近原则）
+
+```css
+style="color:red;font-size:12px;"
+<style type="text/css"></style>
+<link href="xxx.css" rel="stylesheet" type="text/css"/>
+<style type="text/css"> @import url()；</style>
+```
+
+样式表优先级
+
+- (内联样式）Inline style > （内部样式）Internal style sheet >（外部样式）External style sheet > 浏览器默认样式（浏览器缺省数组）
+
+选择器权重
+
+- !important > 内联样式 > ID选择器 > 类\伪类\属性 > 元素\伪元素 > 通配\后代\兄弟 `color:red !important`
+
+- 10000：!important；
+- 01000：内联样式；
+- 00100：ID 选择器；
+- 00010：类选择器、伪类选择器、属性选择器；
+- 00001：元素选择器、伪元素选择器；
+- 00000：通配选择器、后代选择器、兄弟选择器；
+
+@media、@font-face、@charset、@import 、@keyframes
+
+```css
+@charset "UTF-8"
+<style type="text/css"> @import url()；</style>
+@font-face{} 
+@keyframes animateName(){}    
+```
+
+选择器
+
+五大类选择器 `巧记：基层属两伪`
+
+- 基本选择器	5种
+- 层次选择器   3种
+
+- 属性选择器 
+- 伪类选择器 6种  动态目标语言状态结构否定
+- 伪元素   4种
+
+基本选择器
+
+| 选择器   | 基本选择器 |
+| -------- | ---------- |
+| `E`      | 标签       |
+| `#`      | ID         |
+| `.class` | 类         |
+| `*`      | 通配       |
+
+| 选择器        | 集合选择器                     | 说明           |
+| ------------- | ------------------------------ | -------------- |
+| `h1,h2,h3{ }` | 分组(群组)选择器（并集选择器） | 多个元素       |
+| `h1.red{ }`   | 嵌套选择器（交集选择器）       | 指定类名的元素 |
+
+层次选择器
+
+| 选择器  | 层次选择器           | 说明                  |
+| ------- | -------------------- | --------------------- |
+| `E  F`  | 后代选择器           | 后代                  |
+| `E > F` | 子选择器             | 子代                  |
+|         | 兄弟选择器           |                       |
+| `E + F` | 相邻兄弟(同胞)选择器 | 相邻的同胞元素 (一个) |
+| `E ~ F` | 通用兄弟选择器       | 后面的同胞元素(多个)  |
+
+属性选择器
+
+| 选择器                            | 说明                                         | 版本 |
+| --------------------------------- | -------------------------------------------- | ---- |
+| `E[attr]` 属性                    | 指定属性的元素                               | 2    |
+| `E[attr=val] `属性=值             | 属性等于指定值的元素                         | 2    |
+| `E[attr*=val] `包含val 字符串     | 属性以指定值(完整单词)开头的元素(不推荐使用) | 3    |
+| `E[attr^=val] `val开头            | 属性以指定值开头的元素                       | 3    |
+| `E[attr$=val] `val结尾            | 属性以指定值结尾的元素                       | 3    |
+| `E[attr~=val] `包含val 有空格隔开 | 属性包含指定值(完整单词)的元素(不推荐使用)   | 2    |
+| `E[attr|=val] `val val-前缀       | 属性以指定值(完整单词)开头的元素(不推荐使用) | 2    |
+
+伪类选择器
+
+动态伪类选择器
+
+（用户行为伪类选择器）active（被激活） hover （停留）focus （获得焦点） （链接伪类选择器）link（未访问）/visited（已访问）
+
+| 伪类选择器         | 作用                                      | 版本 |
+| ------------------ | ----------------------------------------- | ---- |
+| 链接伪类选择器     |                                           |      |
+| `:link`            | 选择所有未访问链接                        |      |
+| `:visted`          | 选择所有访问过的链接                      |      |
+| 用户行为伪类选择器 |                                           |      |
+| `:active`          | 选择正在活动链接                          |      |
+| `:hover`           | 把鼠标放在链接上的状态 	鼠标悬浮的元素 |      |
+| `:focus`           | 元素输入后具有的焦点                      |      |
+
+状态伪类选择器
+
+| 选择器      | 作用     |
+| ----------- | -------- |
+| `E:checkde` | 选中状态 |
+| `E:enable`  | 可选状态 |
+| `E:disable` | 禁用状态 |
+
+结构伪类选择器
+
+| 选择器    | 作用                                |
+| --------- | ----------------------------------- |
+| `E:root`  | 根元素                              |
+| `E:empth` | 没有子元素的元素                    |
+| `child`   | fist/last/nth/nth-last-child()/only |
+| `of-type` | fist/last/nth/nth-last-child()/only |
+
+| 2*4     | first                           | last                             | nth                                        | nth-last-child()                              | only                                     |
+| ------- | ------------------------------- | -------------------------------- | ------------------------------------------ | --------------------------------------------- | ---------------------------------------- |
+| child   | first-child                     | last-child                       | nth-child(n)                               | nth-last-child(n)                             | only-child（父元素仅有该元素的元素）     |
+| of-type | first-of-type(标签中为首的标签) | last-of-type(	标签中为尾标签) | nth-of-type(n)（标签中指定顺序索引的标签） | nth-last-of-type(n)(标签中指定逆序索引的标签) | only-of-type(	父元素仅有该标签的标签) |
+
+目标伪类选择器 `:target`
+
+| 伪类选择器 | 作用           |
+| ---------- | -------------- |
+| ``:target` | 目标伪类选择器 |
+
+语言伪类选择器 `:lang`
+
+`:lang(it)` 带有指定lang属性开始的元素添加样式 ` E:lang[language]`
+
+| 伪类选择器 | 作用               |
+| ---------- | ------------------ |
+| `:lang`    | 指定标记语言的元素 |
+
+否定伪类选择器 `:not`
+
+| 伪类选择器 | 作用 |
+| ---------- | ---- |
+| ``:not`    |      |
+
+伪元素
+
+| 符号                | 伪元素             |
+| ------------------- | ------------------ |
+| `::first-letter`    | 首字               |
+| `::first-line`      | 首行               |
+| `::before//::after` | 之前/之后          |
+| `::selection`       | 匹配突出显示的文本 |
+| `::backdrop`        | 全屏模式的元素     |
+| `::placeholder`     | 表单元素的占位     |
+
+列表
+
+list-style 
+
+- type : none，disc(实心圆)，circle，square（实心方块），decimal（阿拉伯数字），lower-alpha（小英），upper-alpha，lower-roman，upper-roman（大罗）
+- image：图片 
+- position ：位置
+
+```css
+list-style:list-style-type list-image list-position;
+list-style:square url('') 0px 10px;
+```
+
+盒子
+
+- width | height | min-width | max-width min-width | max-width
+	- width | height  
+	- min 最小值 下限 不低于这个值
+	- max 最大值 上限  不高于这个值
+- box-sizing 
+	- border-box IE盒模型
+	- content-box w3c盒模型
+- margin(外边距) border(边框) padding(内边距) content(内容) outline(轮廓)
+	- border:border-color border-style border-width inherit;
+	- outline: outline-color outline-style outline-width inherit;
+	- margin
+	- padding
+	- content 
+
+内容
+
+border
+
+- border: width style color
+
+- border-radius
+
+- border-image：url()
+
+- box-shadow : *h-shadow v-shadow blur spread color* inset;
+
+	- box-shadow: 10px 10px 5px red insert(内侧阴影);
+
+		box-shadow: 水平阴影位置、垂直阴影位置、模糊距离、阴影大小、阴影颜色、内阴影/外阴影（默认值）；
+
+background 背景
+
+- 2.1 background：color image repeat attachment position;
+	- color
+	- image
+	- repeart 重复 repeat-x repeat-y no-repeat
+	- attachment 固定 scroll fixed local 
+	- position 起始位置top bottom center right left
+- 3  background-clip background-origin background-size
+	- background-clip 背景裁剪 border-box （剪切成边框方框）padding-box content-box
+	- background-origin  背景定位
+	- background-size  背景大小
+
+gradients 渐变
+
+- background-image: linear-gradient(red blue,0% 100%)
+- linear-gradient  线性渐变
+- radial-gradient  径向渐变
+- repeating-linear-gradient 重复渐变
+- conic-gradient 圆锥渐变
+
+```css
+linear-gradient(blue, red);
+linear-gradient(45deg, blue, red);
+linear-gradient(to left top, blue, red);
+linear-gradient(0deg, blue, green 40%, red);
+```
+
+filter 滤镜
+
+- blur（px）：高斯模糊 
+- brightness(%) 亮度
+- contrast(%)：对比度
+- drop-shadow(*h-shadow v-shadow blur spread color*)：投影，常用于给不规则形状进行 阴影效果
+- greyscale(%)：灰度
+- hue-rotate：色调变换
+- opacity(*%*)  透明度
+- saturate(*%*) 饱和度
+- sepia(*%*)
+
+backgrop-filter 背景滤镜
+
+- 可以让你为一个元素后面区域添加图形效果（如模糊或颜色偏移）
+- none
+- filter-function-list  以空格分隔的滤镜函数
+
+```
+/* 关键词值 */
+backdrop-filter: none;
+/* 指向 SVG 滤镜的 URL */
+backdrop-filter: url(commonfilters.svg#filter);
+/* <filter-function> 滤镜函数值 */
+backdrop-filter: blur(2px);
+backdrop-filter: brightness(60%);
+backdrop-filter: contrast(40%);
+backdrop-filter: drop-shadow(4px 4px 10px blue);
+backdrop-filter: grayscale(30%);
+backdrop-filter: hue-rotate(120deg);
+backdrop-filter: invert(70%);
+backdrop-filter: opacity(20%);
+backdrop-filter: sepia(90%);
+backdrop-filter: saturate(80%);
+/* 多重滤镜 */
+backdrop-filter: url(filters.svg#filter) blur(4px) saturate(150%);
+/* 全局值 */
+backdrop-filter: inherit;
+backdrop-filter: initial;
+backdrop-filter: unset;
+```
+
+object-fit
+
+- 指定元素的内容应该如何去适应指定容器的高度与宽度
+- object-fit: fill|contain |cover|scale-down|none|initial|inherit;
+
+text
+
+- text-shadow 文本阴影
+- text-wrap 
+- white-space 控制空白字符显示
+	- normal \|nowrap \|pre \|pre-wrap \|pre-line。因为默认是normal
+- word-break 规定非中日韩文本的换行规则。
+	- normal \|break-all \|keep-all  如何被拆分换行的
+	- word-wrap  word-wrap又叫做overflow-wrap 允许对长的不可分割的单词进行分割并换行到下一行。
+- color 文本颜色
+- dirction 文本方向
+	- ltr 默认
+	- rtl 右到左
+	- inherit 继承父元素
+- letter-spacing 字符间距 letter-spacing  每个汉字（字母）之间的间距
+- word-spacing  字间距 word-spacing  每个单词之间的间距，如果是汉字无效
+- line-height 行高
+- text-align 文本水平对齐方式
+- text-decoration  文本添加修饰
+- text-transform 字母大小写
+- text-indent 文本的首行
+- text-overflw 文本超出部分截断
+- -webkit-text-stroke 文本描边
+- vertical-align 元素的垂直对齐
+	- baseline（默认） 
+	- sub super 
+	- top text-top middle bottom text-bottom 
+	- length %（可以是负值） inherit
+- writing-mode 文本前进方向
+- user-select 不能选中文本
+
+font
+
+- font-family  字体名称
+- font-size 文本字体大小
+- font-style 字体样式
+- font-variant 小型大写字体或者正常字体显示文本
+- font-weight 字体粗细
+- line-height 行高
+- -webkit-font-smoothing 字体清晰
+	- -moz-osx-font-smoothing: inherit | grayscale;
+
+display
+
+- dislplay 设置一个元素应如何显示
+	- none 元素不再占用空间
+	- block
+	- inline
+	- inline-block
+	- flex
+	- grid
+- visibility 指定一个元素应可见还是隐藏
+	- hidden  不可见，但仍占用空间
+	- coppapse
+
+opacity 
+
+- opacity:0.4; 透明度
+
+overflow
+
+- 控制内容溢出元素框时显示的方式
+- visible  超出部分可见
+- hidden 超出部分不可见
+- scroll 超出部分以滚动条形式显示
+- auto  
+- inherit
+
+clip-path 
+
+- 
+
+shape-outside
+
+- 
+
+transparent 
+
+- transparent 透明
+
+zoom
+
+- zoom 缩放元素
+
+transform
+
+- transform 
+- transform-origin 元素位置 (变换中心)
+- transform-style  如何在 3D 空间中显示
+- translate3d(*x*,*y*,*z*) translate(x,y) translateX(n) translateY(n) 平移
+- scale3d(*x*,*y*,*z*) scale(*x*,*y*) scaleX(*n*) scaleY(*n*) 缩放
+- rotate3d(*x*,*y*,*z*,*angle*) rotate(*angle*) rotatoX(angle) rotateY(angle) rotateZ(angle) 旋转  
+- skew(*x-angle*,*y-angle*) skewX(*angle*) skewY(*angle*) 倾斜
+- matrix(*n*,*n*,*n*,*n*,*n*,*n*)  matrix3d(*n*,*n*,*n*,*n*,*n*,*n*, *n*,*n*,*n*,*n*,*n*,*n*,*n*,*n*,*n*,*n*)
+- perspective(*n*)  3D 元素的透视效果。 透视距离
+- perspective-origin  3D 元素的底部位置
+- backface-visibility 元素在不面对屏幕时是否可见。 物体后方是否可视
+
+transition 
+
+- transition : transition-property duration timing-funciton delay
+- transtion: 属性 过渡时间 时间曲线 过渡效果结束;
+- transition-property 名称
+- transition-duration 过渡时间
+- transition-timing-function 过渡函数
+- transition-delay 过渡效果结束
+
+animations && keyframes
+
+- animation:name dutation timing-function fill-modedelay iteration-count direction play-state;
+- animation：动画名称，一个周期花费时间，运动曲线（默认ease），动画延迟（默认0），播放次数（默认1），是否反向播放动画（默认normal），是否暂停动画（默认running）
+- @keyframe
+
+```css
+@keyframes 动画名称{
+    0%:{}
+    50%:{}
+    100%:{}
+}
+```
+
+bfc
+
+
+
+
+
+layout
+
+
+
+
+
+@media
+
+- all、screen、print
+
+```css
+@media screen,print{}
+```
+
+
+
+
+
+# sass
+
+
+
+# scss
+
+
+
+# js
+
+- JavaScript = 基础 + 对象 + BOM + DOM + ES6
+
+js基础
+
+- 变量 和 常量  语句 分号 
+- 代码 和 代码块
+- 运算符  算术 赋值 条件 比较 逻辑 
+- 关键词 标识符 
+- 语句标识符 
+- 注释
+- 数据类型 数字 字符串 数组 对象  
+- 字面量 数字字面量(Number) 字符串字面量（String）表达字面量 数组字面量（Array） 对象字面量(Object ) 函数字面量（Function）
+
+事件
+
+
+
+js高级
+
+
+
+
+
+DOM
+
+HTML DOM
+
+-  document.getElementById ](id)
+-  
+
+
+
+BOM
+
+- window
+	- alert
+- document
+	- write 
+- screen
+- navigator
+- history 
+	- back 
+	- go 
+	- length 
+- console
+
+
+
+# ajax
+
+异步请求 XMLHttpRequest
+
+
+
+
+
+# fetch
+
+> [Fetch API 教程 - 阮一峰的网络日志](https://www.ruanyifeng.com/blog/2020/12/fetch-tutorial.html)
+
+fetch()是XMLHttpRequest 的升级版。用于在 JavaScript 脚本里面发出 HTTP 请求。
+
+- 使用Promise，不使用回调函数
+- 模块化设计
+- 通过数据流处理数据，分块读取
+
+```js
+fetch(url).then().catch()
+
+// Promise
+fetch('http://192.168.1.15:3000/search?keywords=%E6%B5%B7%E9%98%94%E5%A4%A9%E7%A9%BA')
+  .then(response => response.json())
+  .then(json => console.log(json))
+  .catch(err => console.log('Request Failed', err)); 
+
+// async await 
+
+```
+
+Response
+
+- ok
+- status
+- statusText
+- url 
+- type
+- redirected
+- headers
+
+
+
+### RESTFul
+
+```js
+{	// data 由服务器提供的响应 数据    data:{},    // status HTTP 状态码    status:200,    //  statusTest 来自服务器响应的HTTP状态信息    statusText:"OK",    // headers 服务器响应的头信息    headers:{},    body:{}       // config 是为请求提供的配置信息    config:{}}
+```
+
+# axios
+
+axios api
+
+- axios(config)，axios(url,[,config])，axios({ method,url,data })
+
+```js
+axios({
+    method:'post',
+    url:'',
+    data:{
+        firstName: 'Fred',       
+        lastName: 'Flintstone'
+    }
+})
+axios('url')  == axios.get('url')
+axios('',{ key:value,key2,value2 }).then((res) =>{}).catch((err) =>{})
+```
+
+常用方法
+
+axios 组成部分
+
+- 方法部分
+
+- axios 依赖原生的 ES6 Promise 实现 axios的安装依赖于vue
+
+- axios.get url 传递参数
+
+```js
+axios.get('/user?ID=123').then(res => {}).catch(err=>{})
+axios.get('/user',{ params:{ ID :123}}).then().catch()
+// 相当于 GET请求 默认的方法 
+axios('url')
+```
+
+- axios.post 
+
+```js
+axios.post('/user',{ firstName: 'Fred'，lastName: 'Flintstone' }).then( res =>{}).catch( err =>{})
+```
+
+- axios.create
+
+- 数据处理部分
+
+- then( res => {} )
+
+- 错误处理部分
+
+- catch()
+
+请求方法别名 实例方法
+
+- axios()
+
+```
+axios.get、post、put、patch、deleterequest headaxios.request(config)axios.get(url[, config])axios.delete(url[, config])axios.head(url[, config])axios.post(url[, data[, config]])axios.put(url[, data[, config]])axios.patch(url[, data[, config]])request、get、post、put、head、patch、delete
+```
+
+并发 处理并发请求的助手函数`all() 和 spread()`
+
+- axios.all([fuc(),fuc()])  并发请求  axios.all([fuc(),fuc()]).then().catch()
+
+```js
+axios.all([getUserAccount(),getUserPremission()]).then(axios.spread(function(acct,perms){    // 两个请求现在都执行完成}))
+```
+
+- axios.spread(callback) 
+
+配置
+
+- axios.create([config])
+- axios.defaults.xxx
+
+```js
+axios.create([config]);const instance = axios.create({	baseURL = '',	timeout:1000,  // 超时时间	headers: {'X-Custom-Header': 'foobar'} //头信息};                              // 配置默认值// 创建实例设置默认配置的默认值axios.defaults.baseURL = 'https://api.example.com';  //默认URLaxios.defaults.headers.common['Authorization'] = AUTH_TOKEN;  // headersaxios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded'; //postvar instance = axios.create({	baseURL:'https://api.example.com'})// 在实例已创建后修改默认值instance.defaults.headers.common['Authorization'] = AUTH_TOKEN;// 配置优先级// 使用由库提供的配置的默认值来创建实例// 此时超时配置的默认值是 `0`var instance = axios.create();// 覆写库的超时默认值// 现在，在超时前，所有请求都会等待 2.5 秒instance.defaults.timeout = 2500;// 为已知需要花费很长时间的请求覆写超时设置 get 请求instance.get('/longRequest', {  timeout: 5000});
+```
+
+拦截器 `interceptors`
+
+- axios.interceptors.request.use
+- axios.interceptors.response.use
+- axios.interceptors.requeset.eject 移除
+
+```js
+// 添加请求拦截器axios.interceptors.request.use(	function (config){		return config;	},function(error){		return Promise.reject(error);	}});// 添加响应拦截器axios.interceptors.response.use(	function (config){		return config;	},function(error){		return Promise.reject(error);	}})// 移除拦截器 `axios.interceptors.requeset.eject`var myInterceptor = axios.interceptors.request.use(function(){});axios.interceptors.requeset.eject(myInterceptor);// interceptors.use/eject //``自定义axios 实例``添加拦截器var instance = axios.create();	instance.interceptors.request.use(function(){})
+```
+
+取消 ` cancel token 取消请求`
+
+- axios.CancelToken
+
+```js
+var CancelToken = axios.CancelToken;var source = CancelToken.source();axios.get('/user.12345',{	cacelToken:source.token}).catch(function(thrown){	if(axios.isCancel(thrown)){		console.log('Requst canceled',thrown.message)	}else{	}}})source.cancel
+```
+
+错误处理  `validateStatus`
+
+- validateStatus
+
+```js
+// 状态码axios.get('/user/12345',funciton(){	validateStatus:funciton(status){		return status < 500  // 状态码在大于或等于500时才会 reject	}})axios.get().catch(	function(error){      if(error.response){		console.log(error.response.data);		console.log(error.response.status);		console.log(error.response.headers);        }else{            console.log(’Error‘,error.message);        }        console.log(error.config);    })
+```
+
+# jquery
+
+> [jQuery API 中文文档 | jQuery 中文网](https://www.jquery123.com/)
+>
+> [jQuery 参考手册](http://www.w3school.me/jquery/jquery-ref-selectors.html)
+
+```
+$.fn.jquery$(this) == this
+```
+
+| 鼠标事件              | 键盘事件             | 表单事件                               | 文档/窗口事件                                                |
+| --------------------- | -------------------- | -------------------------------------- | ------------------------------------------------------------ |
+| `click`               | `keypress 键被按下`  | `submit 提交`                          | `load 指定的元素已加载`                                      |
+| `dbclick`             | `keydown 按下的过程` | `change 元素的值改变,仅适用于表单字段` | `resize 调整浏览器窗口大小`                                  |
+| `mouseenter 鼠标进入` | `keyup 键被松开`     | `focus 获得焦点`                       | `scroll 滚动指定的元素 scrollTop()`                          |
+| `mouseleave 鼠标离开` |                      | `blur 失去焦点`                        | `unload 方法在 jQuery 版本 1.8 中被废弃，在 3.0 版本被移除。` |
+| `mousedown 鼠标按下`  |                      |                                        |                                                              |
+| `mouseup 鼠标松开`    |                      |                                        |                                                              |
+| `hover`               |                      |                                        |                                                              |
+
+| 显示、隐藏                | 作用               |
+| ------------------------- | ------------------ |
+| `hide(slow) / hide(time)` | 隐藏               |
+| `show`                    | 显示               |
+| `toggle`                  | 切换hide()和show() |
+
+| 淡入淡出 fade in out toggle      | 作用                                                         |
+| -------------------------------- | ------------------------------------------------------------ |
+| `fadeIn(speed,callback)`         | 淡入已隐藏的元素                                             |
+| `fadeOut(speed,callback)`        | 淡出可见元素                                                 |
+| `fadeToggle(speed,callback)`     | fadeIn() 与 fadeOut() 方法之间进行切换                       |
+| `fadeTo(speed,opacity,callback)` | "slow"、"fast" 或毫秒，允许渐变为给定的不透明度（值介于 0 与 1 之间） |
+
+| 滑动元素 slide down up toggle | 作用                                      |
+| ----------------------------- | ----------------------------------------- |
+| `slideDown(speed,callback)`   | 向下滑动元素                              |
+| `slideUp(speed,callback)`     | 向上滑动元素                              |
+| `slideToggle(speed,callback)` | slideDown() 与 slideUp() 方法之间进行切换 |
+
+| 动画                              | 作用                                                         |
+| --------------------------------- | ------------------------------------------------------------ |
+| `animate({params},speed,calback)` | 动画效果（可以操作多个属性，使用相对值，使用预定义的值，使用队列功能）第一个参数：键值对，（数值的属性可以改颜色不能改）<br/>第二个参数：动画的时间<br/>第三个参数：回调函数 |
+| `stop(stopAll,goToEnd)`           | 停止动画                                                     |
+
+| 修改文本 | 作用                               |
+| -------- | ---------------------------------- |
+| `text()` | 设置或返回所选元素的文本内容       |
+| `html()` | 设置或返回所选元素的内容           |
+| `val()`  | 设置或返回表单字段的值             |
+| `attr()` | HTML 元素我们自己自定义的 DOM 属性 |
+| `prop()` | HTML 元素本身就带有的固有属性      |
+
+| 插入内容    | 作用                 |
+| ----------- | -------------------- |
+| `append()`  | 结尾插入内容         |
+| `prepend()` | 元素开头插入内容     |
+| `after()`   | 被选元素之后插入内容 |
+| `before()`  | 被选元素之前插入内容 |
+
+- append/prepend 是在选择元素内部嵌入。
+- after/before 是在元素外面追加。
+
+| 删除元素   | 作用                       |
+| ---------- | -------------------------- |
+| `remove()` | 删除被选元素（及其子元素） |
+| `empty()`  | 从被选元素中删除子元素     |
+
+| 操作css                          | 作用                                |
+| -------------------------------- | ----------------------------------- |
+| `addClass()`                     | 向被选元素添加一个或多个类          |
+| `removeClass()`                  | 从被选元素删除一个或多个类          |
+| `toggleClass()`                  | 对被选元素进行添加/删除类的切换操作 |
+| `css({"":"","":""})，css("","")` | 设置或返回样式属性                  |
+
+<img src="../../%25E7%25AC%2594%25E8%25AE%25B0/%25E5%2589%258D%25E7%25AB%25AF%25E7%25AC%2594%25E8%25AE%25B0/%25E5%2589%258D%25E7%25AB%25AF/%25E5%25BF%2585%25E8%25AE%25B0API.assets/img_jquerydim.gif" alt="jQuery Dimensions" style="zoom:67%;" />
+
+| 尺寸            | 作用                                                 |
+| --------------- | ---------------------------------------------------- |
+| `width()`       | 设置或返回元素的宽度（不包括内边距、边框或外边距     |
+| `height()`      | 设置或返回元素的高度（不包括内边距、边框或外边距     |
+| `innerWidth()`  | 返回元素的宽度（包括内边距） +  padding              |
+| `innerHeight()` | 返回元素的高度（包括内边距）                         |
+| `outerWidth()`  | 返回元素的宽度（包括内边距和边框）+ padding + border |
+| `outerHeight()` | 返回元素的宽度（包括内边距和边框）                   |
+
+| 遍历             | 作用                                                         |
+| ---------------- | ------------------------------------------------------------ |
+| 向上遍历         | parent()                                                     |
+| `parent()`       | 方法返回被选元素的直接父元素                                 |
+| `parents()`      | 方法返回被选元素的所有祖先元素，它一路向上直到文档的根元素 `(<html>)` |
+| `parentsUntil()` | 方法返回介于两个给定元素之间的所有祖先元素``$("span").parentsUntil("div");`` |
+| 向下遍历         |                                                              |
+| `children()`     | 方法返回被选元素的所有直接子元素                             |
+| `find()`         | 方法返回被选元素的后代元素，一路向下直到最后一个后代。       |
+| 同胞             |                                                              |
+| `siblings()`     | 当前元素的所有兄弟元素                                       |
+| 之后             |                                                              |
+| `next()`         | 返回被选元素的下一个同胞元素                                 |
+| `nextAll()`      | 返回元素的所有跟随的同胞元素                                 |
+| `nextUnit()`     | 返回介于两个给定参数之间的所有跟随的同胞元素                 |
+| 之前             |                                                              |
+| `prev()`         | 返回前面的同胞元素                                           |
+| `prevAll()`      | 返回前面所有的同胞元素                                       |
+| `prevUntil()`    | 返回介于两个给定参数之间的所有跟随的同胞元素                 |
+
+| 过滤       | 作用                                                         |
+| ---------- | ------------------------------------------------------------ |
+| `first()`  | 首个元素                                                     |
+| `last()`   | 最后一个元素                                                 |
+| `eq()`     | 返回被选元素中带有指定索引号的元素                           |
+| `filter()` | 允许您规定一个标准。不匹配这个标准的元素会被从集合中删除，匹配的元素会被返回 |
+| `not()`    | 返回不匹配标准的所有元素。                                   |
+
+| 方法                      | 作用                            |
+| ------------------------- | ------------------------------- |
+| `end()`                   | 修复断链                        |
+| `bind()\unbind()` 不推荐  | 同一个元素绑定多个事件 解绑事件 |
+| `delegate()\undelegate()` | 绑定事件 解绑事件               |
+| `on()\off()`              | 绑定事件 解绑事件               |
+| `trigger()`               | 触发事件                        |
+
+```js
+$("#btn").bind({"click":function(){},"moverover“:function(){}});$("#btn").bind("click moverover",function(){});$("#dv").delegate("p",click,function(){	alert()})$("").on("click",function(){	$("").on("click","p",function(){	})})$().on("click",function(){	$("#btn1").off("click");	off参数是要解绑的事件的名字})$("txt").focus()$("txt").trigger("focus")$("txt").triggerHandler("focus")
+```
+
+事件对象
+
+- event.delegateTarget 代码绑定的对象
+- event.currentTarget 绑定事件的对象
+- event.target 真正触发事件的对象
+- e.stoPropagation()  取消默认事件
+- event.preventDefault()  链式编程原理
+
+| Ajax     | 作用                                                         |
+| -------- | ------------------------------------------------------------ |
+| `load()` |                                                              |
+| `get()`  | 从服务器获得（取回）数据，从指定的资源请求数据               |
+| `post()` | 也可用于从服务器获取数据。不过，POST 方法不会缓存数据，并且常用于连同请求一起发送数据，向指定的资源提交要处理的数据，`向服务器提交数据` |
+
+```js
+// 解决问题 在当前 页面下发送 指定网站的请求 // 发起ajax请求 load$('#content > div:nth-child(14) > div').load('http://120.78.149.188:3000/search?keywords=%E6%B5%B7%E9%98%94%E5%A4%A9%E7%A9%BA')//  $.get(URL,callback);//  $.post(URL,data,callback);$.get("http://120.78.149.188:3000/search?keywords=%E6%B5%B7%E9%98%94%E5%A4%A9%E7%A9%BA",function(data,status){    console.log(data)})$.post("http://120.78.149.188:3000/search",{ keywords : "你的名字" },function(data,status){    console.log(data)    console.log(data)})
+```
+
+| 符号           | 作用                                 |
+| -------------- | ------------------------------------ |
+| `noConflict()` | jQuery 使用 $ 符号作为 jQuery 的简写 |
+
+| JSONP   | 作用                                                         |
+| ------- | ------------------------------------------------------------ |
+| `JSONP` | Jsonp(JSON with Padding) 是 json 的一种"使用模式"，可以让网页从别的域名（网站）那获取资料，即跨域读取数据 |
+
+```js
+// 需要服务器端配合$.getJSOP('https://www.runoob.com/try/ajax/jsonp.php?jsoncallback=?',function(data){ });
+```
+
+# es6
+
+- 概念
+
+	- 2015.6 ECMAScript 6.0（以下简称 ES6）是 JavaScript 语言的下一代标准
+
+- let const var 块级作用域
+
+- 解构赋值 变量 数组 对象  字符串 数值和布尔值 函数参数 
+
+	- 圆括号问题
+
+- 扩展
+
+	字符串扩展
+
+	- 字符串扩展
+		- Unicode表示法
+		- 字符串的遍历器接口
+		- JSON.stringify()
+		- 模板字符串
+		- 标签字符串
+		- 模板字符串的限制
+	- 字符串新增方法
+		- String.fromCodePoint()
+		- String.raw()
+		- 实例方法
+			- codePointAt()
+			- normalize()
+			- include()、startsWith()、endsWith()
+			- repeat()
+			- padStart()、padEnd()
+			- trimStart()、trimEnd()
+			- matchAll()
+
+	正则的扩展
+
+	- RegExp 构造函数
+	- Unicode属性类
+	- 具名组匹配
+	- 正则匹配索引
+	- String.prototype.matchAll()
+	- 字符串的正则方法
+	- u修饰符
+	- y修饰符
+	- s修饰符：dotAll模式
+	- RegExp.prototype.unicode
+	- RegExp.prototype.sticky
+	- RegExp.prototype.flags
+
+	数值的扩展
+
+	- 二进制和八进制表示法
+	- Number.isFinite()，Number.isNaN()
+	- Number.parseInt()，Number.pareFloat()
+	- Number.isInteger()
+	- 
+	- 函数的扩展
+	- 数组的扩展
+	- 对象的扩展
+	- 对象的新增方法
+
+- Symbol
+
+- Set和Map数据结构
+
+- Proxy
+
+- Reflect
+
+- Promise
+
+- Iterator 和 for … of 循环
+
+- Generator 
+
+	- Genrator函数的语法
+
+- async
+
+- class
+
+- module
+
+- 异步遍历器
+
+- ArrayBuffer
+
+- 函数式编程
+
+
+
+# typescript
+
+
+
+# vue
+
+
+
+
+
+ui
+
+- element
+
+
+
+# node
+
+
+
+
+
+# nginx
+
+
+
+
+
+
+
+# webpack
+
+- 安装 webpack webpack-cli
+- webpack命令： webpack .\src\main.js -o .\dest\bundle.js
+- 配置文件： webpack.config.js  package.json 
+- 两个环境： 生产环境 与 开发环境 
+- 四大核心概念 Entry Output Loader Plugins 
+
+```js
+webpack.config.js
+
+const path = require('path')
+// 在配置文件中，需要手动指定入口和出口 exports出口
+console.log(path)
+module.exports = {
+    //	入口，表示，要使用webpack打包那个文件
+    entry: path.join(__dirname, './src/main.js'),
+    output: { // 输出文件相关的配置
+        path: path.join(__dirname, './dist'),//指定打包好的文件，输出到哪个目录中去
+        filename: 'bundle.js' //输出的文件的名称
+    }
+}
+```
+
+- package.json
+
+```
+script:{
+	"dev":"webpack --mode development",
+	"build":"webpack --mode production "
+}
+```
+
+- plugin
+
+	- webpack-dev-serve 自动运行项目 -D
+		- npm install webpack-dev-server@2.9.7 -D   
+		- webpack-dev-server的版本太高的锅，3.以上的还是不行。所以降到2.11.3一下左右即可
+
+	```
+	"dev":"webpack-dev-server --open --port 3000 --contentBase src --hot"devServer:{ // 配置dev-server命令参数的第二次形式，相对来说，这种方式麻烦一些    open:true, //自动打开浏览器    port:3000,// 设置启动时候的运行端口    contentBase: 'src'//指定托管的根目录 src 要带 ‘’ 号    hot:true // 启用热更新 }plugins:[ //数组    new webpack.HotModuleReplacementPlugin();    //new 一个热更新的模块对象 这是启动更新]
+	```
+
+	- html-webpack-plugin   npm i html-webpack-plugin -D
+
+	```js
+	const webpack = require('webpack')const htmlWebpackPlugin = require('html-webpack-plugin')plugins:[     new webpack.HotModuleReplacementPlugin(),//创建一个在内存中，生成HTML页面的插件   new htmlWebpackPlugin({  	template:path.join(_dirname,'./src/index.html'),   	//指定模板页面，会根据指定的页面路径，去生成内存中的页面   	filename:'index123.html' //指定生成的页面的名称    })]
+	```
+
+- loader
+
+	- css
+		- npm i style-loader css-loader -D   `css`
+		- npm i less-loader less -D`less`
+		- npm i sass-loader node-sass -D`scss`
+	- image 字体
+		- npm i url-loader file-loader -D
+	- babel 
+
+	```
+	//第一套包 babel转换工具npm i babel-core babel-loader babel-plugin-transform-runtime -Dbabel-core/loader plugin-transform-runtime //第二套包 语法插件npm i babel-preset-env babel-preset-stage-0 -Dbabel-preset- env/stage-0
+	```
+
+	```js
+	module:{
+		rules:[
+			{test:/\.css&/,use:['style-loader','css-loader']},
+			{test:/\.less&/,use:['style-loader','css-loader','less-loader']},
+	        {test:/\.scss$/,use:['style-loader','css-loader','sass-loader']},
+	        {test:/\.(ttf|eot|svg|woff|woff2)$/,use:'url-loader'},
+	        {test:/\.(jpg|png|gif|bmp|jpeg)$/,use:'url-loader?limit=7631$name=[name].[ext]'}
+	        { test:/\.js$/,use:'babel-loader',exclude:/node_modules/ }
+		]
+	}
+	
+	// presets  语法
+	.babelrc文件
+	{
+		"presets":["env","stage-0"], //语法
+		"plugins":["transform-runtime"] //插件
+	}
+	```
+
+
+
+## linux
+
+
+教程 
+
+- www.liaoxuefeng.com
+- www.w3cschool.cn
+
+- [Github热榜！几款炫酷的大屏可视化开源项目！帅呆了！ - 知乎](https://zhuanlan.zhihu.com/p/384830720)
+
+- [我在 Github 备考研究生考试！ - 知乎](https://zhuanlan.zhihu.com/p/391912826)
+
+后台管理模板
+
+- [Armour/vue-typescript-admin-template: 🖖 A vue-cli 3.0 + typescript minimal admin template](https://github.com/Armour/vue-typescript-admin-template)
+- [PanJiaChen/vue-element-admin: A magical vue admin https://panjiachen.github.io/vue-element-admin](https://github.com/PanJiaChen/vue-element-admin)
+- [taylorchen709/vue-admin: admin template based on vuejs2 and element.](https://github.com/taylorchen709/vue-admin)
+
+简历项目
+
+- [salomonelli/best-resume-ever: Build fast and easy multiple beautiful resumes and create your best CV ever! Made with Vue and LESS.](https://github.com/salomonelli/best-resume-ever)
+
+接口软件
+
+- [hoppscotch/hoppscotch: 👽 Open source API development ecosystem https://hoppscotch.io](https://github.com/hoppscotch/hoppscotch)
+
+面试项目
+
+- [10 个 GitHub 上超火的前端面试项目，打造自己的加薪宝库！ - 知乎](https://zhuanlan.zhihu.com/p/297948667)
+
+- [JavaScript 知识图谱_w3cschool](https://www.w3cschool.cn/javascript/javascript-skillmap.html)
+
+

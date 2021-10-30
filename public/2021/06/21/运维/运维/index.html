@@ -1,0 +1,2006 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="运维学习路线, 前端、免流、技术、运维、手机">
+    <meta name="description" content="运维学习路线软件层面Linux基础Linux系统安装、配置，基本命令，VIM编辑器，Linux自有服务，权限管理，YUM包管理，开源项目上线部署。推荐了解传智播客linux云计算+运维开发课程。
+
+Linux基础知识、基本命令(起源、组成、">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>运维学习路线 | 从你的全世界路过</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.4.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="从你的全世界路过" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">从你的全世界路过</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">从你的全世界路过</div>
+        <div class="logo-desc">
+            
+            我希望有个如你一般的人。 如这山间清晨一般明亮清爽的人， 如奔赴古城道路上阳光一般的人， 温暖而不炙热，覆盖我所有肌肤。 由起点到夜晚，由山野到书房， 一切问题的答案都很简单。 我希望有个如你一般的人，贯彻未来，数遍生命的公路牌。
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/heweiliang88" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        /* color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px; */
+
+        color: #F062A7;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+
+        0%,
+        to {
+            transform: rotate(0);
+        }
+
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/heweiliang88" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+    data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path
+            d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+            fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path
+            d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+            fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/10.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">运维学习路线</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E8%BF%90%E7%BB%B4/">
+                                <span class="chip bg-color">运维</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E8%BF%90%E7%BB%B4/" class="post-category">
+                                运维
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2021-06-21
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2021-10-26
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    5.1k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    19 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+
+                <div class="info-break-policy">
+                    
+                                <i class="fa fa-pencil"></i> 作者: 记住
+                                    
+                </div>
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="运维学习路线"><a href="#运维学习路线" class="headerlink" title="运维学习路线"></a>运维学习路线</h1><h1 id="软件层面"><a href="#软件层面" class="headerlink" title="软件层面"></a>软件层面</h1><h2 id="Linux基础"><a href="#Linux基础" class="headerlink" title="Linux基础"></a>Linux基础</h2><p>Linux系统安装、配置，基本命令，VIM编辑器，Linux自有服务，权限管理，YUM包管理，开源项目上线部署。推荐了解传智播客<a target="_blank" rel="noopener" href="http://linux.itheima.com/">linux云计算+运维开发</a>课程。</p>
+<ol>
+<li><p>Linux基础知识、基本命令(起源、组成、常用命令如cp、ls、file、mkdir等常见操作命令)</p>
+</li>
+<li><p>Linux用户及权限基础</p>
+</li>
+<li><p>Linux系统进程管理进阶</p>
+</li>
+<li><p>Linux高效文本、文件处理命令(vim、grep、sed、awk、find等命令)</p>
+</li>
+<li><p>shell脚本入门(可边练习边学习)</p>
+</li>
+<li><p>TCP/IP网络基础(差不多CCNA、NP的知识就够用)</p>
+</li>
+<li><p>Linux企业常用服务(如dns、http、ftp、mail、nfs等)</p>
+</li>
+<li><p>Linux企业级安全原理和防范技巧(系统性能/安全、安全威胁模型和保护方法</p>
+</li>
+<li><p>加密/解密原理及数据安全、系统服务访问控制及服务安全基础</p>
+</li>
+<li><p>iptables安全策略构建</p>
+</li>
+<li><p>shell脚本进阶(主要是结合一些应用，写一些案例)</p>
+</li>
+<li><p>MySQL应用原理及管理入门(能管理和搭建一个个人博客站点)</p>
+</li>
+<li><p>http服务代理缓存加速(其中主要学习varnish、nginx缓存系统，要对CDN的知识有所了解。)</p>
+</li>
+<li><p>企业级负载集群(其中主要学习nginx、haproxy、lvs要对主要知识熟练掌握，对负载均衡算法有清晰认识)</p>
+</li>
+<li><p>企业级高可用集群 (其中需要对keepalived，heartbeat等进行深入讲解)</p>
+</li>
+<li><p>运维监控zabbix详解(主要是zabbix、cacti、nagios等监控系统，现在用的比较多的是zabbix)</p>
+</li>
+<li><p>运维自动化学习(需要学一些开源运维自动化工具的使用如ansible、puppet、cobbler等运维自动化工具)</p>
+</li>
+<li><p>大数据方向(需要对hadoop、storm等常见开源大数据系统需要深入了解)</p>
+</li>
+<li><p>云计算方向(主要是openstack这套东西，当然像一些kvm等虚拟化技术，也是需要掌握的，现在docker也比较流行)</p>
+</li>
+<li><p>运维开发(主要是python运维开发)</p>
+</li>
+<li><p>自动化运维(在之前自动化基础上做深入)</p>
+</li>
+<li><p>运维架构师(主要需要广度，差不多5年左右以上经验，可以担当此职位)</p>
+</li>
+</ol>
+<p>samba 文件和打印机共享</p>
+<p>rpm(Redhat Packet Manager) 软件包管理工具</p>
+<pre><code>rpm -ivh samba
+</code></pre>
+<p>yum</p>
+<pre><code>yum install samba -y
+</code></pre>
+<pre><code>systemctl status smb.service
+systemctl start smb.service
+
+service smb stop 
+service smb start
+service smb reload /restart
+</code></pre>
+<p>DHCP</p>
+<p>DNS</p>
+<p>ftp</p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/chenmh/p/5365274.html">Linux 搭建FTP服务器 - pursuer.chen - 博客园</a></p>
+<pre><code>yum -y install vsftpd
+</code></pre>
+<p>电子邮件</p>
+<p>数据库服务器</p>
+<p>Web服务器</p>
+<p>代理服务器</p>
+<p>NFS服务器</p>
+<p>配置管理防火墙</p>
+<h2 id="Linux-系统管理"><a href="#Linux-系统管理" class="headerlink" title="Linux 系统管理"></a>Linux 系统管理</h2><ul>
+<li><p>网络基础(重点难点TCP/UDP)、</p>
+</li>
+<li><p>sshd服务(scp/rsync)、</p>
+</li>
+<li><p>文件共享服务(ftp/nfs/samba)、</p>
+</li>
+<li><p>DNS域名服务、</p>
+</li>
+<li><p>LAMP编译安装、</p>
+</li>
+<li><p>rsyslog、</p>
+</li>
+<li><p>Linux分区+LVM逻辑卷+(软硬RAID)</p>
+</li>
+</ul>
+<h2 id="系统部署"><a href="#系统部署" class="headerlink" title="系统部署"></a>系统部署</h2><p>Nginx概述、LNMP环境搭建、MySQL读写分离、LB负载均衡(Nginx/LVS/HAProxy)、NoSQL(Memcached、Redis、MongoDB)、存储、企业级商城系统架构实战。</p>
+<h2 id="配置自动化"><a href="#配置自动化" class="headerlink" title="配置自动化"></a>配置自动化</h2><p>配置自动化(Ansible/SaltStack)、监控(Zabbix/Promethus)、日志分析(ELK、KafKa)、CI/CD(Git、GitLab、Jenkins)</p>
+<h2 id="运维安全与调优"><a href="#运维安全与调优" class="headerlink" title="运维安全与调优"></a>运维安全与调优</h2><p>运维安全(防火墙、CA认证、VPN)</p>
+<p>应用软件调优(Web应用调优)</p>
+<p>系统调优(系统+内核)</p>
+<h2 id="运维云计算"><a href="#运维云计算" class="headerlink" title="运维云计算"></a>运维云计算</h2><p>Hadoop、KVM虚拟化、公有云运维(阿里云)、私有云运维(OpenStack)、Docker容器、Kubernetes(K8S)容器编排工具</p>
+<h2 id="数据库管理"><a href="#数据库管理" class="headerlink" title="数据库管理"></a>数据库管理</h2><p><a href="./theory/database/mysql.md">MySQL</a></p>
+<h2 id="集群管理"><a href="#集群管理" class="headerlink" title="集群管理"></a>集群管理</h2><h2 id="安全防护"><a href="#安全防护" class="headerlink" title="安全防护"></a>安全防护</h2><h2 id="Docker"><a href="#Docker" class="headerlink" title="Docker"></a>Docker</h2><p><a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2018/02/docker-tutorial.html">Docker 入门教程 - 阮一峰的网络日志</a></p>
+<p><strong>Linux 容器不是模拟一个完整的操作系统，而是对进程进行隔离</strong></p>
+<ul>
+<li>启动快</li>
+</ul>
+<p>软件开发最大的麻烦事之一，就是环境配置。用户计算机的环境都不相同，你怎么知道自家的软件，能在那些机器跑起来？</p>
+<ul>
+<li><strong>资源占用少</strong></li>
+<li><strong>体积小</strong></li>
+</ul>
+<p>Docker 是一个开源的商业产品，有两个版本：社区版（Community Edition，缩写为 CE）和企业版（Enterprise Edition，缩写为 EE）。企业版包含了一些收费服务，个人开发者一般用不到。下面的介绍都针对社区版。</p>
+<pre><code>docker version 
+docker info
+</code></pre>
+<pre><code>docker image ls
+docker image rm [imageName]
+</code></pre>
+<pre><code>// 将 image 文件从仓库抓取到本地
+docker image pull library/hello-world
+docker image pull hello-world
+docker image ls
+// 运行
+docker container run hello-world
+</code></pre>
+<pre><code>docker container ls
+docker container ls -all
+docker container rm []
+</code></pre>
+<h2 id="window-10"><a href="#window-10" class="headerlink" title="window 10"></a>window 10</h2><ul>
+<li>ftp</li>
+<li>内网</li>
+</ul>
+<h2 id="虚拟机"><a href="#虚拟机" class="headerlink" title="虚拟机"></a>虚拟机</h2><p>虚拟机（virtual machine）就是带环境安装的一种解决方案。它可以在一种操作系统里面运行另一种操作系统，比如在 Windows 系统里面运行 Linux 系统。应用程序对此毫无感知，因为虚拟机看上去跟真实系统一模一样，而对于底层系统来说，虚拟机就是一个普通文件，不需要了就删掉，对其他部分毫无影响。</p>
+<ul>
+<li>资源占用多</li>
+<li>冗余步骤多</li>
+<li>启动慢</li>
+</ul>
+<h3 id="vmvare"><a href="#vmvare" class="headerlink" title="vmvare"></a>vmvare</h3><h3 id="VirtualBox"><a href="#VirtualBox" class="headerlink" title="VirtualBox"></a>VirtualBox</h3><h2 id="内网渗透服务"><a href="#内网渗透服务" class="headerlink" title="内网渗透服务"></a>内网渗透服务</h2><ul>
+<li>vpn</li>
+<li></li>
+</ul>
+<h2 id="远程管理"><a href="#远程管理" class="headerlink" title="远程管理"></a>远程管理</h2><p> 有图形界面</p>
+<ul>
+<li>mstsc</li>
+</ul>
+<p>无图形界面</p>
+<pre><code>ssh -p port root@192.168.0.1
+</code></pre>
+<h2 id="VPN"><a href="#VPN" class="headerlink" title="VPN"></a>VPN</h2><ul>
+<li>ssr  </li>
+</ul>
+<pre><code>wget --no-check-certificate -O shadowsocks-all.sh https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocks-all.sh
+chmod +x shadowsocks-all.sh
+./shadowsocks-all.sh 2&gt;&amp;1 | tee shadowsocks-all.log
+</code></pre>
+<ul>
+<li>版本</li>
+<li>密码 和 账号</li>
+<li>端口</li>
+<li>协议</li>
+<li>混淆</li>
+<li>各项参数</li>
+</ul>
+<pre><code>启动SSR：
+/etc/init.d/shadowsocks-r start
+退出SSR：
+/etc/init.d/shadowsocks-r stop
+重启SSR：
+/etc/init.d/shadowsocks-r restart
+SSR状态：
+/etc/init.d/shadowsocks-r status
+卸载SSR：
+./shadowsocks-all.sh uninstall
+</code></pre>
+<ul>
+<li>ss</li>
+</ul>
+<ul>
+<li>Shadowsocks</li>
+</ul>
+<ul>
+<li>v2ray</li>
+</ul>
+<ul>
+<li><p>trojan</p>
+</li>
+<li><p>WireGuard</p>
+</li>
+<li></li>
+<li><p>内网穿透</p>
+<ul>
+<li>工具<ul>
+<li><a target="_blank" rel="noopener" href="https://hsk.oray.com/">花生壳</a></li>
+<li>向日葵</li>
+<li><a target="_blank" rel="noopener" href="https://natapp.cn/">NATAPP</a></li>
+<li></li>
+</ul>
+</li>
+<li>自已配置<ul>
+<li><a target="_blank" rel="noopener" href="https://www.huaweicloud.com/articles/018674b029b76b26fa90b4257f7fc423.html">frp内网穿透</a></li>
+<li>ngrok</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>访问公司内网</p>
+</li>
+</ul>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_44907813/article/details/90441604">如何通过 V P N远程访问内网的文件服务器？（1）_看清所以看轻-CSDN博客</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.viayc.com/2019/03/21/OpenVPN%E8%AE%BF%E9%97%AE%E5%85%AC%E5%8F%B8%E5%86%85%E7%BD%91/">OpenVPN访问公司内网 | Dictator’s BLOG</a></p>
+</blockquote>
+<pre><code>
+</code></pre>
+<h2 id="Kubernetes"><a href="#Kubernetes" class="headerlink" title="Kubernetes"></a>Kubernetes</h2><h2 id="Shell-编程"><a href="#Shell-编程" class="headerlink" title="Shell 编程"></a>Shell 编程</h2><h3 id="ansible"><a href="#ansible" class="headerlink" title="ansible"></a>ansible</h3><h2 id="Python-自动化"><a href="#Python-自动化" class="headerlink" title="Python 自动化"></a>Python 自动化</h2><p>Python运维基础</p>
+<p>ansible</p>
+<p>saltstack</p>
+<p>nagios</p>
+<p>buildbot</p>
+<p>Python面向对象</p>
+<p>Django框架</p>
+<p>Python CMDB项目开发</p>
+<h2 id="计算机网络"><a href="#计算机网络" class="headerlink" title="计算机网络"></a><a href="./theory/network/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C.md">计算机网络</a></h2><ul>
+<li><p>OSI 体系</p>
+<ul>
+<li>应用表会传输网络和链路物理</li>
+</ul>
+</li>
+<li><p>TCP/IP 体系</p>
+<ul>
+<li>应用 运输网际 网络接口</li>
+</ul>
+</li>
+<li><p>五层体系结构</p>
+<ul>
+<li>应用传输网络链路物理</li>
+</ul>
+</li>
+<li><p>TCP 传输控制协议</p>
+</li>
+</ul>
+<h2 id="网络服务"><a href="#网络服务" class="headerlink" title="网络服务"></a>网络服务</h2><h2 id="Web服务"><a href="#Web服务" class="headerlink" title="Web服务"></a>Web服务</h2><h2 id="安全"><a href="#安全" class="headerlink" title="安全"></a>安全</h2><h2 id="监控系统"><a href="#监控系统" class="headerlink" title="监控系统"></a>监控系统</h2><h2 id="Web静态缓存"><a href="#Web静态缓存" class="headerlink" title="Web静态缓存"></a>Web静态缓存</h2><h2 id="集群"><a href="#集群" class="headerlink" title="集群"></a>集群</h2><h2 id="虚拟化"><a href="#虚拟化" class="headerlink" title="虚拟化"></a>虚拟化</h2><h2 id="自动化"><a href="#自动化" class="headerlink" title="自动化"></a>自动化</h2><h2 id="日志分析系统"><a href="#日志分析系统" class="headerlink" title="日志分析系统"></a>日志分析系统</h2><h2 id="性能优化"><a href="#性能优化" class="headerlink" title="性能优化"></a>性能优化</h2><h1 id="硬件层面"><a href="#硬件层面" class="headerlink" title="硬件层面"></a>硬件层面</h1><h2 id="软硬件设备"><a href="#软硬件设备" class="headerlink" title="软硬件设备"></a>软硬件设备</h2><h2 id="网络"><a href="#网络" class="headerlink" title="网络"></a>网络</h2><p>OSI</p>
+<p>TCP/IP</p>
+<p>路由器</p>
+<h3 id="如何构建一个小型局域网"><a href="#如何构建一个小型局域网" class="headerlink" title="如何构建一个小型局域网"></a>如何构建一个小型局域网</h3><p>集线器</p>
+<p>路由器</p>
+<p>交换机</p>
+<p>电脑设备</p>
+<p>划分</p>
+<h2 id="服务器"><a href="#服务器" class="headerlink" title="服务器"></a>服务器</h2><ul>
+<li>一个管理资源并为用户提供服务的计算机软件，通常分为<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E6%96%87%E4%BB%B6%E6%9C%8D%E5%8A%A1%E5%99%A8">文件服务器</a>（能使用户在其它计算机访问<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E6%96%87%E4%BB%B6">文件</a>），<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%9C%8D%E5%8A%A1%E5%99%A8">数据库服务器</a>和<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E6%9C%8D%E5%8A%A1%E5%99%A8">应用程序服务器</a>。<ul>
+<li>window server 2012 r2 系统</li>
+<li>centos 6  7  8</li>
+<li>Windows Server、Netware、Unix、Linux</li>
+</ul>
+</li>
+</ul>
+<h2 id="桌面系统"><a href="#桌面系统" class="headerlink" title="桌面系统"></a>桌面系统</h2><blockquote>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/31365115">科普贴：BIOS和UEFI的启动项 - 知乎</a></p>
+</blockquote>
+<p>安装操作系统</p>
+<ul>
+<li>window10<ul>
+<li>专业版</li>
+<li>家庭版</li>
+<li>企业版</li>
+</ul>
+</li>
+<li>linux <ul>
+<li>Ubuntu/Debian/Fedora/openSUSE/Arch/Mint/Mageia/PcLinuxOS/Gentoo/CentOS</li>
+</ul>
+</li>
+<li>window 7</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://www.ithome.com/html/win10/268960.htm">装机必学：硬盘分区、格式化通用方法大全 - IT之家</a></p>
+<p>分区格式有GPT和MBR两种，分别对应UEFI和Legacy启动模式</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>UEFI</td>
+<td>新式电脑用的基本都是UEFI启动</td>
+</tr>
+<tr>
+<td>BIOS</td>
+<td>BIOS是个程序，存储在BIOS芯片中</td>
+</tr>
+<tr>
+<td>EFI</td>
+<td>早期的过渡电脑用的都是EFI启动</td>
+</tr>
+<tr>
+<td>GPT</td>
+<td>GUID分区表(简称GPT。使用GUID分区表的磁盘称为GPT磁盘)与普遍使用的主引导记录(MBR)分区方案相比，GPT提供了更加灵活的磁盘分区机制。<br><br>优点是支持2TB以上的大硬盘；每个磁盘的分区个数几乎没有限制，分区大小也几乎没有限制。</td>
+</tr>
+<tr>
+<td>MBR</td>
+<td>MBR分区表（master boot record）的英文缩写，简称主引导记录，还可以叫做主引导扇区。它的运行机制存在于硬件的基础之上，它存储在硬盘的第一个扇区上。当我们在硬盘上安装win10系统时，win10操作系统的分区软件可以将MBR分区信息写入到硬盘中保存起来。<br><br>优点就是兼容性比较好，缺点就是不支持管理大硬盘结构。</td>
+</tr>
+</tbody></table>
+<p>GPT和MBR两者的区别：<br>1、MBR分区表最多只能识别2TB左右的空间，大于2TB的容量将无法识别从而导致硬盘空间浪费；GPT分区表则能够识别2TB以上的硬盘空间。</p>
+<p>2、MBR分区表最多只能支持4个主分区或三个主分区+1个扩展分区(逻辑分区不限制)；GPT分区表在Windows系统下可以支持128个主分区。</p>
+<p>3、在MBR中，分区表的大小是固定的；在GPT分区表头中可自定义分区数量的最大值，也就是说GPT分区表的大小不是固定的。</p>
+<p>何选择？</p>
+<ul>
+<li>建议一：新买的电脑是传统的BIOS主板，那建议继续使用MBR硬盘模式；若是UEFI主板的话，则继续使用GPT。</li>
+<li>建议二：如果需要重装系统，在重装前了解清楚所安装的系统版本是否支持MBR或者UEFI，这就是所谓的“兼容性”。</li>
+<li>但是，不管是新旧系统版本，或是32/64位系统，它们都能同时兼容MBR。相反，不是所有的windows版本都兼容GPT！一定要注意了！</li>
+</ul>
+<p>有U盘</p>
+<p>官方</p>
+<ul>
+<li>U盘启动盘的制作</li>
+<li><h2 id="修改BIOS中的开机启动引导"><a href="#修改BIOS中的开机启动引导" class="headerlink" title="修改BIOS中的开机启动引导"></a>修改BIOS中的开机启动引导</h2></li>
+<li>密钥和分区<ul>
+<li>分区方法</li>
+</ul>
+</li>
+<li>安装驱动<ul>
+<li>系统后联网会自动安装驱动</li>
+<li>借助第三方驱动安装软件</li>
+</ul>
+</li>
+<li>查看系统是否激活</li>
+</ul>
+<p>PE安装 window 10</p>
+<ul>
+<li>制作PE</li>
+<li>用磁盘工具给磁盘分区<ul>
+<li>PE启动盘和系统镜像都准备好后我们就可以安装系统了，按快捷键选择U盘启动，不同的主板和电脑进入的快捷键不一样，我们可以在微PE的下载界面查询，看到这个界面就说明成功进入PE了。windows10系统建议采用UEFI+GPT分区启动，所以我们要看一下磁盘是否为GPT分区，打开分区工具</li>
+</ul>
+</li>
+<li>安装系统<ul>
+<li>打开U盘，选择win10镜像右键装载或者双击打开都可以，打开后会看到几个文件，双击setup.exe，这个就和安装程序一样的(装载)</li>
+</ul>
+</li>
+</ul>
+<p>常见问题</p>
+<ul>
+<li>安装的时候提示: Windows 无法安装到这个磁盘，选中的磁盘采用GPT 分区形式</li>
+</ul>
+<p>PE 装 win7</p>
+<ul>
+<li>legacy模式pe安装win7系统，硬盘分区表是MBR</li>
+</ul>
+<h2 id="安防监控"><a href="#安防监控" class="headerlink" title="安防监控"></a>安防监控</h2><ul>
+<li><p>有线和无线的监控安装</p>
+</li>
+<li><p>硬盘录像机</p>
+</li>
+</ul>
+<h2 id="电话系统"><a href="#电话系统" class="headerlink" title="电话系统"></a>电话系统</h2><p>如何构建一个小型的电话系统</p>
+<ul>
+<li>采购新的电话交换机设备</li>
+<li>用免费系统</li>
+</ul>
+<h3 id="PBX-公司内部使用的电话业务网络"><a href="#PBX-公司内部使用的电话业务网络" class="headerlink" title="PBX   公司内部使用的电话业务网络"></a>PBX   公司内部使用的电话业务网络</h3><ul>
+<li>电话交换机</li>
+<li>你需要一个电话PBX是办公室的内部分机全部连通。实现内部分机互打无问题。</li>
+</ul>
+<h3 id="IPBX"><a href="#IPBX" class="headerlink" title="IPBX"></a>IPBX</h3><ul>
+<li>IP技术的电话交换机</li>
+</ul>
+<h3 id="VOICE-GATEWAY"><a href="#VOICE-GATEWAY" class="headerlink" title="VOICE GATEWAY"></a>VOICE GATEWAY</h3><ul>
+<li>其次仅仅只有一个PBX，就想和其他的分支办公室互打电话还不行。你需要一个VOICE GATEWAY 来解决从电话PBX到其他办公室PBX的问题。</li>
+</ul>
+<h3 id="VPN-1"><a href="#VPN-1" class="headerlink" title="VPN"></a>VPN</h3><ul>
+<li> VOICE GATEWAY 是如何到达对面的VOICE GATEWAY哪？最后你还需要一个VPN 网络来把2台VOICE GATEAY连接起来实现互相访问。 </li>
+</ul>
+<p>PBX的设置事项 </p>
+<ul>
+<li><p>其实每个厂商的PBX大同小异，只是配置的方法不太一致。</p>
+</li>
+<li><p>设置分机号，PBX上设置分机号。（建议把你老板的分机号，设置成比较吉利的号码或者是有钱的号码。比如：188或者88。否则你被老板炒了你都不知道为什么。） </p>
+</li>
+<li><p>不同接口不同用途。FXO接口大部分用来连接PSTN运营商过来的线。或者连接FXS口过来的线。FXS口大部分用来接内部电话机，或者连接FXO口。（你的错误可能造成你公司的损失，因为端口会被烧掉。） </p>
+</li>
+<li><p>热线的设置， 你可设置把从某一个PBX接口进来的所有电话全部打到指定的一个分机。（如果你不在意转接别的人的电话，这一条对你没用。） </p>
+</li>
+<li><p>外线到前台，你可在PBX上设置，从外线来的电话直到打前台的分机。（如果你不知道对方的分机号，建议你到前台妹子那里问问吧。） </p>
+</li>
+</ul>
+<p>Voice gateway的设置事项 </p>
+<ul>
+<li><p>虽然voice gateway 和PBX都有FXO和FXS口，但是设置大有不同。 </p>
+</li>
+<li><p>呼叫路由，其实和路由差不多。就是把一个号码，发到另一个IP那里（voice gateway）做处理。再给到另一边的PBX，最后给电话机铃流。当然你要设置IP 地址和网关。（就像一台电脑要上网一样）除此之外你还要设置进方向的路由。例如：“101”从哪个FXO或FXS出去给本地的PBX，再进行处理。 </p>
+</li>
+<li><p>语音协议的选择，这个要看2个语音网关的沟通，2边的协议要相同。用H323或者是SIP。不同的需求选择不同的协议是有必要的。 </p>
+</li>
+</ul>
+<p> VPN的设置事项 </p>
+<ul>
+<li>其实总的来说这个环节你只要提供2个方向的内部主机通信即可。不要做任何的限制。 在此不多做解释。  </li>
+</ul>
+<p> 线缆的连接， </p>
+<ul>
+<li>首先你要从PBX这里连接到voice gateway ， 你可以用PBX的FXO去连接VOICE GATEWAY的FXS口。 你也可以用PBX的FXS 去连接VOICE GATEWAY的FXO口。 至于VOICE GATEWAY到VPN设备这里你用一根网线连接就可以了。 构成这个系统需要配置VPN , 再在voice gateway 上配置好对应的呼叫路由。PBX上配置好热线和分机号，线缆正确连接，即可</li>
+</ul>
+<h2 id="办公软件的维护及权限管理"><a href="#办公软件的维护及权限管理" class="headerlink" title="办公软件的维护及权限管理"></a>办公软件的维护及权限管理</h2><p>办公软件是指可以进行<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E6%96%87%E5%AD%97%E5%A4%84%E7%90%86/6256231">文字处理</a>、<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E8%A1%A8%E6%A0%BC%E5%88%B6%E4%BD%9C/16391455">表格制作</a>、<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%B9%BB%E7%81%AF%E7%89%87/5306584">幻灯片</a>制作、<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%9B%BE%E5%BD%A2%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/10715305">图形图像处理</a>、简单<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E6%95%B0%E6%8D%AE%E5%BA%93/103728">数据库</a>的处理等方面工作的软件。办公软件朝着操作简单化，功能细化等方向发展。</p>
+<ul>
+<li>office的安装</li>
+</ul>
+<h2 id="window-Linux系统基础"><a href="#window-Linux系统基础" class="headerlink" title="window/Linux系统基础"></a>window/Linux系统基础</h2><h2 id="电脑维修"><a href="#电脑维修" class="headerlink" title="电脑维修"></a>电脑维修</h2><h2 id="共享打印机"><a href="#共享打印机" class="headerlink" title="共享打印机"></a>共享打印机</h2><p>局域网共享打印机</p>
+<h1 id="面试题"><a href="#面试题" class="headerlink" title="面试题"></a>面试题</h1><p>OSI</p>
+<ul>
+<li>应用表会传输网络链路和物理</li>
+</ul>
+<p>ping 命令</p>
+<ul>
+<li>ICMP 网际层</li>
+</ul>
+<p>多用户同时远程连接到一台电脑上</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_22642239/article/details/76994462">怎么实现多用户同时远程连接到一台电脑上_积累点滴，保持自我-CSDN博客_多人同时远程一台电脑</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/cuihongyu3503319/p/11490144.html">Windows 10 多用户同时远程登录 - 宏宇 - 博客园</a></p>
+<ul>
+<li>gpedit.msc</li>
+<li>计算机配置–&gt;管理模板—&gt;windows组件—&gt;然后在右边的菜单中选择远程桌面服务</li>
+<li>在“连接”界面中双击打开“将远程桌面服务用户限制到单独的远程桌面服务会话”</li>
+<li>然后返回连接界面，在“连接”界面中双击打开“限制连接的数量”</li>
+<li>在“限制连接的数量”界面中；选择“已启用”—&gt;然后在选项里面“允许的RD最大连接数”里面选择你能接受的最大的同时远程的用户数；我这里选择的是5；也就是能支持同时5个远程桌面管理；然后点击确定即可</li>
+</ul>
+<p>文件拷贝</p>
+<p>**docker cp :**用于容器与主机之间的数据拷贝。</p>
+<pre><code>docker cp [OPTIONS] CONTAINER:SRC_PATH DEST_PATH|-
+docker cp [OPTIONS] SRC_PATH|- CONTAINER:DEST_PATH
+</code></pre>
+<p>OPTIONS说明：</p>
+<ul>
+<li>**-L :**保持源目标中的链接</li>
+</ul>
+<pre><code>docker cp /www/runoob 96f7f14e99ab:/www/
+</code></pre>
+<ul>
+<li><p>A 类 1- 127 网 + 主 + 主 + 主 255.0.0.0</p>
+</li>
+<li><p>B 类  128- 191 网 + 网 + 主 + 主  255.255.0.0</p>
+</li>
+<li><p>C 类 192 -223 网 + 网 + 网 + 主 255.255.255.0</p>
+</li>
+<li><p>D 类  224-139 组播(多播)</p>
+</li>
+<li><p>E 类 240 - 254 科研</p>
+</li>
+<li><p>特殊网址： 每一个字节都为0的地址（“0.0.0.0”）对应于当前主机</p>
+</li>
+<li><p>IP地址中的每一个字节都为1的IP地址（“255．255．255．255”）是当前子网的广播地址；<br>  IP地址中凡是以“11110”开头的E类IP地址都保留用于将来和实验使用。<br>  IP地址中不能以十进制“127”作为开头，该类地址中数字127．0．0．1到127．255．255．255用于回路测试，如：127.0.0.1可以代表本机IP地址，用“<a target="_blank" rel="noopener" href="http://127.0.0.1”就可以测试本机中配置的web服务器./">http://127.0.0.1”就可以测试本机中配置的Web服务器。</a><br>  网络ID的第一个8位组也不能全置为“0”，全“0”表示本地网络。</p>
+</li>
+<li><p>内部私有地址</p>
+<ul>
+<li>A类 10.0.0.0–10.255.255.255</li>
+<li>B类 172.16.0.0–172.31.255.255</li>
+<li>C类 192.168.0.0–192.168.255.255</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>不做害羞的动作，例如不自觉的玩手指，不敢与面试官眼神交流，眼睛四眼无神等</li>
+<li>抬头挺胸，目光直视hr</li>
+<li>轮到自己发言时，眼光顺序：最左-中间-最右-中间，时间大概2-3秒，然后再大声的开始自我介绍。这样子的话全场目光都会聚焦在你身上。</li>
+</ul>
+<p>您好，我叫何伟亮，毕业于广东工贸职业技术学院的软件技术专业。今天面试的岗位是运维工程师，在校期间主要学习了Linux，计算机基础、计算机网络、Python等课程，在课外学习了计算机硬件基础、  各种 本人喜欢折腾计算机技术、有着折腾精神，在一台完全不兼容的笔记本电脑上完成了黑苹果的99%驱动。动手能力强，喜欢diy各种电子产品配件和拆解电子产品  如显示器、 电脑主机、Nas、路由器、电视机盒子、树莓派、交换机。能够独立分析和解决计算机出现问题，在软件上，我  ，在电脑硬件上，我 有着 。喜欢学习新技术，有着分享精神，搭建过一个里面分享着各种计算机技术的博客，喜欢快速解决问题，遇到过各种奇奇怪怪的问题都成功解决了。</p>
+<h1 id="运维学习"><a href="#运维学习" class="headerlink" title="运维学习"></a>运维学习</h1><ul>
+<li>常用数据库 <ul>
+<li>MySQL</li>
+<li>Oracle</li>
+<li>SQL Server</li>
+</ul>
+</li>
+<li></li>
+</ul>
+<ul>
+<li><p>Window 操作系统</p>
+<ul>
+<li>win10 安装 <ul>
+<li>安装软件</li>
+<li>常用DOS命令</li>
+</ul>
+</li>
+<li>DOS命令</li>
+<li>win 7 安装</li>
+<li>集成开发环境<ul>
+<li>Wampserver</li>
+<li>PHPStudy</li>
+<li>LAMP</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Linux 常用命令</p>
+<ul>
+<li>ls 查看文件<ul>
+<li>ls -a 列出目录所有文件，包含隐藏文件</li>
+<li>ls -l |  more -5</li>
+</ul>
+</li>
+<li>cd 进入目录<ul>
+<li>cd ~</li>
+<li>cd - 进入 上一次工作目录</li>
+</ul>
+</li>
+<li>pwd 当前工作目录<ul>
+<li>pwd -P 实际路径</li>
+</ul>
+</li>
+<li>mkdir 创建文件夹</li>
+<li>touch 创建文件</li>
+<li>rm 删除文件<ul>
+<li>rm -rf  删除目录下的文件</li>
+<li>rm -rf <code>*.log</code> 删除<code>.log</code>文件</li>
+<li>删除以 -f 开头的文件 <code>rm -- -f*</code></li>
+</ul>
+</li>
+<li>rmdir  从一个目录中删除一个或多个子目录项，删除某目录时也必须具有对其父目录的写权限</li>
+<li>mv  移动文件或目录<ul>
+<li><code>mv * ../</code> 移动当前文件下的所有文件到上一级目录</li>
+</ul>
+</li>
+<li>cp 复制命令</li>
+<li>cat 查看命令<ul>
+<li>cat &gt; filename 从键盘创建一个文件</li>
+<li>cat file1 file2 &gt; file 合并文件</li>
+</ul>
+</li>
+<li>ps 查看进程信息并通过less 分页显示<ul>
+<li>ps -aux | less -N</li>
+</ul>
+</li>
+<li>head  显示档案的开头至标准输出中，默认 head 命令打印其相应文件的开头 10 行<ul>
+<li>head 1.log -n 20 前 20行</li>
+<li>head -n -10 t.log  最后10行</li>
+</ul>
+</li>
+<li>tail 命令 用于显示指定文件末尾内容，不指定文件时，作为输入信息进行处理。常用查看日志文件。</li>
+<li>ping</li>
+<li>ifconfig</li>
+<li><code>which</code> 查找 某个文件 <ul>
+<li>which  查看可执行文件的位置</li>
+<li>whereis </li>
+<li>locate</li>
+<li>find   </li>
+</ul>
+</li>
+<li>df 命令 磁盘空间</li>
+<li>du 命令</li>
+<li>data  时间</li>
+<li>ps 进程</li>
+<li>kill </li>
+<li>free</li>
+<li>path 配置 <a target="_blank" rel="noopener" href="https://www.cnblogs.com/youyoui/p/10680329.html">Linux环境变量配置全攻略 - 悠悠i - 博客园</a><ul>
+<li>查看环境变量<ul>
+<li><code>echo $PATH </code>输出当前的<code>PATH</code>环境变量的值</li>
+<li><code>export</code> 显示当前系统定义的所有环境变量</li>
+</ul>
+</li>
+<li>修改环境变量<ul>
+<li>export PATH</li>
+<li>vim ~/.bashrc</li>
+<li>vim ~/.bash_ </li>
+<li></li>
+</ul>
+</li>
+</ul>
+</li>
+<li></li>
+</ul>
+</li>
+<li><p>vim 常用命令</p>
+</li>
+</ul>
+<ul>
+<li><p>CentOS平台的安装部署</p>
+<ul>
+<li><p>centos版本</p>
+<ul>
+<li>包管理功能 <ul>
+<li>rpm 一个本地软件包</li>
+<li>rpm -qa |grep packagename 查询是否有本地包</li>
+<li>rpm -ivh packagename 安装某个包，并显示安装过程</li>
+<li>rpm -e packagename 卸载某个包</li>
+<li>yum 基于rpm的一个软件包管理工具，它可以从网上下载rpm包和依赖。</li>
+<li>yum install 软件名</li>
+<li>yum groupinstall  安装一个软件 包涵了很多单个软件，以及单个软件的依赖关系。包</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>安装常用服务</p>
+<ul>
+<li>dns</li>
+<li></li>
+</ul>
+</li>
+<li><p>常用软件</p>
+<ul>
+<li>node<ul>
+<li>yum install node</li>
+</ul>
+</li>
+<li><h2 id="git"><a href="#git" class="headerlink" title="git"></a>git</h2></li>
+<li>python</li>
+<li>java</li>
+<li>wget</li>
+</ul>
+</li>
+<li><p>Tomcat</p>
+</li>
+<li><p>Nginx</p>
+</li>
+<li><p>mysql</p>
+</li>
+<li><p>oracle</p>
+</li>
+<li><p>sql server</p>
+</li>
+</ul>
+</li>
+<li><p>Docket 运维部署</p>
+<ul>
+<li>Docket 常用命令</li>
+</ul>
+</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/chao2458/article/details/81745716">去除input边框以及选中时边框 默认样式input 选中样式取消</a></p>
+<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>text<span class="token punctuation">"</span></span> <span class="token punctuation">></span></span>
+input {
+    border: 0;  // 去除未选中状态边框
+    outline: none; // 去除选中状态边框
+    background-color: rgba(0, 0, 0, 0);// 透明背景
+}
+</code></pre>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">记住</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://heweiliang88.github.io/2021/06/21/%E8%BF%90%E7%BB%B4/%E8%BF%90%E7%BB%B4/">https://heweiliang88.github.io/2021/06/21/%E8%BF%90%E7%BB%B4/%E8%BF%90%E7%BB%B4/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">记住</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E8%BF%90%E7%BB%B4/">
+                                    <span class="chip bg-color">运维</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid="></script>
+    <div class="addthis_inline_share_toolbox"></div>
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+    <div class="livere-card card" data-aos="fade-up">
+    <!-- 来必力City版安装代码 -->
+    <div id="lv-container" class="card-content" data-id="city" data-uid="MTAyMC81MDY1MC8yNzEzMw==">
+        <script type="text/javascript">
+            (function (d, s) {
+                let j, e = d.getElementsByTagName(s)[0];
+                if (typeof LivereTower === 'function') {
+                    return;
+                }
+
+                j = d.createElement(s);
+                j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+                j.async = true;
+
+                e.parentNode.insertBefore(j, e);
+            })(document, 'script');
+        </script>
+        <noscript>为正常使用来必力评论功能请激活JavaScript。</noscript>
+    </div>
+    <!-- City版安装代码已完成 -->
+</div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2021/06/22/%E5%89%8D%E7%AB%AF/uniapp/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="uniapp从入门到实战">
+                        
+                        <span class="card-title">uniapp从入门到实战</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-06-22
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%89%8D%E7%AB%AF/" class="post-category">
+                                    前端
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/uniapp/">
+                        <span class="chip bg-color">uniapp</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2021/06/14/%E5%89%8D%E7%AB%AF/%E6%9C%AA%E5%8F%91%E5%B8%83/%E9%9D%A2%E8%AF%95/%E7%AE%80%E5%8E%86/HR%E9%9D%A2%E8%AF%95%E9%A2%98/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
+                        
+                        <span class="card-title"></span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-14
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            记住
+                            
+                        </span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="2829816518"
+                   fixed='true'
+                   autoplay='true'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.5'
+                   list-folded='false'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2018-2021</span>
+            
+            <a href="/about" target="_blank">记住</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+                &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                        class="white-color">287.2k</span>
+            
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+                <span id="sitetime"> Loading ...</span>
+                <script>
+                    var calcSiteTime = function () {
+                        var seconds = 1000;
+                        var minutes = seconds * 60;
+                        var hours = minutes * 60;
+                        var days = hours * 24;
+                        var years = days * 365;
+                        var today = new Date();
+                        var startYear = "2018";
+                        var startMonth = "10";
+                        var startDate = "28";
+                        var startHour = "9";
+                        var startMinute = "10";
+                        var startSecond = "30";
+                        var todayYear = today.getFullYear();
+                        var todayMonth = today.getMonth() + 1;
+                        var todayDate = today.getDate();
+                        var todayHour = today.getHours();
+                        var todayMinute = today.getMinutes();
+                        var todaySecond = today.getSeconds();
+                        var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                        var diff = t2 - t1;
+                        var diffYears = Math.floor(diff / years);
+                        var diffDays = Math.floor((diff / days) - diffYears * 365);
+
+                        // 区分是否有年份.
+                        var language = 'zh-CN';
+                        if (startYear === String(todayYear)) {
+                            document.getElementById("year").innerHTML = todayYear;
+                            var daysTip = 'This site has been running for ' + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                daysTip = '本站已运行 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                daysTip = '本站已運行 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = daysTip;
+                        } else {
+                            document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                            var yearsAndDaysTip = 'This site has been running for ' + diffYears + ' years and '
+                                + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                yearsAndDaysTip = '本站已运行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                yearsAndDaysTip = '本站已運行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = yearsAndDaysTip;
+                        }
+                    }
+
+                    calcSiteTime();
+                </script>
+            
+            <br>
+            
+
+            <img src="https://gitee.com/marmalade0/images/blob/master/www.marmalade.vip/beian.png"> <a
+                href="http://www.beian.miit.gov.cn/" style="color:#f72b07" target="_blank">你自己的备案号，如粤公网安备123456号</a>
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/heweiliang88?tab=repositories" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:15816073129@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+    <a href="https://www.facebook.com/xxx" class="tooltipped" target="_blank" data-tooltip="关注我的Facebook: https://www.facebook.com/xxx" data-position="top" data-delay="50">
+        <i class="fab fa-facebook-f"></i>
+    </a>
+
+
+
+    <a href="https://twitter.com/xxx" class="tooltipped" target="_blank" data-tooltip="关注我的Twitter: https://twitter.com/xxx" data-position="top" data-delay="50">
+        <i class="fab fa-twitter"></i>
+    </a>
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=15816073129" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 15816073129" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+    <a href="https://weibo.com/xxx" class="tooltipped" target="_blank" data-tooltip="关注我的微博: https://weibo.com/xxx" data-position="top" data-delay="50">
+        <i class="fab fa-weibo"></i>
+    </a>
+
+
+
+    <a href="https://www.zhihu.com/xxx" class="tooltipped" target="_blank" data-tooltip="关注我的知乎: https://www.zhihu.com/xxx" data-position="top" data-delay="50">
+        <i class="fab fa-zhihu1">知</i>
+    </a>
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    
+
+    
+
+    <!-- 雪花特效 -->
+    
+
+    <!-- 鼠标星星特效 -->
+     
+        <script type="text/javascript">
+            // 只在桌面版网页启用特效
+            var windowWidth = $(window).width();
+            if (windowWidth > 768) {
+                document.write('<script type="text/javascript" src="/"><\/script>');
+            }
+        </script>
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
